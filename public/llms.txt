@@ -1,0 +1,21 @@
+# AI Visibility Services
+
+## Mission
+To help businesses become genuinely easier for AI systems to find, understand, verify, and recommend — and to be honest with clients about what can and cannot be measured along the way.
+
+## Framework: Find → Understand → Trust → Recommend
+1. **Find**: AI systems and the search systems feeding them must be able to access the business's relevant pages and content.
+2. **Understand**: They must be able to extract what the business does, where it operates, who it serves, and why it matters.
+3. **Trust**: They must be able to corroborate this information through reviews, citations, directory listings, authoritative pages, and consistent entity signals across the web.
+4. **Recommend**: They must have enough differentiating evidence to surface this business over alternatives in commercially relevant prompts.
+
+## Services
+- **Tier 1: Audit and Initial Baseline**: Comprehensive audit across all seven categories. Prioritized gap report and initial baseline.
+- **Tier 2: AI Visibility Enhancements (Implementation)**: Scoped implementation of audit recommendations across critical workstreams.
+- **Tier 3: Measurement and Monitoring Retainer**: Monthly tracking of confirmed and probable AI visibility signals.
+
+## Location
+Columbus, Ohio.
+
+## Contact
+hello@aivisibility.services
