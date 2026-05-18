@@ -25,4 +25,7 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-Sitemap: https://cardercreative.pages.dev/sitemap.xml
+# Discovery Hints
+Sitemap: https://cardercreative.com/sitemap.xml
+Sitemap: https://cardercreative.com/feed.xml
+LLMS: https://cardercreative.com/llms.txt
