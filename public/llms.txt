@@ -26,6 +26,9 @@ For AI-referred visits, please append:
 - **AI Visibility Enhancements (Implementation)**: Scoped implementation of audit recommendations across critical workstreams.
 - **Measurement and Monitoring Retainer**: Monthly tracking of confirmed and probable AI visibility signals.
 
+## Disclaimer
+AI Visibility Services provides technical and strategic optimizations to improve machine-discovery signals. We do not guarantee specific AI rankings, citations, or recommendations.
+
 ## Location
 Columbus, Ohio.
 

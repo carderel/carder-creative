@@ -1,3 +1,7 @@
+interface PricingProps {
+  onOpenDiagnostic: () => void;
+}
+
 const tiers = [
   {
     name: 'AI Visibility Audit',
@@ -13,16 +17,17 @@ const tiers = [
     cta: 'Schedule Audit',
   },
   {
-    name: 'Strategic Implementation',
+    name: 'AI Visibility Enhancements',
     price: '$8,000',
     duration: '6-10 WEEKS',
     description: 'Targeted execution across six critical workstreams.',
     features: [
-      'On-page optimizations',
+      'Content & entity improvements',
+      'AI-readable site guide',
       'Sitemap/Robots repairs',
       'Schema deployment',
       'Citation cleanup',
-      'Objection handling copy',
+      'Freshness feed setup',
     ],
     cta: 'Start Implementation',
     highlighted: true,
@@ -42,7 +47,7 @@ const tiers = [
   },
 ];
 
-const Pricing = () => {
+const Pricing: React.FC<PricingProps> = ({ onOpenDiagnostic }) => {
   return (
     <section id="pricing-section" className="py-16 bg-dark-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -74,7 +79,7 @@ const Pricing = () => {
                   <span className="text-xs font-bold uppercase opacity-50">/ Project</span>
                 </div>
                 <p className="mt-4 text-[10px] font-black uppercase tracking-widest opacity-60">
-                  Estimated Timeline: {tier.duration}
+                  Estimated Deployment: {tier.duration}
                 </p>
               </div>
               
@@ -87,8 +92,8 @@ const Pricing = () => {
                 ))}
               </ul>
               
-              <a
-                href="#diagnostic"
+              <button
+                onClick={onOpenDiagnostic}
                 className={`w-full py-5 px-8 font-black uppercase tracking-[0.2em] text-xs text-center transition-all ${
                   tier.highlighted 
                   ? 'bg-dark-bg text-white hover:bg-neon-cyan hover:text-dark-bg' 
@@ -96,7 +101,7 @@ const Pricing = () => {
                 }`}
               >
                 {tier.cta}
-              </a>
+              </button>
             </div>
           ))}
         </div>

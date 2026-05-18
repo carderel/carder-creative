@@ -1,22 +1,22 @@
 const steps = [
   {
     title: 'Find',
-    description: 'We audit discovery and access, technical discovery (robots/sitemaps), and crawl issues to ensure AI systems can access your data.',
+    description: 'We audit crawl access, robots.txt, sitemaps, feeds, and technical barriers that may prevent AI and search systems from reaching key pages.',
     icon: '01',
   },
   {
     title: 'Understand',
-    description: 'We optimize entity clarity and structured data (JSON-LD) so models can accurately extract what you do and who you serve.',
+    description: 'We improve entity clarity, structured data, and page content so AI systems can better extract what you do, where you operate, and who you serve.',
     icon: '02',
   },
   {
     title: 'Trust',
-    description: 'We strengthen citation and trust signals through reviews and NAP consistency to corroborate your info across authoritative sources.',
+    description: 'We strengthen reviews, citations, directory profiles, and NAP consistency so third-party sources corroborate your business information.',
     icon: '03',
   },
   {
     title: 'Recommend',
-    description: 'We build recommendation-layer improvements like objection handling to surface your business in commercially relevant AI prompts.',
+    description: 'We build recommendation-layer content, proof points, and objection handling that improve your chances of being included in commercially relevant AI answers.',
     icon: '04',
   },
 ];
@@ -28,9 +28,9 @@ const Methodology = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-8">
           <div className="max-w-2xl text-left">
             <h2 className="text-neon-cyan font-mono text-xs font-black uppercase tracking-[0.4em] mb-4">// OUR METHODOLOGY</h2>
-            <p className="text-4xl sm:text-6xl font-black text-white uppercase tracking-tighter">
+            <p className="text-[clamp(2rem,8vw,3.75rem)] sm:text-6xl font-black text-white uppercase tracking-tighter leading-tight">
               THE PATH TO <br />
-              <span className="text-transparent bg-clip-text vapor-gradient">DISCOVERY</span>
+              <span className="text-transparent bg-clip-text vapor-gradient">AI VISIBILITY</span>
             </p>
           </div>
           <p className="max-w-md text-slate-500 text-sm font-medium leading-relaxed">

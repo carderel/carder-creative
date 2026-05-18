@@ -11,12 +11,12 @@ const Hero: React.FC<HeroProps> = ({ onOpenDiagnostic, onOpenChecklist }) => {
           <div className="inline-block mb-4 px-3 py-1 border border-neon-cyan/50 bg-neon-cyan/10 text-neon-cyan text-[10px] font-black uppercase tracking-[0.3em]">
             Now Accepting New Partners
           </div>
-          <h1 className="text-[3.5rem] sm:text-[5.7rem] font-black text-white uppercase leading-[0.85] tracking-tighter mb-4">
+          <h1 className="text-[clamp(2.5rem,10vw,3.5rem)] sm:text-[clamp(4rem,12vw,5.7rem)] font-black text-white uppercase leading-[0.85] tracking-tighter mb-4">
             WRITE FOR <span className="text-neon-cyan neon-text italic">HUMANS</span>.<br />
             STRUCTURE FOR <span className="text-neon-purple drop-shadow-[0_0_8px_rgba(255,0,229,0.5)] italic">MACHINES</span>.
           </h1>
           <p className="text-lg text-slate-400 font-medium max-w-2xl leading-relaxed border-l-2 border-neon-cyan pl-6 mb-8">
-            Helping Columbus businesses secure high-frequency recommendations in the AI discovery layer: ChatGPT, Gemini, Perplexity, and Claude.
+            Helping Columbus businesses improve the signals AI systems use to find, understand, and recommend them across ChatGPT, Gemini, Perplexity, and Claude.
           </p>
           <div className="flex flex-col sm:flex-row gap-6">
             <button

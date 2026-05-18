@@ -10,7 +10,7 @@ const About = () => {
               <span className="text-neon-purple drop-shadow-[0_0_8px_rgba(255,0,229,0.3)]">GLOBAL SIGNAL.</span>
             </p>
             <p className="text-lg text-slate-400 leading-relaxed mb-12 font-medium">
-              AI Visibility Services is a specialized consulting practice by Carder Creative serving Columbus, Ohio. We help mid-market businesses navigate the shift from traditional search to AI-powered discovery through rigorous methodology and technical depth.
+              AI Visibility Services is a specialized consulting practice by Carder Creative serving Columbus, Ohio. We help mid-market businesses adapt to the shift from traditional search to AI-powered discovery through technical audits, content structure, trust signals, and honest measurement.
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
@@ -33,9 +33,9 @@ const About = () => {
           <div className="mt-16 lg:mt-0 lg:w-5/12 relative">
             <div className="aspect-square glass-card rounded-none overflow-hidden shadow-2xl flex flex-col items-center justify-center p-12 text-center group">
                <div className="text-neon-cyan text-8xl font-black mb-4 group-hover:scale-110 transition-transform duration-500">6-10</div>
-               <div className="text-xs font-black text-white uppercase tracking-[0.3em] mb-4">Weeks to Results</div>
+               <div className="text-xs font-black text-white uppercase tracking-[0.3em] mb-4">Weeks to Deploy</div>
                <div className="w-12 h-0.5 bg-neon-purple mb-4"></div>
-               <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest leading-loose">Typical deployment timeline <br /> for measurable AI visibility.</p>
+               <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest leading-loose">Typical timeline to deploy improvements <br /> and begin monitoring visibility signals.</p>
             </div>
             {/* Decoration */}
             <div className="absolute -top-10 -right-10 w-40 h-40 bg-neon-cyan/10 rounded-full blur-3xl"></div>

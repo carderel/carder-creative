@@ -20,20 +20,20 @@ const Home: React.FC<HomeProps> = ({ onOpenDiagnostic, onOpenChecklist }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
             <div className="group">
-              <div className="text-4xl font-black text-white group-hover:text-neon-cyan transition-colors">100M+</div>
+              <div className="text-3xl sm:text-4xl font-black text-white group-hover:text-neon-cyan transition-colors">100M+</div>
               <div className="text-[10px] font-black text-slate-600 uppercase tracking-widest mt-3 group-hover:text-slate-400">Weekly AI Users</div>
             </div>
             <div className="group">
-              <div className="text-4xl font-black text-white group-hover:text-neon-purple transition-colors">v2.0</div>
+              <div className="text-3xl sm:text-4xl font-black text-white group-hover:text-neon-purple transition-colors">v2.0</div>
               <div className="text-[10px] font-black text-slate-600 uppercase tracking-widest mt-3 group-hover:text-slate-400">Framework Version</div>
             </div>
             <div className="group">
-              <div className="text-4xl font-black text-white group-hover:text-neon-cyan transition-colors">614</div>
-              <div className="text-[10px] font-black text-slate-600 uppercase tracking-widest mt-3 group-hover:text-slate-400">Columbus, Ohio</div>
+              <div className="text-3xl sm:text-4xl font-black text-white group-hover:text-neon-cyan transition-colors">614</div>
+              <div className="text-[10px] font-black text-slate-600 uppercase tracking-widest mt-3 group-hover:text-slate-400">Local Market Focus</div>
             </div>
             <div className="group">
-              <div className="text-4xl font-black text-white group-hover:text-neon-purple transition-colors">100%</div>
-              <div className="text-[10px] font-black text-slate-600 uppercase tracking-widest mt-3 group-hover:text-slate-400">Signal Integrity</div>
+              <div className="text-3xl sm:text-4xl font-black text-white group-hover:text-neon-purple transition-colors">SIGNAL</div>
+              <div className="text-[10px] font-black text-slate-600 uppercase tracking-widest mt-3 group-hover:text-slate-400">Classification Standard</div>
             </div>
           </div>
         </div>
@@ -41,7 +41,7 @@ const Home: React.FC<HomeProps> = ({ onOpenDiagnostic, onOpenChecklist }) => {
       </div>
 
       <Methodology />
-      <Pricing />
+      <Pricing onOpenDiagnostic={onOpenDiagnostic} />
       <About />
       <Resources limit={4} onOpenChecklist={onOpenChecklist} />
       
@@ -59,7 +59,7 @@ const Home: React.FC<HomeProps> = ({ onOpenDiagnostic, onOpenChecklist }) => {
               </p>
               <div className="p-10 bg-white/5 border border-white/10 group">
                 <h4 className="text-white font-black text-xs uppercase tracking-[0.3em] mb-4 group-hover:text-neon-cyan transition-colors">// DOWNLOAD CHECKLIST</h4>
-                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest leading-loose mb-8">Download the AI Visibility Self-Assessment Checklist to verify your current signal strength.</p>
+                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest leading-loose mb-8">Download the AI Visibility Checklist to see whether AI systems can find, understand, and trust your business.</p>
                 <button
                   onClick={onOpenChecklist}
                   className="inline-flex items-center text-neon-cyan font-black text-xs uppercase tracking-[0.4em] hover:text-white transition-colors"
