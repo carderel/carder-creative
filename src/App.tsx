@@ -8,6 +8,7 @@ import ChecklistForm from './components/ChecklistForm';
 import Home from './pages/Home';
 import ResourcesArchive from './pages/ResourcesArchive';
 import SiteGuide from './pages/SiteGuide';
+import Legal from './pages/Legal';
 
 // Helper to scroll to top on page change
 const ScrollToTop = () => {
@@ -38,6 +39,7 @@ function App() {
           <Route path="/" element={<Home onOpenDiagnostic={openDiagnostic} onOpenChecklist={openChecklist} />} />
           <Route path="/resources" element={<ResourcesArchive onOpenChecklist={openChecklist} />} />
           <Route path="/site-guide" element={<SiteGuide />} />
+          <Route path="/legal" element={<Legal />} />
         </Routes>
 
         <Footer />

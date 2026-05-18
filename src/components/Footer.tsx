@@ -42,8 +42,8 @@ const Footer = () => {
         <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[8px] font-black uppercase tracking-[0.4em]">
           <p>&copy; {currentYear} CARDER CREATIVE LLC. ALL RIGHTS RESERVED.</p>
           <div className="mt-8 md:mt-0 flex space-x-10">
-            <a href="#" className="hover:text-white transition-colors">Privacy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms</a>
+            <a href="/legal#privacy" className="hover:text-white transition-colors">Privacy</a>
+            <a href="/legal#terms" className="hover:text-white transition-colors">Terms</a>
           </div>
         </div>
       </div>
