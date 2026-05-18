@@ -42,15 +42,14 @@ function App() {
 
         {/* Pop-up Diagnostic Form */}
         <Modal isOpen={isDiagnosticOpen} onClose={closeDiagnostic}>
-          <div className="p-8 sm:p-12 text-left">
-            <h2 className="text-3xl font-black text-white uppercase tracking-tighter mb-8">
+          <div className="p-6 sm:p-10 text-left">
+            <h2 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tighter mb-6 sm:mb-8">
               SCHEDULE YOUR <br />
               <span className="text-transparent bg-clip-text vapor-gradient">DIAGNOSTIC</span>
             </h2>
             <ContactForm />
           </div>
         </Modal>
-
         {/* Pop-up Checklist Form */}
         <Modal isOpen={isChecklistOpen} onClose={closeChecklist}>
           <ChecklistForm />
