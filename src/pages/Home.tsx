@@ -3,6 +3,7 @@ import Methodology from '../components/Methodology';
 import Pricing from '../components/Pricing';
 import About from '../components/About';
 import Resources from '../components/Resources';
+import SearchStack from '../components/SearchStack';
 import ContactForm from '../components/ContactForm';
 
 interface HomeProps {
@@ -41,6 +42,7 @@ const Home: React.FC<HomeProps> = ({ onOpenDiagnostic, onOpenChecklist }) => {
       <Methodology />
       <Pricing onOpenDiagnostic={onOpenDiagnostic} />
       <About />
+      <SearchStack onOpenDiagnostic={onOpenDiagnostic} />
       <Resources limit={4} onOpenChecklist={onOpenChecklist} />
       
       {/* Contact / Lead Magnet Section */}

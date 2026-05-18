@@ -31,7 +31,9 @@
   }
 
   .vapor-gradient {
-    background: linear-gradient(135deg, var(--color-neon-cyan) 0%, var(--color-neon-purple) 100%);
+    background-image: linear-gradient(135deg, var(--color-neon-cyan) 0%, var(--color-neon-purple) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
   }
   
   .glass-card {

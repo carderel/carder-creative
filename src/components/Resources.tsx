@@ -18,10 +18,10 @@ const Resources: React.FC<ResourcesProps> = ({ limit, onOpenChecklist }) => {
             <p className="text-4xl sm:text-6xl font-black text-white uppercase tracking-tighter">
               KNOWLEDGE <span className="text-transparent bg-clip-text vapor-gradient">TRANSFER</span>
             </p>
+            <p className="max-w-md text-slate-500 text-xs font-bold uppercase tracking-widest leading-loose mt-6">
+              Curated intelligence on AI discovery, <br /> search systems, and machine-trust protocols.
+            </p>
           </div>
-          <p className="max-w-md text-slate-500 text-xs font-bold uppercase tracking-widest leading-loose">
-            Curated intelligence on AI discovery, <br /> search systems, and machine-trust protocols.
-          </p>
         </div>
 
         <div className="grid grid-cols-1 gap-2">
@@ -66,7 +66,7 @@ const Resources: React.FC<ResourcesProps> = ({ limit, onOpenChecklist }) => {
         {limit && (
           <div className="mt-16 p-10 bg-white/5 border border-white/10 group text-left">
             <h4 className="text-white font-black text-xs uppercase tracking-[0.3em] mb-4 group-hover:text-neon-cyan transition-colors">// DOWNLOAD CHECKLIST</h4>
-            <p className="text-slate-500 text-xs font-bold uppercase tracking-widest leading-loose mb-8">Download the AI Visibility Self-Assessment Checklist to verify your current signal strength.</p>
+            <p className="text-slate-500 text-xs font-bold uppercase tracking-widest leading-loose mb-8">Download the AI Visibility Checklist to see whether AI systems can find, understand, and trust your business.</p>
             <button
               onClick={onOpenChecklist}
               className="inline-flex items-center text-neon-cyan font-black text-xs uppercase tracking-[0.4em] hover:text-white transition-colors"
