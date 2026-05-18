@@ -15,7 +15,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenDiagnostic }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20 items-center">
           <Link to="/" className="flex-shrink-0 flex flex-col justify-center hover:opacity-80 transition-opacity">
-            <span className="text-xl font-bold text-white tracking-tighter uppercase font-mono leading-none">
+            <span className="text-[clamp(1rem,5vw,1.25rem)] font-bold text-white tracking-tighter uppercase font-mono leading-none">
               AI VIS <span className="text-neon-cyan">SERVICES</span>
             </span>
             <span className="text-[8px] font-black text-slate-500 tracking-[0.2em] uppercase mt-1">

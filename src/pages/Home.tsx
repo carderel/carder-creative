@@ -20,16 +20,14 @@ const Home: React.FC<HomeProps> = ({ onOpenDiagnostic, onOpenChecklist }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
             <div className="group">
-              <div className="text-3xl sm:text-4xl font-black text-white group-hover:text-neon-cyan transition-colors">100M+</div>
-              <div className="text-[10px] font-black text-slate-600 uppercase tracking-widest mt-3 group-hover:text-slate-400">Weekly AI Users</div>
+              <div className="text-2xl sm:text-4xl font-black text-white group-hover:text-neon-cyan transition-colors">100M+</div>              <div className="text-[10px] font-black text-slate-600 uppercase tracking-widest mt-3 group-hover:text-slate-400">Weekly AI Users</div>
             </div>
             <div className="group">
               <div className="text-3xl sm:text-4xl font-black text-white group-hover:text-neon-purple transition-colors">v2.0</div>
               <div className="text-[10px] font-black text-slate-600 uppercase tracking-widest mt-3 group-hover:text-slate-400">Framework Version</div>
             </div>
             <div className="group">
-              <div className="text-3xl sm:text-4xl font-black text-white group-hover:text-neon-cyan transition-colors">614</div>
-              <div className="text-[10px] font-black text-slate-600 uppercase tracking-widest mt-3 group-hover:text-slate-400">Local Market Focus</div>
+              <div className="text-2xl sm:text-4xl font-black text-white group-hover:text-neon-cyan transition-colors">614</div>              <div className="text-[10px] font-black text-slate-600 uppercase tracking-widest mt-3 group-hover:text-slate-400">Local Market Focus</div>
             </div>
             <div className="group">
               <div className="text-3xl sm:text-4xl font-black text-white group-hover:text-neon-purple transition-colors">SIGNAL</div>

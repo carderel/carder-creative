@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-20 mb-20">
           <div>
-            <span className="text-xl font-bold text-white tracking-tighter uppercase mb-2 block">
+            <span className="text-[clamp(1rem,5vw,1.25rem)] font-bold text-white tracking-tighter uppercase mb-2 block">
               AI VIS <span className="text-neon-cyan">SERVICES</span>
             </span>
             <span className="text-[10px] font-black text-slate-600 tracking-[0.2em] uppercase mb-8 block">
@@ -33,6 +33,8 @@ const Footer = () => {
             <ul className="space-y-4 text-[10px] font-black uppercase tracking-widest">
               <li>COLUMBUS OH USA</li>
               <li><a href="mailto:aivisibility@cardercreative.com" className="text-neon-cyan hover:text-white transition-colors">AIVISIBILITY@CARDERCREATIVE.COM</a></li>
+              <li><a href="/llms.txt" target="_blank" className="hover:text-neon-cyan transition-colors">LLMS.TXT</a></li>
+              <li><a href="/sitemap.xml" target="_blank" className="hover:text-neon-cyan transition-colors">SITEMAP.XML</a></li>
             </ul>
           </div>
         </div>
