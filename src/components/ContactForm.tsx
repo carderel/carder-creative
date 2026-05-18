@@ -35,14 +35,16 @@ const ContactForm = () => {
     }
   };
 
+  const isSubmitting = status === 'submitting';
+
   if (status === 'submitting') {
     return (
-      <div className="p-8 sm:p-10 font-mono text-left bg-white/5 border border-neon-cyan">
-        <div className="text-neon-cyan text-xs mb-4 uppercase tracking-[0.2em] animate-pulse">_Transmitting_Handshake_Data</div>
+      <div className="p-8 sm:p-10 font-mono text-left bg-white/5 border border-neon-cyan text-left">
+        <div className="text-neon-cyan text-xs mb-4 uppercase tracking-[0.2em] animate-pulse text-left">_Transmitting_Handshake_Data</div>
         <div className="w-full bg-white/5 h-1 mb-6 overflow-hidden">
           <div className="bg-neon-cyan h-full w-full animate-progress shadow-[0_0_10px_#00f2ff]"></div>
         </div>
-        <div className="text-slate-500 text-[10px] space-y-1 uppercase tracking-widest">
+        <div className="text-slate-500 text-[10px] space-y-1 uppercase tracking-widest text-left">
           <div>{">"} Encrypting payload...</div>
           <div>{">"} Negotiating secure route...</div>
           <div>{">"} Syncing with aivisibility@cardercreative.com...</div>
@@ -54,13 +56,13 @@ const ContactForm = () => {
   if (status === 'success') {
     return (
       <div className="bg-white/5 p-8 sm:p-10 border border-neon-cyan shadow-[0_0_30px_rgba(0,242,255,0.1)] text-center animate-in fade-in zoom-in-95 duration-500">
-        <div className="flex items-center justify-center h-20 w-20 bg-neon-cyan/20 mx-auto mb-8">
+        <div className="flex items-center justify-center h-20 w-20 bg-neon-cyan/20 mx-auto mb-8 text-center">
           <svg className="h-10 w-10 text-neon-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h3 className="text-3xl font-black text-white uppercase tracking-tighter mb-4">Transmission_Received</h3>
-        <p className="text-slate-400 font-medium uppercase text-xs tracking-widest leading-loose">We will establish a link <br /> within 24 hours.</p>
+        <h3 className="text-3xl font-black text-white uppercase tracking-tighter mb-4 text-center">Transmission_Received</h3>
+        <p className="text-slate-400 font-medium uppercase text-xs tracking-widest leading-loose text-center">We will establish a link <br /> within 24 hours.</p>
         <button 
           onClick={() => setStatus('idle')}
           className="mt-10 text-neon-purple font-black uppercase text-[10px] tracking-[0.3em] hover:text-white transition-colors"
@@ -74,7 +76,7 @@ const ContactForm = () => {
   return (
     <form 
       onSubmit={handleSubmit}
-      className="bg-white/5 p-8 sm:p-10 border border-white/10 relative overflow-hidden"
+      className="bg-white/5 p-8 sm:p-10 border border-white/10 relative overflow-hidden text-left"
     >
       <div className="absolute top-0 right-0 p-4 font-mono text-[8px] text-white/10 uppercase tracking-widest pointer-events-none">
         Secure_Connection_v4.5
@@ -143,7 +145,7 @@ const ContactForm = () => {
 
         <button
           type="submit"
-          disabled={status === 'submitting'}
+          disabled={isSubmitting}
           className="w-full bg-neon-cyan text-dark-bg py-6 font-black uppercase text-sm tracking-[0.3em] hover:bg-white transition-all shadow-[0_0_20px_rgba(0,242,255,0.2)] active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           Send Message
