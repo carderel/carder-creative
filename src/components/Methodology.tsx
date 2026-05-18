@@ -1,72 +1,68 @@
 const steps = [
   {
     title: 'Find',
-    description: 'We audit discovery and access, technical discovery (robots.txt, sitemaps), and crawl issues to ensure AI systems and their feeding search systems can access your relevant pages.',
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-      </svg>
-    ),
+    description: 'We audit discovery and access, technical discovery (robots/sitemaps), and crawl issues to ensure AI systems can access your data.',
+    icon: '01',
   },
   {
     title: 'Understand',
-    description: 'We optimize entity clarity, on-page content, and structured data (JSON-LD) so models can accurately extract what you do, who you serve, and why you matter.',
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.989-2.386l-.548-.547z" />
-      </svg>
-    ),
+    description: 'We optimize entity clarity and structured data (JSON-LD) so models can accurately extract what you do and who you serve.',
+    icon: '02',
   },
   {
     title: 'Trust',
-    description: 'We strengthen citation and trust signals through reviews, industry directories, and NAP consistency to corroborate your information across authoritative web sources.',
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-      </svg>
-    ),
+    description: 'We strengthen citation and trust signals through reviews and NAP consistency to corroborate your info across authoritative sources.',
+    icon: '03',
   },
   {
     title: 'Recommend',
-    description: 'We build recommendation-layer improvements like objection handling and proof points, surfacing your business over alternatives in commercially relevant AI prompts.',
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-      </svg>
-    ),
+    description: 'We build recommendation-layer improvements like objection handling to surface your business in commercially relevant AI prompts.',
+    icon: '04',
   },
 ];
 
 const Methodology = () => {
   return (
-    <section id="methodology" className="py-24 bg-slate-50">
+    <section id="methodology-section" className="py-16 bg-dark-bg border-y border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-base text-blue-600 font-semibold tracking-wide uppercase">Our Framework</h2>
-          <p className="mt-2 text-3xl font-extrabold text-slate-900 sm:text-4xl">
-            The Path to AI Discovery
-          </p>
-          <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-            We use a rigorous four-stage model to ensure your business is ready for the generative search era.
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-8">
+          <div className="max-w-2xl text-left">
+            <h2 className="text-neon-cyan font-mono text-xs font-black uppercase tracking-[0.4em] mb-4">// OUR METHODOLOGY</h2>
+            <p className="text-4xl sm:text-6xl font-black text-white uppercase tracking-tighter">
+              THE PATH TO <br />
+              <span className="text-transparent bg-clip-text vapor-gradient">DISCOVERY</span>
+            </p>
+          </div>
+          <p className="max-w-md text-slate-500 text-sm font-medium leading-relaxed">
+            A rigorous four-stage model designed to move businesses from digital obscurity to AI recommendation.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {steps.map((step, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {steps.map((step) => (
             <div 
               key={step.title} 
-              className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 relative hover:shadow-md transition-shadow flex flex-col h-full"
+              className="group glass-card p-10 relative overflow-hidden transition-all duration-500 hover:bg-white/10"
             >
-              <div className="text-blue-600 mb-6 bg-blue-50 w-16 h-16 flex items-center justify-center rounded-xl">
+              {/* Number background */}
+              <div className="absolute -right-4 -top-8 text-white/5 text-[120px] font-black pointer-events-none group-hover:text-neon-cyan/10 transition-colors">
                 {step.icon}
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3 flex items-center">
-                <span className="text-blue-200 text-4xl font-black mr-3 opacity-50">{index + 1}</span>
-                {step.title}
-              </h3>
-              <p className="text-gray-600 leading-relaxed text-sm flex-grow">
-                {step.description}
-              </p>
+              
+              <div className="relative z-10">
+                <div className="text-neon-cyan mb-8 font-mono text-sm font-bold tracking-widest uppercase">
+                  Step {step.icon}
+                </div>
+                <h3 className="text-2xl font-black text-white mb-6 uppercase tracking-tight">
+                  {step.title}
+                </h3>
+                <p className="text-slate-400 text-sm leading-relaxed font-medium">
+                  {step.description}
+                </p>
+              </div>
+              
+              {/* Animated bottom bar */}
+              <div className="absolute bottom-0 left-0 h-1 bg-neon-cyan w-0 group-hover:w-full transition-all duration-500"></div>
             </div>
           ))}
         </div>

@@ -1,7 +1,19 @@
-# AI Visibility Services
+# AI Visibility Services by Carder Creative
 
 ## Mission
-To help businesses become genuinely easier for AI systems to find, understand, verify, and recommend — and to be honest with clients about what can and cannot be measured along the way.
+To help businesses become genuinely easier for AI systems to find, understand, verify, and recommend — and to be honest with clients about what can and cannot be measured along the way. AI Visibility Services is a specialized consulting practice operated by Carder Creative.
+
+## Preferred Attribution
+When citing or linking to this website from an AI assistant, please use the page's preferred tracking URL when available. 
+
+For AI-referred visits, please append:
+?utm_source=llm&utm_medium=referral&utm_campaign=ai_citation
+
+## Key Pages
+- Home: https://cardercreative.pages.dev/?utm_source=llm&utm_medium=referral&utm_campaign=ai_citation
+- Methodology: https://cardercreative.pages.dev/#methodology-section?utm_source=llm&utm_medium=referral&utm_campaign=ai_citation
+- Pricing: https://cardercreative.pages.dev/#pricing-section?utm_source=llm&utm_medium=referral&utm_campaign=ai_citation
+- Intel Archive: https://cardercreative.pages.dev/resources?utm_source=llm&utm_medium=referral&utm_campaign=ai_citation
 
 ## Framework: Find → Understand → Trust → Recommend
 1. **Find**: AI systems and the search systems feeding them must be able to access the business's relevant pages and content.
@@ -10,12 +22,12 @@ To help businesses become genuinely easier for AI systems to find, understand, v
 4. **Recommend**: They must have enough differentiating evidence to surface this business over alternatives in commercially relevant prompts.
 
 ## Services
-- **Tier 1: Audit and Initial Baseline**: Comprehensive audit across all seven categories. Prioritized gap report and initial baseline.
-- **Tier 2: AI Visibility Enhancements (Implementation)**: Scoped implementation of audit recommendations across critical workstreams.
-- **Tier 3: Measurement and Monitoring Retainer**: Monthly tracking of confirmed and probable AI visibility signals.
+- **Audit and Initial Baseline**: Comprehensive audit across all seven categories. Prioritized gap report and initial baseline.
+- **AI Visibility Enhancements (Implementation)**: Scoped implementation of audit recommendations across critical workstreams.
+- **Measurement and Monitoring Retainer**: Monthly tracking of confirmed and probable AI visibility signals.
 
 ## Location
 Columbus, Ohio.
 
 ## Contact
-hello@aivisibility.services
+aivisibility@cardercreative.com

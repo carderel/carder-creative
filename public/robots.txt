@@ -1,0 +1,28 @@
+User-agent: *
+Allow: /
+
+# AI Crawler Policy
+# We allow AI crawlers to ensure visibility in the discovery layer
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://cardercreative.pages.dev/sitemap.xml

@@ -1,65 +1,45 @@
 const About = () => {
   return (
-    <section id="about" className="py-24 bg-slate-900 text-white overflow-hidden relative">
+    <section id="about-section" className="py-16 bg-dark-bg overflow-hidden relative border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="lg:flex lg:items-center lg:justify-between">
+        <div className="lg:flex lg:items-center lg:justify-between gap-20">
           <div className="lg:w-1/2">
-            <h2 className="text-base text-blue-400 font-semibold tracking-wide uppercase">Why Us?</h2>
-            <p className="mt-2 text-3xl font-extrabold text-white sm:text-4xl">
-              Local Relationships. <br />
-              <span className="text-blue-500">Global Expertise.</span>
+            <h2 className="text-neon-cyan font-mono text-xs font-black uppercase tracking-[0.4em] mb-4">// ABOUT THE PRACTICE</h2>
+            <p className="text-5xl font-black text-white uppercase tracking-tighter mb-8 leading-tight">
+              LOCAL OFFICE. <br />
+              <span className="text-neon-purple drop-shadow-[0_0_8px_rgba(255,0,229,0.3)]">GLOBAL SIGNAL.</span>
             </p>
-            <p className="mt-6 text-lg text-slate-300 leading-relaxed">
-              Based in Columbus, Ohio, we specialize in helping mid-market businesses navigate the shift from traditional search to AI-powered discovery. We don't just "do AI SEO" — we apply a rigorous framework built on intellectual honesty and technical depth.
+            <p className="text-lg text-slate-400 leading-relaxed mb-12 font-medium">
+              AI Visibility Services is a specialized consulting practice by Carder Creative serving Columbus, Ohio. We help mid-market businesses navigate the shift from traditional search to AI-powered discovery through rigorous methodology and technical depth.
             </p>
             
-            <div className="mt-10 space-y-6">
-              <div className="flex items-start">
-                <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 text-white">
-                    <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                </div>
-                <div className="ml-4">
-                  <h4 className="text-lg font-bold">Honest Measurement</h4>
-                  <p className="mt-1 text-slate-400 text-sm">
-                    We distinguish between confirmed and probable signals. No vague promises — just rigorous, observable data.
-                  </p>
-                </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <div className="p-8 bg-white/5 border-l-2 border-neon-cyan">
+                <h4 className="text-white font-black uppercase tracking-widest text-xs mb-3">Honest Measurement</h4>
+                <p className="text-slate-500 text-[11px] font-bold leading-relaxed uppercase">
+                  We distinguish between confirmed and probable signals. No vague promises — just rigorous, observable data.
+                </p>
               </div>
               
-              <div className="flex items-start">
-                <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 text-white">
-                    <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                  </div>
-                </div>
-                <div className="ml-4">
-                  <h4 className="text-lg font-bold">Columbus Focused</h4>
-                  <p className="mt-1 text-slate-400 text-sm">
-                    We understand the local market. From insurance to healthcare, we build strategies for the businesses that drive Ohio's economy.
-                  </p>
-                </div>
+              <div className="p-8 bg-white/5 border-l-2 border-neon-purple">
+                <h4 className="text-white font-black uppercase tracking-widest text-xs mb-3">Columbus Focus</h4>
+                <p className="text-slate-500 text-[11px] font-bold leading-relaxed uppercase">
+                  Strategies for the industries that drive Ohio: Insurance, Healthcare, and Professional Services.
+                </p>
               </div>
             </div>
           </div>
           
           <div className="mt-16 lg:mt-0 lg:w-5/12 relative">
-            <div className="aspect-square bg-slate-800 rounded-3xl overflow-hidden shadow-2xl border border-slate-700 flex items-center justify-center p-12">
-               <div className="text-center">
-                 <div className="text-blue-500 text-6xl font-black mb-4">6-10</div>
-                 <div className="text-xl font-bold text-white mb-2">Weeks to Visibility</div>
-                 <p className="text-slate-400 text-sm">Our typical implementation timeline for measurable results.</p>
-               </div>
+            <div className="aspect-square glass-card rounded-none overflow-hidden shadow-2xl flex flex-col items-center justify-center p-12 text-center group">
+               <div className="text-neon-cyan text-8xl font-black mb-4 group-hover:scale-110 transition-transform duration-500">6-10</div>
+               <div className="text-xs font-black text-white uppercase tracking-[0.3em] mb-4">Weeks to Results</div>
+               <div className="w-12 h-0.5 bg-neon-purple mb-4"></div>
+               <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest leading-loose">Typical deployment timeline <br /> for measurable AI visibility.</p>
             </div>
             {/* Decoration */}
-            <div className="absolute -top-6 -right-6 w-24 h-24 bg-blue-600/20 rounded-full blur-2xl"></div>
-            <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-blue-400/10 rounded-full blur-3xl"></div>
+            <div className="absolute -top-10 -right-10 w-40 h-40 bg-neon-cyan/10 rounded-full blur-3xl"></div>
+            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-neon-purple/10 rounded-full blur-3xl"></div>
           </div>
         </div>
       </div>
