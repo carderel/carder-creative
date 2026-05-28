@@ -7,6 +7,7 @@ import ContactForm from './components/ContactForm';
 import ChecklistForm from './components/ChecklistForm';
 import Home from './pages/Home';
 import ResourcesArchive from './pages/ResourcesArchive';
+import NewsFeed from './pages/NewsFeed';
 import SiteGuide from './pages/SiteGuide';
 import Legal from './pages/Legal';
 
@@ -38,6 +39,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home onOpenDiagnostic={openDiagnostic} onOpenChecklist={openChecklist} />} />
           <Route path="/resources" element={<ResourcesArchive onOpenChecklist={openChecklist} />} />
+          <Route path="/news" element={<NewsFeed />} />
           <Route path="/site-guide" element={<SiteGuide />} />
           <Route path="/legal" element={<Legal />} />
         </Routes>
