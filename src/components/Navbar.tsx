@@ -26,8 +26,8 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenDiagnostic }) => {
               <a href={getHref('#search-stack-section')} className="text-slate-400 hover:text-neon-cyan px-3 py-2 text-xs font-bold uppercase tracking-widest transition-all">Services</a>
               <a href={getHref('#methodology-section')} className="text-slate-400 hover:text-neon-cyan px-3 py-2 text-xs font-bold uppercase tracking-widest transition-all">Methodology</a>
               <a href={getHref('#pricing-section')} className="text-slate-400 hover:text-neon-cyan px-3 py-2 text-xs font-bold uppercase tracking-widest transition-all">Pricing</a>
-              <Link to="/resources" className={`px-3 py-2 text-xs font-bold uppercase tracking-widest transition-all ${location.pathname === '/resources' ? 'text-neon-cyan' : 'text-slate-400 hover:text-neon-cyan'}`}>Resources</Link>
-              <Link to="/news" className={`px-3 py-2 text-xs font-bold uppercase tracking-widest transition-all ${location.pathname === '/news' ? 'text-neon-cyan' : 'text-slate-400 hover:text-neon-cyan'}`}>Intel Feed</Link>
+              <Link to="/resources/" className={`px-3 py-2 text-xs font-bold uppercase tracking-widest transition-all ${location.pathname.replace(/\/$/, '') === '/resources' ? 'text-neon-cyan' : 'text-slate-400 hover:text-neon-cyan'}`}>Resources</Link>
+              <Link to="/news/" className={`px-3 py-2 text-xs font-bold uppercase tracking-widest transition-all ${location.pathname.replace(/\/$/, '') === '/news' ? 'text-neon-cyan' : 'text-slate-400 hover:text-neon-cyan'}`}>Intel Feed</Link>
               <a href={getHref('#about-section')} className="text-slate-400 hover:text-neon-cyan px-3 py-2 text-xs font-bold uppercase tracking-widest transition-all">About</a>
               <button 
                 onClick={onOpenDiagnostic}

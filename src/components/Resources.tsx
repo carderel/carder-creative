@@ -55,7 +55,7 @@ const Resources: React.FC<ResourcesProps> = ({ limit, onOpenChecklist }) => {
         {limit && (
           <div className="mt-12 flex justify-center">
             <Link 
-              to="/resources"
+              to="/resources/"
               className="px-12 py-5 bg-transparent border border-neon-cyan/50 text-neon-cyan font-black text-xs uppercase tracking-[0.4em] hover:bg-neon-cyan hover:text-dark-bg transition-all shadow-[0_0_20px_rgba(0,242,255,0.1)] active:scale-95"
             >
               Access Full Intel Archive

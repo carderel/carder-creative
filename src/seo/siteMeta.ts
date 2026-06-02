@@ -40,10 +40,19 @@ export const ROUTE_META: Record<string, RouteMeta> = {
 
 export const DEFAULT_META: RouteMeta = ROUTE_META['/'];
 
+// Cloudflare Pages serves directory routes with a trailing slash and 308-redirects
+// the no-slash form to it (e.g. /resources -> /resources/). We normalize the
+// no-slash form for ROUTE_META lookups (route keys are no-slash) but always emit
+// canonical/og URLs in the trailing-slash form so they match the served URL.
+function normalizePath(pathname: string): string {
+  return pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
+}
+
 export function metaForPath(pathname: string): RouteMeta {
-  return ROUTE_META[pathname] ?? DEFAULT_META;
+  return ROUTE_META[normalizePath(pathname)] ?? DEFAULT_META;
 }
 
 export function canonicalForPath(pathname: string): string {
-  return pathname === '/' ? `${SITE_URL}/` : `${SITE_URL}${pathname}`;
+  const p = normalizePath(pathname);
+  return p === '/' ? `${SITE_URL}/` : `${SITE_URL}${p}/`;
 }

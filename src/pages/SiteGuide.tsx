@@ -24,7 +24,7 @@ const SiteGuide = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="/resources" className="text-white hover:text-neon-cyan transition-colors flex items-center">
+                  <a href="/resources/" className="text-white hover:text-neon-cyan transition-colors flex items-center">
                     <span className="text-neon-cyan/50 mr-4">02</span> Intel Archive (Resources)
                   </a>
                 </li>
