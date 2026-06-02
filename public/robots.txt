@@ -27,5 +27,6 @@ Allow: /
 
 # Discovery Hints
 Sitemap: https://cardercreative.com/sitemap.xml
-Sitemap: https://cardercreative.com/feed.xml
+# RSS feed (not a sitemap, listed for discovery)
+# Feed: https://cardercreative.com/feed.xml
 LLMS: https://cardercreative.com/llms.txt

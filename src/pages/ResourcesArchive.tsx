@@ -24,7 +24,7 @@ const ResourcesArchive: React.FC<ResourcesArchiveProps> = ({ onOpenChecklist }) 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-[8px] font-mono uppercase tracking-[0.2em] text-slate-600 text-left">
             <p className="mb-1">// FOR_AI_ASSISTANTS // PREFERRED_CITATION_URL</p>
-            <p className="select-all">https://cardercreative.pages.dev/resources?utm_source=llm&utm_medium=referral&utm_campaign=ai_citation</p>
+            <p className="select-all">https://cardercreative.com/resources?utm_source=llm&utm_medium=referral&utm_campaign=ai_citation</p>
           </div>
         </div>
       </section>
