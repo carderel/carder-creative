@@ -7,10 +7,14 @@ import ContactForm from './components/ContactForm';
 import ChecklistForm from './components/ChecklistForm';
 import Home from './pages/Home';
 import ResourcesArchive from './pages/ResourcesArchive';
-import NewsFeed from './pages/NewsFeed';
+import NewsFeed, { type Article } from './pages/NewsFeed';
 import SiteGuide from './pages/SiteGuide';
 import Legal from './pages/Legal';
 import { useDocumentMeta } from './seo/useDocumentMeta';
+
+export interface InitialData {
+  newsArticles?: Article[];
+}
 
 // Helper to scroll to top on page change
 const ScrollToTop = () => {
@@ -23,7 +27,9 @@ const ScrollToTop = () => {
 
 // Renders the app under whichever router wraps it (BrowserRouter on the client,
 // StaticRouter during prerendering), so this component must stay router-agnostic.
-function AppRoutes() {
+// initialData is supplied only during prerender; on the client NewsFeed reads its
+// seed from window instead.
+function AppRoutes({ initialData }: { initialData?: InitialData }) {
   const { pathname } = useLocation();
   useDocumentMeta(pathname);
 
@@ -45,7 +51,7 @@ function AppRoutes() {
         <Routes>
           <Route path="/" element={<Home onOpenDiagnostic={openDiagnostic} onOpenChecklist={openChecklist} />} />
           <Route path="/resources" element={<ResourcesArchive onOpenChecklist={openChecklist} />} />
-          <Route path="/news" element={<NewsFeed />} />
+          <Route path="/news" element={<NewsFeed initialArticles={initialData?.newsArticles} />} />
           <Route path="/site-guide" element={<SiteGuide />} />
           <Route path="/legal" element={<Legal />} />
         </Routes>

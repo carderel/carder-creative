@@ -1,6 +1,6 @@
 import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router';
-import AppRoutes from './AppRoutes';
+import AppRoutes, { type InitialData } from './AppRoutes';
 import { canonicalForPath, metaForPath } from './seo/siteMeta';
 
 function escapeAttr(value: string): string {
@@ -19,10 +19,10 @@ export interface RenderResult {
 // Renders a single route to static HTML and the per-route <head> tags.
 // Head tags are built deterministically from siteMeta (not scraped from the
 // render output), so the static <head> is always correct and the body stays clean.
-export function render(url: string): RenderResult {
+export function render(url: string, initialData?: InitialData): RenderResult {
   const html = renderToString(
     <StaticRouter location={url}>
-      <AppRoutes />
+      <AppRoutes initialData={initialData} />
     </StaticRouter>
   );
 

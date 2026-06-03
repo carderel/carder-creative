@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from 'react';
 
 const API_URL = 'https://ai-visibility-news-agent.carder-creative.workers.dev/api/news/articles';
 
-interface Article {
+export interface Article {
   id: number;
   url: string;
   title: string;
@@ -12,30 +12,59 @@ interface Article {
   summary: string | null;
 }
 
+declare global {
+  interface Window {
+    // Seed data injected into the prerendered /news page so client hydration
+    // matches the server-rendered article list (no flash, no mismatch).
+    __NEWS_ARTICLES__?: Article[];
+  }
+}
+
+// Format in UTC so the build (Node) and the browser produce identical strings —
+// otherwise a timezone difference could shift the day and cause a hydration mismatch.
 const formatDate = (dateStr: string | null): string => {
   if (!dateStr) return '';
   try {
-    return new Date(dateStr).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    return new Date(dateStr).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
   } catch {
     return dateStr;
   }
 };
 
-const NewsFeed: React.FC = () => {
-  const [articles, setArticles] = useState<Article[]>([]);
+interface NewsFeedProps {
+  // Provided during prerender (server). On the client it is undefined and the
+  // seed is read from window.__NEWS_ARTICLES__ instead, so first render matches SSR.
+  initialArticles?: Article[];
+}
+
+function resolveSeed(initialArticles?: Article[]): Article[] {
+  if (initialArticles && initialArticles.length) return initialArticles;
+  if (typeof window !== 'undefined' && Array.isArray(window.__NEWS_ARTICLES__)) return window.__NEWS_ARTICLES__;
+  return [];
+}
+
+const NewsFeed: React.FC<NewsFeedProps> = ({ initialArticles }) => {
+  const seed = resolveSeed(initialArticles);
+  const [articles, setArticles] = useState<Article[]>(seed);
   const [activeKeyword, setActiveKeyword] = useState<string>('All');
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(seed.length === 0);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    // Always refresh on the client so the feed stays current between deploys.
     fetch(`${API_URL}?limit=200`)
       .then(res => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return res.json();
       })
       .then(data => setArticles(data.articles ?? []))
-      .catch(() => setError('Failed to load signals. Try again later.'))
+      .catch(() => {
+        // Keep prerendered/seed articles on a refresh failure; only show an error
+        // if we had nothing to begin with.
+        if (seed.length === 0) setError('Failed to load signals. Try again later.');
+      })
       .finally(() => setLoading(false));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const keywords = useMemo(() => {
