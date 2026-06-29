@@ -31,6 +31,25 @@ const formatDate = (dateStr: string | null): string => {
   }
 };
 
+type SortMode = 'Newest' | 'Oldest';
+type Period = 'All' | '24h' | '7 days' | '30 days';
+
+const PERIODS: Period[] = ['All', '24h', '7 days', '30 days'];
+
+// Window (in ms) each period represents. 'All' has no window.
+const PERIOD_MS: Record<Exclude<Period, 'All'>, number> = {
+  '24h': 24 * 60 * 60 * 1000,
+  '7 days': 7 * 24 * 60 * 60 * 1000,
+  '30 days': 30 * 24 * 60 * 60 * 1000,
+};
+
+// Parse published_at to an epoch ms, or null when missing/invalid.
+const parseTime = (dateStr: string | null): number | null => {
+  if (!dateStr) return null;
+  const t = new Date(dateStr).getTime();
+  return Number.isNaN(t) ? null : t;
+};
+
 interface NewsFeedProps {
   // Provided during prerender (server). On the client it is undefined and the
   // seed is read from window.__NEWS_ARTICLES__ instead, so first render matches SSR.
@@ -47,6 +66,11 @@ const NewsFeed: React.FC<NewsFeedProps> = ({ initialArticles }) => {
   const seed = resolveSeed(initialArticles);
   const [articles, setArticles] = useState<Article[]>(seed);
   const [activeKeyword, setActiveKeyword] = useState<string>('All');
+  // Defaults keep the first (hydration) render deterministic: sorting by
+  // published_at is pure, and period 'All' avoids any "now"-dependent math on
+  // the server. Period filtering only kicks in after a client interaction.
+  const [sortMode, setSortMode] = useState<SortMode>('Newest');
+  const [activePeriod, setActivePeriod] = useState<Period>('All');
   const [loading, setLoading] = useState(seed.length === 0);
   const [error, setError] = useState<string | null>(null);
 
@@ -73,10 +97,37 @@ const NewsFeed: React.FC<NewsFeedProps> = ({ initialArticles }) => {
     return ['All', ...Array.from(seen).sort()];
   }, [articles]);
 
-  const filtered = useMemo(() =>
-    activeKeyword === 'All' ? articles : articles.filter(a => a.keyword === activeKeyword),
-    [articles, activeKeyword]
-  );
+  const filtered = useMemo(() => {
+    // 1. Keyword filter.
+    let result = activeKeyword === 'All'
+      ? articles
+      : articles.filter(a => a.keyword === activeKeyword);
+
+    // 2. Period filter. 'All' is a no-op (and the only value during SSR/first
+    //    render, so no "now"-dependent math runs on the server). Any other
+    //    period reads the current time at filter-evaluation time only, and
+    //    excludes articles with an unknown (null/invalid) published_at.
+    if (activePeriod !== 'All') {
+      const cutoff = Date.now() - PERIOD_MS[activePeriod];
+      result = result.filter(a => {
+        const t = parseTime(a.published_at);
+        return t !== null && t >= cutoff;
+      });
+    }
+
+    // 3. Sort by published_at. Null/unknown dates always sort to the bottom in
+    //    both modes. This is deterministic and safe on server and client.
+    const sorted = [...result].sort((a, b) => {
+      const ta = parseTime(a.published_at);
+      const tb = parseTime(b.published_at);
+      if (ta === null && tb === null) return 0;
+      if (ta === null) return 1;
+      if (tb === null) return -1;
+      return sortMode === 'Newest' ? tb - ta : ta - tb;
+    });
+
+    return sorted;
+  }, [articles, activeKeyword, activePeriod, sortMode]);
 
   return (
     <main className="pt-20">
@@ -114,6 +165,40 @@ const NewsFeed: React.FC<NewsFeedProps> = ({ initialArticles }) => {
 
           {!loading && !error && (
             <>
+              {/* Period + sort controls */}
+              <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+                <div className="flex flex-wrap gap-2">
+                  {PERIODS.map(p => (
+                    <button
+                      key={p}
+                      onClick={() => setActivePeriod(p)}
+                      className={`px-4 py-2 font-mono text-[10px] font-black uppercase tracking-[0.2em] border transition-all ${
+                        activePeriod === p
+                          ? 'bg-neon-cyan text-dark-bg border-neon-cyan'
+                          : 'bg-transparent text-slate-500 border-white/10 hover:border-neon-cyan/40 hover:text-slate-300'
+                      }`}
+                    >
+                      {p}
+                    </button>
+                  ))}
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {(['Newest', 'Oldest'] as SortMode[]).map(mode => (
+                    <button
+                      key={mode}
+                      onClick={() => setSortMode(mode)}
+                      className={`px-4 py-2 font-mono text-[10px] font-black uppercase tracking-[0.2em] border transition-all ${
+                        sortMode === mode
+                          ? 'bg-neon-cyan text-dark-bg border-neon-cyan'
+                          : 'bg-transparent text-slate-500 border-white/10 hover:border-neon-cyan/40 hover:text-slate-300'
+                      }`}
+                    >
+                      {mode}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
               {/* Keyword filter tabs */}
               <div className="flex flex-wrap gap-2 mb-10">
                 {keywords.map(kw => (
@@ -133,7 +218,7 @@ const NewsFeed: React.FC<NewsFeedProps> = ({ initialArticles }) => {
 
               {filtered.length === 0 ? (
                 <div className="text-center py-24">
-                  <span className="font-mono text-slate-600 text-xs uppercase tracking-[0.4em]">// No signals for this keyword yet</span>
+                  <span className="font-mono text-slate-600 text-xs uppercase tracking-[0.4em]">// No signals match these filters</span>
                 </div>
               ) : (
                 <div className="grid grid-cols-1 gap-2">
