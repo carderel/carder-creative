@@ -17,7 +17,7 @@ const DIST = resolve(__dirname, 'dist');
 const SSR_ENTRY = resolve(__dirname, 'dist-ssr/entry-server.js');
 
 // Keep in sync with the <Route> paths in src/AppRoutes.tsx.
-const ROUTES = ['/', '/resources', '/news', '/site-guide', '/legal', '/seo-services'];
+const ROUTES = ['/', '/resources', '/news', '/site-guide', '/legal', '/seo-services', '/ppc-services'];
 
 // Build-time seed for /news. Keep the host in sync with API_URL in src/pages/NewsFeed.tsx.
 // We seed a recent slice (the client re-fetches the full set) to keep the static HTML lean.

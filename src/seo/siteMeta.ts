@@ -3,7 +3,7 @@
 // prerender script (prerender.mjs via entry-server). Keep route keys in sync
 // with the <Route> paths in AppRoutes.tsx and the URLs in public/sitemap.xml.
 
-import { SEO_SERVICE, serviceJsonLd } from '../data/servicePages';
+import { SEO_SERVICE, PPC_SERVICE, serviceJsonLd } from '../data/servicePages';
 
 export const SITE_URL = 'https://cardercreative.com';
 
@@ -44,6 +44,11 @@ export const ROUTE_META: Record<string, RouteMeta> = {
     title: SEO_SERVICE.title,
     description: SEO_SERVICE.metaDescription,
     jsonLd: serviceJsonLd(SEO_SERVICE),
+  },
+  [PPC_SERVICE.slug]: {
+    title: PPC_SERVICE.title,
+    description: PPC_SERVICE.metaDescription,
+    jsonLd: serviceJsonLd(PPC_SERVICE),
   },
 };
 

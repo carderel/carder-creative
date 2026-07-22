@@ -11,7 +11,7 @@ import NewsFeed, { type Article } from './pages/NewsFeed';
 import SiteGuide from './pages/SiteGuide';
 import Legal from './pages/Legal';
 import ServicePage from './pages/ServicePage';
-import { SEO_SERVICE } from './data/servicePages';
+import { SEO_SERVICE, PPC_SERVICE } from './data/servicePages';
 import { useDocumentMeta } from './seo/useDocumentMeta';
 
 export interface InitialData {
@@ -57,6 +57,7 @@ function AppRoutes({ initialData }: { initialData?: InitialData }) {
           <Route path="/site-guide" element={<SiteGuide />} />
           <Route path="/legal" element={<Legal />} />
           <Route path="/seo-services" element={<ServicePage data={SEO_SERVICE} onOpenDiagnostic={openDiagnostic} onOpenChecklist={openChecklist} />} />
+          <Route path="/ppc-services" element={<ServicePage data={PPC_SERVICE} onOpenDiagnostic={openDiagnostic} onOpenChecklist={openChecklist} />} />
         </Routes>
 
         <Footer />

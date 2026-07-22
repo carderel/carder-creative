@@ -41,8 +41,8 @@ const SearchStack: React.FC<SearchStackProps> = ({ onOpenDiagnostic }) => {
         'Conversion tracking review',
         'Landing page alignment',
       ],
-      ctaText: 'DISCUSS PPC SUPPORT',
-      ctaLink: '#diagnostic-section',
+      ctaText: 'VIEW PPC SERVICES',
+      ctaLink: '/ppc-services',
     },
   ];
 

@@ -113,3 +113,37 @@ export const SEO_SERVICE: ServicePageData = {
     { q: 'Do you do one-time audits or ongoing work?', a: 'Both. Some clients want a one-time audit with a prioritized action list they implement themselves. Others prefer ongoing monthly execution and reporting. We scope to fit.' },
   ],
 };
+
+export const PPC_SERVICE: ServicePageData = {
+  slug: '/ppc-services',
+  title: 'PPC & Google Ads Management in Columbus, Ohio | Carder Creative',
+  metaDescription:
+    'Google Ads strategy, management, and conversion tracking for Columbus businesses - capture high-intent demand while organic search and AI visibility mature.',
+  eyebrow: '// PPC SERVICES',
+  h1: 'PPC & Google Ads Management for Columbus Businesses',
+  heroLede:
+    'Capture high-intent demand right now while your organic search and AI visibility mature. We build, manage, and measure Google Ads campaigns that turn searches into customers - and feed what we learn back into your SEO.',
+  serviceType: 'Pay-per-click advertising management',
+  included: [
+    { title: 'Google Ads Strategy & Management', description: 'Campaign structure, keyword selection, bidding, and ongoing optimization built around your margins and goals.' },
+    { title: 'Search Query & Intent Analysis', description: 'We mine the queries triggering your ads to separate high-intent buyers from wasted spend - and to inform your organic content.' },
+    { title: 'Conversion Tracking Review', description: 'We verify that leads, calls, and sales are tracked accurately so spend decisions are based on real outcomes, not guesses.' },
+    { title: 'Landing Page Alignment', description: 'We align ad messaging with landing pages so the click-to-conversion path is clear, fast, and relevant.' },
+  ],
+  process: [
+    { num: '01', title: 'Audit', description: 'We review your account structure, spend, conversion tracking, and the queries currently triggering ads.' },
+    { num: '02', title: 'Plan', description: 'We define campaign structure, target queries, budget allocation, and the conversion actions that matter.' },
+    { num: '03', title: 'Execute', description: 'We build and launch campaigns, align landing pages, and set up clean conversion tracking.' },
+    { num: '04', title: 'Measure', description: 'We optimize against cost-per-acquisition and ROAS, cutting waste and scaling what converts.' },
+  ],
+  aiConnectionHeading: 'PAID DEMAND BUYS TIME WHILE ORGANIC & AI VISIBILITY COMPOUND',
+  aiConnectionBody:
+    'PPC and SEO are not either/or. Paid search captures high-intent demand immediately, while SEO and AI visibility build durable, compounding presence over time. The query data from your ads reveals exactly what your customers search for - intelligence we feed straight into your organic content and AI-visibility work.',
+  faq: [
+    { q: 'What platforms do you manage?', a: 'We focus on Google Ads (Search, and Performance Max where it fits). We can advise on Microsoft Ads and paid social, and scope those in when they match your goals.' },
+    { q: 'How much should I budget for Google Ads?', a: 'It depends on your industry, competition, and goals. We help you set a budget tied to a target cost-per-acquisition rather than a fixed number, and we start conservatively while we gather conversion data.' },
+    { q: 'How does PPC fit with SEO and AI visibility?', a: 'PPC delivers immediate, high-intent traffic while SEO and AI visibility build over months. The query and conversion data from ads also informs which topics and pages to prioritize organically - so the channels strengthen each other.' },
+    { q: 'Do you set up conversion tracking?', a: 'Yes. Accurate conversion tracking is the foundation of profitable PPC. We review or implement tracking for leads, calls, and sales before scaling spend.' },
+    { q: 'Is there a minimum commitment?', a: 'We keep engagements flexible. Many clients start with an audit and initial build, then move to monthly management. We scope to fit your budget and goals.' },
+  ],
+};
