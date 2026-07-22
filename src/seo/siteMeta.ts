@@ -12,6 +12,8 @@ export interface RouteMeta {
   description: string;
   /** Optional per-route structured data, injected into the prerendered <head>. */
   jsonLd?: object | object[];
+  /** Optional per-route robots directive, e.g. 'noindex, follow'. */
+  robots?: string;
 }
 
 export const ROUTE_META: Record<string, RouteMeta> = {
@@ -29,6 +31,7 @@ export const ROUTE_META: Record<string, RouteMeta> = {
     title: 'AI Search Intel | Live AI Visibility & GEO News',
     description:
       'Real-time news on AI search, GEO, LLM visibility, and the emerging discovery layer. Updated daily by Carder Creative.',
+    robots: 'noindex, follow',
   },
   '/site-guide': {
     title: 'AI Site Guide | Carder Creative',

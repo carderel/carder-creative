@@ -43,6 +43,10 @@ export function render(url: string, initialData?: InitialData): RenderResult {
     `<meta property="twitter:url" content="${canonical}" />`,
   ];
 
+  if (meta.robots) {
+    metaTags.push(`<meta name="robots" content="${escapeAttr(meta.robots)}" />`);
+  }
+
   if (meta.jsonLd) {
     // Escape "<" so the JSON can't break out of the <script> element
     // (same technique prerender.mjs uses for the news seed).

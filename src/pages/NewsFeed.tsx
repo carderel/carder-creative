@@ -200,7 +200,7 @@ const NewsFeed: React.FC<NewsFeedProps> = ({ initialArticles }) => {
                   key={article.id}
                   href={article.url}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="nofollow noopener noreferrer"
                   className="group flex flex-col p-8 bg-white/5 hover:bg-neon-cyan/5 transition-all border border-white/5 hover:border-neon-cyan/30"
                 >
                   <div className="flex flex-col md:flex-row md:items-start gap-4">

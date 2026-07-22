@@ -26,6 +26,20 @@ function setCanonical(href: string) {
   el.setAttribute('href', href);
 }
 
+function setRobots(content: string | null) {
+  let el = document.head.querySelector<HTMLMetaElement>('meta[name="robots"]');
+  if (content === null) {
+    if (el) el.remove();
+    return;
+  }
+  if (!el) {
+    el = document.createElement('meta');
+    el.setAttribute('name', 'robots');
+    document.head.appendChild(el);
+  }
+  el.setAttribute('content', content);
+}
+
 export function useDocumentMeta(pathname: string): void {
   useEffect(() => {
     const meta = metaForPath(pathname);
@@ -34,6 +48,7 @@ export function useDocumentMeta(pathname: string): void {
     document.title = meta.title;
     setMeta('meta[name="description"]', 'name', 'description', meta.description);
     setCanonical(canonical);
+    setRobots(meta.robots ?? null);
 
     setMeta('meta[property="og:title"]', 'property', 'og:title', meta.title);
     setMeta('meta[property="og:description"]', 'property', 'og:description', meta.description);
