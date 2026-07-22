@@ -49,7 +49,7 @@ export function serviceJsonLd(data: ServicePageData): object[] {
       serviceType: data.serviceType,
       url,
       provider: { '@id': `${SITE_URL}/#organization` },
-      areaServed: 'Columbus, OH',
+      areaServed: { '@type': 'City', name: 'Columbus', containedInPlace: { '@type': 'State', name: 'Ohio' } },
     },
     {
       '@context': 'https://schema.org',
@@ -68,7 +68,7 @@ export const SEO_SERVICE: ServicePageData = {
   slug: '/seo-services',
   title: 'SEO Services in Columbus, Ohio | Carder Creative',
   metaDescription:
-    'Technical, local, and content SEO for Columbus and Central Ohio businesses - the organic foundation that supports both traditional search and AI-powered discovery.',
+    'Technical, local, and content SEO for Columbus and Central Ohio businesses - the foundation that supports both traditional search and AI-powered discovery.',
   eyebrow: '// SEO SERVICES',
   h1: 'SEO Services for Columbus & Central Ohio Businesses',
   heroLede:

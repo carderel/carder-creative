@@ -14,7 +14,7 @@ const ServicePage: React.FC<ServicePageProps> = ({ data, onOpenDiagnostic, onOpe
       {/* Hero */}
       <section className="py-20 sm:py-28 bg-dark-bg border-b border-white/5 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <h2 className="text-neon-cyan font-mono text-xs font-black uppercase tracking-[0.4em] mb-6">{data.eyebrow}</h2>
+          <p className="text-neon-cyan font-mono text-xs font-black uppercase tracking-[0.4em] mb-6">{data.eyebrow}</p>
           <h1 className="text-[clamp(2.25rem,7vw,4.5rem)] font-black text-white uppercase tracking-tighter leading-[0.95] mb-8 max-w-4xl">
             {data.h1}
           </h1>
@@ -55,8 +55,8 @@ const ServicePage: React.FC<ServicePageProps> = ({ data, onOpenDiagnostic, onOpe
       {/* Process */}
       <section className="py-16 bg-dark-bg border-b border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-neon-cyan font-mono text-xs font-black uppercase tracking-[0.4em] mb-4">// HOW WE WORK</h2>
-          <p className="text-4xl sm:text-5xl font-black text-white uppercase tracking-tighter mb-12">OUR PROCESS</p>
+          <p className="text-neon-cyan font-mono text-xs font-black uppercase tracking-[0.4em] mb-4">// HOW WE WORK</p>
+          <h2 className="text-4xl sm:text-5xl font-black text-white uppercase tracking-tighter mb-12">OUR PROCESS</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {data.process.map((step) => (
               <div key={step.num} className="group glass-card p-10 relative overflow-hidden transition-all duration-500 hover:bg-white/10">
