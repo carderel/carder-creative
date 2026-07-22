@@ -12,10 +12,16 @@ const NAMED_ENTITIES = {
 
 export function decodeEntities(s) {
   if (!s) return '';
-  return s
-    .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
-    .replace(/&#x([0-9a-fA-F]+);/g, (_, n) => String.fromCodePoint(parseInt(n, 16)))
-    .replace(/&amp;|&lt;|&gt;|&quot;|&#39;|&apos;|&nbsp;/g, (m) => NAMED_ENTITIES[m] ?? m);
+  let out = s;
+  for (let i = 0; i < 5; i++) {
+    const next = out
+      .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
+      .replace(/&#x([0-9a-fA-F]+);/g, (_, n) => String.fromCodePoint(parseInt(n, 16)))
+      .replace(/&amp;|&lt;|&gt;|&quot;|&#39;|&apos;|&nbsp;/g, (m) => NAMED_ENTITIES[m] ?? m);
+    if (next === out) break;
+    out = next;
+  }
+  return out;
 }
 
 export function stripHtml(s) {

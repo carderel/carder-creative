@@ -13,6 +13,17 @@ test('stripHtml removes escaped tags, entities, zero-width, collapses whitespace
   assert.equal(stripHtml('​Leading zero-width'), 'Leading zero-width');
 });
 
+test('decodeEntities handles double-encoded entities (Google Alerts feed)', () => {
+  assert.equal(decodeEntities('Google&amp;#39;s'), "Google's");
+  assert.equal(decodeEntities('2.5&amp;nbsp;end'), '2.5 end');
+  assert.equal(decodeEntities('AT&amp;amp;T'), 'AT&T');
+});
+
+test('stripHtml cleans double-encoded title from a Google Alerts entry', () => {
+  assert.equal(stripHtml('GOOGLE&amp;#39;S RED-HOT &lt;b&gt;CLOUD&lt;/b&gt; GROWTH'), "GOOGLE'S RED-HOT CLOUD GROWTH");
+  assert.equal(stripHtml('In 2024 &amp;#8230; 2.5&amp;nbsp;&amp;#8230;'), 'In 2024 … 2.5 …');
+});
+
 test('unwrapUrl extracts the real url from a google.com/url wrapper (with &amp;)', () => {
   const href = 'https://www.google.com/url?rct=j&amp;sa=t&amp;url=https://ex.com/post?a=1&amp;ct=ga&amp;usg=x';
   assert.equal(unwrapUrl(href), 'https://ex.com/post?a=1');
