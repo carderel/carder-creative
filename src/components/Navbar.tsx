@@ -23,7 +23,25 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenDiagnostic }) => {
           </Link>
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-8">
-              <a href={getHref('#search-stack-section')} className="text-slate-400 hover:text-neon-cyan px-3 py-2 text-xs font-bold uppercase tracking-widest transition-all">Services</a>
+              <div className="relative group">
+                <a
+                  href={getHref('#search-stack-section')}
+                  className="inline-flex items-center text-slate-400 group-hover:text-neon-cyan px-3 py-2 text-xs font-bold uppercase tracking-widest transition-all"
+                >
+                  Services
+                  <svg className="ml-1.5 w-3 h-3 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </a>
+                {/* pt-2 creates a hover bridge so the panel doesn't close between trigger and menu */}
+                <div className="absolute left-0 top-full pt-2 w-56 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 transition-all duration-200">
+                  <div className="bg-dark-bg/95 backdrop-blur-md border border-neon-cyan/20 shadow-[0_0_20px_rgba(0,242,255,0.1)] py-2">
+                    <a href={getHref('#search-stack-section')} className="block px-4 py-3 text-[11px] font-bold uppercase tracking-widest text-slate-400 hover:text-neon-cyan hover:bg-white/5 transition-all">AI Visibility</a>
+                    <Link to="/seo-services/" className={`block px-4 py-3 text-[11px] font-bold uppercase tracking-widest transition-all hover:bg-white/5 ${location.pathname.replace(/\/$/, '') === '/seo-services' ? 'text-neon-cyan' : 'text-slate-400 hover:text-neon-cyan'}`}>SEO Services</Link>
+                    <Link to="/ppc-services/" className={`block px-4 py-3 text-[11px] font-bold uppercase tracking-widest transition-all hover:bg-white/5 ${location.pathname.replace(/\/$/, '') === '/ppc-services' ? 'text-neon-cyan' : 'text-slate-400 hover:text-neon-cyan'}`}>PPC Services</Link>
+                  </div>
+                </div>
+              </div>
               <a href={getHref('#methodology-section')} className="text-slate-400 hover:text-neon-cyan px-3 py-2 text-xs font-bold uppercase tracking-widest transition-all">Methodology</a>
               <a href={getHref('#pricing-section')} className="text-slate-400 hover:text-neon-cyan px-3 py-2 text-xs font-bold uppercase tracking-widest transition-all">Pricing</a>
               <Link to="/resources/" className={`px-3 py-2 text-xs font-bold uppercase tracking-widest transition-all ${location.pathname.replace(/\/$/, '') === '/resources' ? 'text-neon-cyan' : 'text-slate-400 hover:text-neon-cyan'}`}>Resources</Link>
