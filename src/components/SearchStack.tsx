@@ -29,8 +29,8 @@ const SearchStack: React.FC<SearchStackProps> = ({ onOpenDiagnostic }) => {
         'Metadata, schema, and internal linking',
         'Content structure and page-level improvements',
       ],
-      ctaText: 'DISCUSS SEO SUPPORT',
-      ctaLink: '#diagnostic-section',
+      ctaText: 'VIEW SEO SERVICES',
+      ctaLink: '/seo-services',
     },
     {
       title: 'PPC SERVICES',

@@ -3,6 +3,8 @@
 // prerender script (prerender.mjs via entry-server). Keep route keys in sync
 // with the <Route> paths in AppRoutes.tsx and the URLs in public/sitemap.xml.
 
+import { SEO_SERVICE, serviceJsonLd } from '../data/servicePages';
+
 export const SITE_URL = 'https://cardercreative.com';
 
 export interface RouteMeta {
@@ -37,6 +39,11 @@ export const ROUTE_META: Record<string, RouteMeta> = {
     title: 'Privacy Policy & Terms | Carder Creative',
     description:
       'Privacy Policy and Terms of Service for AI Visibility Services, operated by Carder Creative LLC in Columbus, Ohio.',
+  },
+  [SEO_SERVICE.slug]: {
+    title: SEO_SERVICE.title,
+    description: SEO_SERVICE.metaDescription,
+    jsonLd: serviceJsonLd(SEO_SERVICE),
   },
 };
 
