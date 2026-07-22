@@ -11,33 +11,16 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { buildArticles } from './scripts/newsFeeds.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST = resolve(__dirname, 'dist');
 const SSR_ENTRY = resolve(__dirname, 'dist-ssr/entry-server.js');
 
+const FEEDS = JSON.parse(readFileSync(resolve(__dirname, 'scripts/news-feeds.json'), 'utf-8'));
+
 // Keep in sync with the <Route> paths in src/AppRoutes.tsx.
 const ROUTES = ['/', '/resources', '/news', '/site-guide', '/legal', '/seo-services', '/ppc-services'];
-
-// Build-time seed for /news. Keep the host in sync with API_URL in src/pages/NewsFeed.tsx.
-// We seed a recent slice (the client re-fetches the full set) to keep the static HTML lean.
-const NEWS_API = 'https://ai-visibility-news-agent.carder-creative.workers.dev/api/news/articles?limit=50';
-
-async function fetchNews() {
-  try {
-    const res = await fetch(NEWS_API);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
-    const list = Array.isArray(data.articles) ? data.articles : [];
-    console.log(`prerender: fetched ${list.length} news articles for /news`);
-    return list;
-  } catch (err) {
-    // Never fail the build over the news feed — /news just prerenders empty and
-    // hydrates client-side, exactly as before this feature.
-    console.warn(`prerender: news fetch failed (${err?.message ?? err}); /news will hydrate client-side`);
-    return [];
-  }
-}
 
 const { render } = await import(pathToFileURL(SSR_ENTRY).href);
 const template = readFileSync(resolve(DIST, 'index.html'), 'utf-8');
@@ -49,7 +32,12 @@ if (!template.includes('</head>') || !template.includes('</body>')) {
   throw new Error('prerender: could not find </head> or </body> in dist/index.html');
 }
 
-const newsArticles = await fetchNews();
+const newsArticles = await buildArticles(FEEDS);
+if (newsArticles.length === 0) {
+  // Fail-loud (D4): never deploy an empty feed and never silently serve stale data.
+  throw new Error(`prerender: 0 news articles from ${FEEDS.length} Google Alerts feeds — refusing to build an empty /news`);
+}
+console.log(`prerender: built ${newsArticles.length} deduped news articles from ${FEEDS.length} feeds`);
 
 function outputPathFor(route) {
   if (route === '/') return resolve(DIST, 'index.html');
