@@ -71,6 +71,10 @@ const NewsFeed: React.FC<NewsFeedProps> = ({ initialArticles }) => {
   // the server. Period filtering only kicks in after a client interaction.
   const [sortMode, setSortMode] = useState<SortMode>('Newest');
   const [activePeriod, setActivePeriod] = useState<Period>('All');
+  // "Now" reference for the period-filter cutoff. Captured in the period
+  // button's click handler (not during render) so render stays pure/SSR-safe.
+  // Stays null until a non-'All' period is chosen on the client.
+  const [nowRef, setNowRef] = useState<number | null>(null);
   const [loading, setLoading] = useState(seed.length === 0);
   const [error, setError] = useState<string | null>(null);
 
@@ -105,10 +109,11 @@ const NewsFeed: React.FC<NewsFeedProps> = ({ initialArticles }) => {
 
     // 2. Period filter. 'All' is a no-op (and the only value during SSR/first
     //    render, so no "now"-dependent math runs on the server). Any other
-    //    period reads the current time at filter-evaluation time only, and
+    //    period uses the "now" reference captured when the period button was
+    //    clicked (nowRef) rather than reading the clock during render, and
     //    excludes articles with an unknown (null/invalid) published_at.
-    if (activePeriod !== 'All') {
-      const cutoff = Date.now() - PERIOD_MS[activePeriod];
+    if (activePeriod !== 'All' && nowRef !== null) {
+      const cutoff = nowRef - PERIOD_MS[activePeriod];
       result = result.filter(a => {
         const t = parseTime(a.published_at);
         return t !== null && t >= cutoff;
@@ -127,7 +132,7 @@ const NewsFeed: React.FC<NewsFeedProps> = ({ initialArticles }) => {
     });
 
     return sorted;
-  }, [articles, activeKeyword, activePeriod, sortMode]);
+  }, [articles, activeKeyword, activePeriod, sortMode, nowRef]);
 
   return (
     <main className="pt-20">
@@ -171,7 +176,12 @@ const NewsFeed: React.FC<NewsFeedProps> = ({ initialArticles }) => {
                   {PERIODS.map(p => (
                     <button
                       key={p}
-                      onClick={() => setActivePeriod(p)}
+                      onClick={() => {
+                        // Capture "now" here, in the click handler, rather than
+                        // during render — keeps the filter computation pure.
+                        setNowRef(p === 'All' ? null : Date.now());
+                        setActivePeriod(p);
+                      }}
                       className={`px-4 py-2 font-mono text-[10px] font-black uppercase tracking-[0.2em] border transition-all ${
                         activePeriod === p
                           ? 'bg-neon-cyan text-dark-bg border-neon-cyan'
