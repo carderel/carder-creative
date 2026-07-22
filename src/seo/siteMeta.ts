@@ -8,6 +8,8 @@ export const SITE_URL = 'https://cardercreative.com';
 export interface RouteMeta {
   title: string;
   description: string;
+  /** Optional per-route structured data, injected into the prerendered <head>. */
+  jsonLd?: object | object[];
 }
 
 export const ROUTE_META: Record<string, RouteMeta> = {

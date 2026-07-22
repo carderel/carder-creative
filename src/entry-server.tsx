@@ -31,7 +31,7 @@ export function render(url: string, initialData?: InitialData): RenderResult {
   const description = escapeAttr(meta.description);
   const canonical = canonicalForPath(url);
 
-  const head = [
+  const metaTags = [
     `<title>${title}</title>`,
     `<meta name="description" content="${description}" />`,
     `<link rel="canonical" href="${canonical}" />`,
@@ -41,7 +41,16 @@ export function render(url: string, initialData?: InitialData): RenderResult {
     `<meta property="twitter:title" content="${title}" />`,
     `<meta property="twitter:description" content="${description}" />`,
     `<meta property="twitter:url" content="${canonical}" />`,
-  ].join('\n    ');
+  ];
+
+  if (meta.jsonLd) {
+    // Escape "<" so the JSON can't break out of the <script> element
+    // (same technique prerender.mjs uses for the news seed).
+    const json = JSON.stringify(meta.jsonLd).replace(/</g, '\\u003c');
+    metaTags.push(`<script type="application/ld+json">${json}</script>`);
+  }
+
+  const head = metaTags.join('\n    ');
 
   return { html, head };
 }
