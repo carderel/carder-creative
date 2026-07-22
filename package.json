@@ -8,6 +8,7 @@
     "build": "tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node prerender.mjs",
     "build:client": "tsc -b && vite build",
     "indexnow": "node scripts/indexnow.mjs",
+    "test": "node --test scripts/*.test.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },
