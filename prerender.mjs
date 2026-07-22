@@ -4,9 +4,11 @@
 // static index.html, so crawlers and AI bots get full markup without executing JS.
 // Pure Node + react-dom/server — no headless browser, safe on free CI (Cloudflare Pages).
 //
-// /news is data-driven: we fetch the live feed here and bake the articles into the
-// static HTML, plus inject a seed (window.__NEWS_ARTICLES__) so client hydration
-// matches the server render. The client still re-fetches to stay current.
+// /news is data-driven: we fetch the Google Alerts RSS feeds here and bake the
+// articles into the static HTML, plus inject a seed (window.__NEWS_ARTICLES__) so
+// client hydration matches the server render. /news is fully baked at build time —
+// the client renders the prerendered seed with no live re-fetch; freshness comes
+// from the daily rebuild (external cron -> Cloudflare Pages Deploy Hook).
 
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
