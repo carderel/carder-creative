@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import SchemaFacts from './components/SchemaFacts';
 import Modal from './components/Modal';
 import ContactForm from './components/ContactForm';
 import ChecklistForm from './components/ChecklistForm';
@@ -62,6 +63,7 @@ function AppRoutes({ initialData }: { initialData?: InitialData }) {
           <Route path="/ai-visibility-services" element={<AiVisibilityServices onOpenDiagnostic={openDiagnostic} onOpenChecklist={openChecklist} />} />
         </Routes>
 
+        <SchemaFacts />
         <Footer />
 
         {/* Pop-up Diagnostic Form */}
