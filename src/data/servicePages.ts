@@ -147,3 +147,37 @@ export const PPC_SERVICE: ServicePageData = {
     { q: 'Is there a minimum commitment?', a: 'We keep engagements flexible. Many clients start with an audit and initial build, then move to monthly management. We scope to fit your budget and goals.' },
   ],
 };
+
+export const AI_VISIBILITY_SERVICE: ServicePageData = {
+  slug: '/ai-visibility-services',
+  title: 'AI Visibility & Generative Engine Optimization in Columbus, Ohio | Carder Creative',
+  metaDescription:
+    'Make your Columbus business easy for AI systems like ChatGPT, Gemini, and Claude to find, understand, verify, and recommend - through audits, entity clarity, trust signals, and honest measurement.',
+  eyebrow: '// AI VISIBILITY SERVICES',
+  h1: 'AI Visibility Services for Columbus & Central Ohio Businesses',
+  heroLede:
+    'The shift from traditional search to AI-powered discovery is here. We make your business easier for AI systems - ChatGPT, Gemini, Perplexity, Claude - to find, understand, verify, and recommend. It is not a replacement for SEO; it is strong SEO viewed through a new lens.',
+  serviceType: 'AI Visibility / Generative Engine Optimization',
+  included: [
+    { title: 'AI Visibility Audits', description: 'A baseline of how AI systems currently find, read, and represent your business - crawl access, entity clarity, citations, and gaps.' },
+    { title: 'Entity Clarity & Content Structure', description: 'Clear, structured content and consistent business data so AI systems can extract what you do, where you operate, and who you serve.' },
+    { title: 'Citation & Trust Signal Review', description: 'Strengthen the third-party sources, reviews, and directory profiles that AI systems weigh when deciding whom to trust and recommend.' },
+    { title: 'AI Referral & Visibility Monitoring', description: 'Track AI referrals, crawler activity, sampled prompt visibility, and citation drift over time - honest, observable measurement.' },
+  ],
+  process: [
+    { num: '01', title: 'Audit', description: 'We baseline how AI and search systems currently find, understand, and represent your business.' },
+    { num: '02', title: 'Plan', description: 'We prioritize the highest-impact fixes across access, clarity, trust, and content.' },
+    { num: '03', title: 'Execute', description: 'We implement structured data, content, citations, and technical repairs.' },
+    { num: '04', title: 'Measure', description: 'We monitor AI referrals, citations, and sampled visibility - and adjust.' },
+  ],
+  aiConnectionHeading: 'AI VISIBILITY IS STRONG SEO, VIEWED THROUGH A NEW LENS',
+  aiConnectionBody:
+    'AI-powered discovery rewards the same fundamentals strong SEO always has: accessible pages, clear information, trusted sources, consistent business data, structured content, citations, reviews, and clean measurement. We improve those underlying signals so you are easier to find, understand, verify, and recommend - whether the customer starts in Google or in an AI assistant.',
+  faq: [
+    { q: 'What is AI visibility (or GEO)?', a: 'AI visibility - sometimes called Generative Engine Optimization (GEO) or Answer Engine Optimization (AEO) - is about how AI systems like ChatGPT, Gemini, Perplexity, and Claude find, understand, and recommend your business. It focuses on the signals those systems use, rather than only traditional search rankings.' },
+    { q: 'How is this different from SEO?', a: 'It is not a replacement for SEO - it is strong SEO viewed through a different lens. The same foundations (accessible pages, clear content, trusted citations, consistent data) drive both. We treat them as one connected system.' },
+    { q: 'Can you guarantee we will rank #1 in ChatGPT?', a: 'No - and anyone who promises that is overselling. AI answers are generated and vary by prompt and context. We improve the underlying signals and measure sampled visibility and confirmed AI referrals honestly, distinguishing probable from confirmed.' },
+    { q: 'How do you measure AI visibility?', a: 'A mix of confirmed signals (AI referral traffic, crawler activity in logs) and directional ones (sampled prompt testing, citation frequency, share of voice). We report what is confirmed vs. probable rather than vanity numbers.' },
+    { q: 'What does an engagement look like?', a: 'Most clients start with an AI Visibility Audit, move into a focused Enhancements phase, then optional ongoing monitoring. See the tiers below; timelines run roughly 2-10 weeks to deploy improvements.' },
+  ],
+};

@@ -6,9 +6,10 @@ interface ServicePageProps {
   data: ServicePageData;
   onOpenDiagnostic: () => void;
   onOpenChecklist: () => void;
+  extraSections?: React.ReactNode;
 }
 
-const ServicePage: React.FC<ServicePageProps> = ({ data, onOpenDiagnostic, onOpenChecklist }) => {
+const ServicePage: React.FC<ServicePageProps> = ({ data, onOpenDiagnostic, onOpenChecklist, extraSections }) => {
   return (
     <main>
       {/* Hero */}
@@ -82,6 +83,9 @@ const ServicePage: React.FC<ServicePageProps> = ({ data, onOpenDiagnostic, onOpe
           <p className="text-slate-300 text-base font-medium leading-relaxed">{data.aiConnectionBody}</p>
         </div>
       </section>
+
+      {/* Optional injected sections (e.g. Methodology + Pricing on the AI Visibility page) */}
+      {extraSections}
 
       {/* FAQ */}
       <section className="py-16 bg-dark-bg border-b border-white/5">
