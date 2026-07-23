@@ -15,10 +15,10 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenDiagnostic }) => {
         <div className="flex justify-between h-20 items-center">
           <Link to="/" className="flex-shrink-0 flex flex-col justify-center hover:opacity-80 transition-opacity">
             <span className="text-[clamp(0.875rem,4.5vw,1.25rem)] font-bold text-white tracking-tighter uppercase font-mono leading-none">
-              AI VISIBILITY <span className="text-neon-cyan">SERVICES</span>
+              CARDER <span className="text-neon-cyan">CREATIVE</span>
             </span>
             <span className="text-[8px] font-black text-slate-500 tracking-[0.2em] uppercase mt-1">
-              by Carder Creative
+              AI Visibility · SEO · PPC · Columbus, OH
             </span>
           </Link>
           <div className="hidden md:block">
@@ -36,7 +36,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenDiagnostic }) => {
                 {/* pt-2 creates a hover bridge so the panel doesn't close between trigger and menu */}
                 <div className="absolute left-0 top-full pt-2 w-56 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 transition-all duration-200">
                   <div className="bg-dark-bg/95 backdrop-blur-md border border-neon-cyan/20 shadow-[0_0_20px_rgba(0,242,255,0.1)] py-2">
-                    <a href={getHref('#search-stack-section')} className="block px-4 py-3 text-[11px] font-bold uppercase tracking-widest text-slate-400 hover:text-neon-cyan hover:bg-white/5 transition-all">AI Visibility</a>
+                    <Link to="/ai-visibility-services/" className={`block px-4 py-3 text-[11px] font-bold uppercase tracking-widest transition-all hover:bg-white/5 ${location.pathname.replace(/\/$/, '') === '/ai-visibility-services' ? 'text-neon-cyan' : 'text-slate-400 hover:text-neon-cyan'}`}>AI Visibility</Link>
                     <Link to="/seo-services/" className={`block px-4 py-3 text-[11px] font-bold uppercase tracking-widest transition-all hover:bg-white/5 ${location.pathname.replace(/\/$/, '') === '/seo-services' ? 'text-neon-cyan' : 'text-slate-400 hover:text-neon-cyan'}`}>SEO Services</Link>
                     <Link to="/ppc-services/" className={`block px-4 py-3 text-[11px] font-bold uppercase tracking-widest transition-all hover:bg-white/5 ${location.pathname.replace(/\/$/, '') === '/ppc-services' ? 'text-neon-cyan' : 'text-slate-400 hover:text-neon-cyan'}`}>PPC Services</Link>
                   </div>

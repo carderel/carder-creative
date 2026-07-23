@@ -7,10 +7,10 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-20 mb-20">
           <div>
             <span className="text-[clamp(0.875rem,4.5vw,1.25rem)] font-bold text-white tracking-tighter uppercase mb-2 block">
-              AI VISIBILITY <span className="text-neon-cyan">SERVICES</span>
+              CARDER <span className="text-neon-cyan">CREATIVE</span>
             </span>
             <span className="text-[10px] font-black text-slate-600 tracking-[0.2em] uppercase mb-8 block">
-              by Carder Creative
+              AI Visibility · SEO · PPC
             </span>
             <p className="text-[10px] font-bold uppercase leading-loose tracking-widest">
               A specialized consulting practice helping businesses navigate the AI discovery layer. <br />
@@ -21,7 +21,7 @@ const Footer = () => {
           <div>
             <h3 className="text-white font-black text-xs uppercase tracking-[0.3em] mb-8">// NAV MAP</h3>
             <ul className="space-y-4 text-[10px] font-black uppercase tracking-widest">
-              <li><a href="/#methodology-section" className="hover:text-neon-cyan transition-colors">AI Visibility</a></li>
+              <li><a href="/ai-visibility-services/" className="hover:text-neon-cyan transition-colors">AI Visibility</a></li>
               <li><a href="/seo-services/" className="hover:text-neon-cyan transition-colors">SEO Services</a></li>
               <li><a href="/ppc-services/" className="hover:text-neon-cyan transition-colors">PPC Services</a></li>
               <li><a href="/site-guide/" className="text-neon-cyan hover:text-white transition-colors">AI Site Guide</a></li>
