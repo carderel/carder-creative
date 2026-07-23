@@ -41,6 +41,7 @@ export function render(url: string, initialData?: InitialData): RenderResult {
     `<meta property="twitter:title" content="${title}" />`,
     `<meta property="twitter:description" content="${description}" />`,
     `<meta property="twitter:url" content="${canonical}" />`,
+    `<meta name="citation_url" content="${canonical}?utm_source=llm&amp;utm_medium=referral&amp;utm_campaign=ai_citation" />`,
   ];
 
   if (meta.robots) {

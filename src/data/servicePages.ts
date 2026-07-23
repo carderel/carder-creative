@@ -150,9 +150,9 @@ export const PPC_SERVICE: ServicePageData = {
 
 export const AI_VISIBILITY_SERVICE: ServicePageData = {
   slug: '/ai-visibility-services',
-  title: 'AI Visibility & Generative Engine Optimization in Columbus, Ohio | Carder Creative',
+  title: 'AI Visibility & GEO Services in Columbus, Ohio | Carder Creative',
   metaDescription:
-    'Make your Columbus business easy for AI systems like ChatGPT, Gemini, and Claude to find, understand, verify, and recommend - through audits, entity clarity, trust signals, and honest measurement.',
+    'Make your Columbus business easy for AI systems like ChatGPT, Gemini, and Claude to find, understand, verify, and recommend.',
   eyebrow: '// AI VISIBILITY SERVICES',
   h1: 'AI Visibility Services for Columbus & Central Ohio Businesses',
   heroLede:

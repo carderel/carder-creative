@@ -56,5 +56,6 @@ export function useDocumentMeta(pathname: string): void {
     setMeta('meta[property="twitter:title"]', 'property', 'twitter:title', meta.title);
     setMeta('meta[property="twitter:description"]', 'property', 'twitter:description', meta.description);
     setMeta('meta[property="twitter:url"]', 'property', 'twitter:url', canonical);
+    setMeta('meta[name="citation_url"]', 'name', 'citation_url', `${canonical}?utm_source=llm&utm_medium=referral&utm_campaign=ai_citation`);
   }, [pathname]);
 }

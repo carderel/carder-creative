@@ -42,8 +42,8 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenDiagnostic }) => {
                   </div>
                 </div>
               </div>
-              <a href={getHref('#methodology-section')} className="text-slate-400 hover:text-neon-cyan px-3 py-2 text-xs font-bold uppercase tracking-widest transition-all">Methodology</a>
-              <a href={getHref('#pricing-section')} className="text-slate-400 hover:text-neon-cyan px-3 py-2 text-xs font-bold uppercase tracking-widest transition-all">Pricing</a>
+              <a href="/ai-visibility-services/#methodology-section" className="text-slate-400 hover:text-neon-cyan px-3 py-2 text-xs font-bold uppercase tracking-widest transition-all">Methodology</a>
+              <a href="/ai-visibility-services/#pricing-section" className="text-slate-400 hover:text-neon-cyan px-3 py-2 text-xs font-bold uppercase tracking-widest transition-all">Pricing</a>
               <Link to="/resources/" className={`px-3 py-2 text-xs font-bold uppercase tracking-widest transition-all ${location.pathname.replace(/\/$/, '') === '/resources' ? 'text-neon-cyan' : 'text-slate-400 hover:text-neon-cyan'}`}>Resources</Link>
               <Link to="/news/" className={`px-3 py-2 text-xs font-bold uppercase tracking-widest transition-all ${location.pathname.replace(/\/$/, '') === '/news' ? 'text-neon-cyan' : 'text-slate-400 hover:text-neon-cyan'}`}>Intel Feed</Link>
               <a href={getHref('#about-section')} className="text-slate-400 hover:text-neon-cyan px-3 py-2 text-xs font-bold uppercase tracking-widest transition-all">About</a>

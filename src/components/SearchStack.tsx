@@ -17,7 +17,7 @@ const SearchStack: React.FC<SearchStackProps> = ({ onOpenDiagnostic }) => {
         'AI referral and visibility monitoring',
       ],
       ctaText: 'VIEW AI VISIBILITY SERVICES',
-      ctaLink: '/ai-visibility-services',
+      ctaLink: '/ai-visibility-services/',
       highlighted: true,
     },
     {
@@ -30,7 +30,7 @@ const SearchStack: React.FC<SearchStackProps> = ({ onOpenDiagnostic }) => {
         'Content structure and page-level improvements',
       ],
       ctaText: 'VIEW SEO SERVICES',
-      ctaLink: '/seo-services',
+      ctaLink: '/seo-services/',
     },
     {
       title: 'PPC SERVICES',
@@ -42,7 +42,7 @@ const SearchStack: React.FC<SearchStackProps> = ({ onOpenDiagnostic }) => {
         'Landing page alignment',
       ],
       ctaText: 'VIEW PPC SERVICES',
-      ctaLink: '/ppc-services',
+      ctaLink: '/ppc-services/',
     },
   ];
 

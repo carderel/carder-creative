@@ -20,7 +20,7 @@ export const ROUTE_META: Record<string, RouteMeta> = {
   '/': {
     title: 'Carder Creative | AI Visibility, SEO & PPC in Columbus, Ohio',
     description:
-      'Carder Creative is an independent Columbus, Ohio practice helping Central Ohio businesses get found, understood, trusted, and recommended across AI, organic search, and paid - with honest measurement.',
+      'Carder Creative is an independent Columbus, Ohio practice helping businesses get found, understood, and recommended across AI, search, and paid.',
   },
   '/resources': {
     title: 'Intel Archive | AI Visibility Resources | Carder Creative',
