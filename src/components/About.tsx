@@ -4,13 +4,13 @@ const About = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="lg:flex lg:items-center lg:justify-between gap-20">
           <div className="lg:w-1/2">
-            <h2 className="text-neon-cyan font-mono text-xs font-black uppercase tracking-[0.4em] mb-4">// ABOUT THE PRACTICE</h2>
+            <h2 className="text-neon-cyan font-mono text-xs font-black uppercase tracking-[0.4em] mb-4">// ABOUT CARDER CREATIVE</h2>
             <p className="text-5xl font-black text-white uppercase tracking-tighter mb-8 leading-tight">
-              LOCAL OFFICE. <br />
-              <span className="text-neon-purple drop-shadow-[0_0_8px_rgba(255,0,229,0.3)]">GLOBAL SIGNAL.</span>
+              LOCAL PRACTICE. <br />
+              <span className="text-neon-purple drop-shadow-[0_0_8px_rgba(255,0,229,0.3)]">FULL-STACK SIGNAL.</span>
             </p>
             <p className="text-lg text-slate-400 leading-relaxed mb-12 font-medium">
-              AI Visibility Services is a specialized consulting practice by Carder Creative serving Columbus, Ohio. We help mid-market businesses adapt to the shift from traditional search to AI-powered discovery through technical audits, content structure, trust signals, and honest measurement.
+              Carder Creative is the independent practice of Eli Carder - 20+ years across marketing and creative, serving Columbus and Central Ohio. We help businesses adapt to AI-powered discovery and strengthen the search foundation beneath it, through technical audits, content structure, trust signals, and honest measurement.
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">

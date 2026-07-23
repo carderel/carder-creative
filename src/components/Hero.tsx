@@ -18,7 +18,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenDiagnostic, onOpenChecklist }) => {
             STRUCTURE FOR <span className="text-neon-purple drop-shadow-[0_0_8px_rgba(255,0,229,0.5)] italic">MACHINES</span>.
           </p>
           <h1 className="text-lg text-slate-400 font-medium max-w-2xl leading-relaxed border-l-2 border-neon-cyan pl-6 mb-8">
-            Helping Columbus businesses improve the signals AI systems use to find, understand, and recommend them across ChatGPT, Gemini, Perplexity, and Claude.
+            Carder Creative is an independent Columbus, Ohio practice helping Central Ohio businesses get found, understood, trusted, and recommended - across AI, organic search, and paid.
           </h1>
           <div className="flex flex-col sm:flex-row gap-6">
             <button

@@ -17,7 +17,7 @@ const SearchStack: React.FC<SearchStackProps> = ({ onOpenDiagnostic }) => {
         'AI referral and visibility monitoring',
       ],
       ctaText: 'VIEW AI VISIBILITY SERVICES',
-      ctaLink: '#pricing-section',
+      ctaLink: '/ai-visibility-services',
       highlighted: true,
     },
     {
