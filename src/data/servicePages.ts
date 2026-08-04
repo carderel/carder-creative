@@ -152,11 +152,11 @@ export const AI_VISIBILITY_SERVICE: ServicePageData = {
   slug: '/ai-visibility-services',
   title: 'AI Visibility & GEO Services in Columbus, Ohio | Carder Creative',
   metaDescription:
-    'Make your Columbus business easy for AI systems like ChatGPT, Gemini, and Claude to find, understand, verify, and recommend.',
+    'AI search optimization for Columbus businesses - make it easy for ChatGPT, Gemini, and Claude to find, understand, verify, and recommend you.',
   eyebrow: '// AI VISIBILITY SERVICES',
   h1: 'AI Visibility Services for Columbus & Central Ohio Businesses',
   heroLede:
-    'The shift from traditional search to AI-powered discovery is here. We make your business easier for AI systems - ChatGPT, Gemini, Perplexity, Claude - to find, understand, verify, and recommend. It is not a replacement for SEO; it is strong SEO viewed through a new lens.',
+    'The shift from traditional search to AI search is here. We make your business easier for AI systems - ChatGPT, Gemini, Perplexity, Claude - to find, understand, verify, and recommend. It is not a replacement for SEO; it is strong SEO viewed through a new lens.',
   serviceType: 'AI Visibility / Generative Engine Optimization',
   included: [
     { title: 'AI Visibility Audits', description: 'A baseline of how AI systems currently find, read, and represent your business - crawl access, entity clarity, citations, and gaps.' },
@@ -172,9 +172,10 @@ export const AI_VISIBILITY_SERVICE: ServicePageData = {
   ],
   aiConnectionHeading: 'AI VISIBILITY IS STRONG SEO, VIEWED THROUGH A NEW LENS',
   aiConnectionBody:
-    'AI-powered discovery rewards the same fundamentals strong SEO always has: accessible pages, clear information, trusted sources, consistent business data, structured content, citations, reviews, and clean measurement. We improve those underlying signals so you are easier to find, understand, verify, and recommend - whether the customer starts in Google or in an AI assistant.',
+    'AI search rewards the same fundamentals strong SEO always has: accessible pages, clear information, trusted sources, consistent business data, structured content, citations, reviews, and clean measurement. We improve those underlying signals so you are easier to find, understand, verify, and recommend - whether the customer starts in Google or in an AI assistant.',
   faq: [
     { q: 'What is AI visibility (or GEO)?', a: 'AI visibility - sometimes called Generative Engine Optimization (GEO) or Answer Engine Optimization (AEO) - is about how AI systems like ChatGPT, Gemini, Perplexity, and Claude find, understand, and recommend your business. It focuses on the signals those systems use, rather than only traditional search rankings.' },
+    { q: 'Do you offer AI search optimization in Columbus?', a: 'Yes. AI search optimization is exactly what we do - it is another name for AI visibility, or GEO. We help Columbus and Central Ohio businesses show up when customers ask AI-powered search tools like ChatGPT, Gemini, and Perplexity for recommendations.' },
     { q: 'How is this different from SEO?', a: 'It is not a replacement for SEO - it is strong SEO viewed through a different lens. The same foundations (accessible pages, clear content, trusted citations, consistent data) drive both. We treat them as one connected system.' },
     { q: 'Can you guarantee we will rank #1 in ChatGPT?', a: 'No - and anyone who promises that is overselling. AI answers are generated and vary by prompt and context. We improve the underlying signals and measure sampled visibility and confirmed AI referrals honestly, distinguishing probable from confirmed.' },
     { q: 'How do you measure AI visibility?', a: 'A mix of confirmed signals (AI referral traffic, crawler activity in logs) and directional ones (sampled prompt testing, citation frequency, share of voice). We report what is confirmed vs. probable rather than vanity numbers.' },
