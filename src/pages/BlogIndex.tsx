@@ -13,7 +13,7 @@ const BlogIndex = () => {
     <main className="pt-20">
       <div className="bg-slate-950 py-16 border-b border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-neon-cyan font-mono text-xs font-black uppercase tracking-[0.4em] mb-4">// FIELD NOTES</h2>
+          <p className="text-neon-cyan font-mono text-xs font-black uppercase tracking-[0.4em] mb-4">// FIELD NOTES</p>
           <h1 className="text-5xl font-black text-white uppercase tracking-tighter mb-4">
             THE <span className="text-transparent bg-clip-text vapor-gradient">BLOG</span>
           </h1>
