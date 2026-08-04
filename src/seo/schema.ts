@@ -9,7 +9,7 @@ export const BUSINESS_GRAPH: object[] = [
     '@id': 'https://cardercreative.com/#organization',
     name: 'Carder Creative',
     url: 'https://cardercreative.com/',
-    logo: { '@type': 'ImageObject', url: 'https://cardercreative.com/favicon.svg' },
+    logo: { '@type': 'ImageObject', url: 'https://cardercreative.com/logo.png', width: 400, height: 400 },
     sameAs: ['https://github.com/carderel/carder-creative'],
   },
   {
@@ -17,9 +17,10 @@ export const BUSINESS_GRAPH: object[] = [
     '@id': 'https://cardercreative.com/#business',
     name: 'Carder Creative',
     url: 'https://cardercreative.com/',
+    telephone: '+1-614-809-5565',
     address: { '@type': 'PostalAddress', addressLocality: 'Columbus', addressRegion: 'OH', addressCountry: 'US' },
     geo: { '@type': 'GeoCoordinates', latitude: 39.9612, longitude: -82.9988 },
-    areaServed: 'Columbus, OH',
+    areaServed: ['Columbus, OH', 'Central Ohio', 'Ohio'],
     parentOrganization: { '@id': 'https://cardercreative.com/#organization' },
   },
   {
