@@ -22,7 +22,7 @@ const SSR_ENTRY = resolve(__dirname, 'dist-ssr/entry-server.js');
 const FEEDS = JSON.parse(readFileSync(resolve(__dirname, 'scripts/news-feeds.json'), 'utf-8'));
 
 // Keep in sync with the <Route> paths in src/AppRoutes.tsx.
-const ROUTES = ['/', '/resources', '/news', '/site-guide', '/legal', '/seo-services', '/ppc-services', '/ai-visibility-services'];
+const ROUTES = ['/', '/resources', '/news', '/blog', '/blog/what-ranking-in-chatgpt-really-means', '/site-guide', '/legal', '/seo-services', '/ppc-services', '/ai-visibility-services'];
 
 const { render } = await import(pathToFileURL(SSR_ENTRY).href);
 const template = readFileSync(resolve(DIST, 'index.html'), 'utf-8');

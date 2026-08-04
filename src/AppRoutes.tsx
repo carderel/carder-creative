@@ -13,6 +13,8 @@ import SiteGuide from './pages/SiteGuide';
 import Legal from './pages/Legal';
 import ServicePage from './pages/ServicePage';
 import AiVisibilityServices from './pages/AiVisibilityServices';
+import BlogIndex from './pages/BlogIndex';
+import BlogPost from './pages/BlogPost';
 import { SEO_SERVICE, PPC_SERVICE } from './data/servicePages';
 import { useDocumentMeta } from './seo/useDocumentMeta';
 
@@ -56,6 +58,8 @@ function AppRoutes({ initialData }: { initialData?: InitialData }) {
           <Route path="/" element={<Home onOpenDiagnostic={openDiagnostic} onOpenChecklist={openChecklist} />} />
           <Route path="/resources" element={<ResourcesArchive onOpenChecklist={openChecklist} />} />
           <Route path="/news" element={<NewsFeed initialArticles={initialData?.newsArticles} />} />
+          <Route path="/blog" element={<BlogIndex />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/site-guide" element={<SiteGuide />} />
           <Route path="/legal" element={<Legal />} />
           <Route path="/seo-services" element={<ServicePage data={SEO_SERVICE} onOpenDiagnostic={openDiagnostic} onOpenChecklist={openChecklist} />} />

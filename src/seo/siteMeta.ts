@@ -4,6 +4,7 @@
 // with the <Route> paths in AppRoutes.tsx and the URLs in public/sitemap.xml.
 
 import { SEO_SERVICE, PPC_SERVICE, AI_VISIBILITY_SERVICE, serviceJsonLd } from '../data/servicePages';
+import { BLOG_POSTS, blogPostJsonLd } from '../data/blogPosts';
 
 export const SITE_URL = 'https://cardercreative.com';
 
@@ -90,6 +91,32 @@ export const ROUTE_META: Record<string, RouteMeta> = {
       isPartOf: { '@id': 'https://cardercreative.com/#website' },
     },
   },
+  '/blog': {
+    title: 'Blog | AI Visibility & SEO Insights | Carder Creative',
+    description:
+      'Plain-English analysis of AI visibility, GEO, and SEO from Carder Creative - how AI systems find, understand, and recommend businesses.',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'Blog',
+      '@id': 'https://cardercreative.com/blog/#blog',
+      url: 'https://cardercreative.com/blog/',
+      name: 'Carder Creative Blog',
+      description: 'Plain-English analysis of AI visibility, GEO, and SEO.',
+      isPartOf: { '@id': 'https://cardercreative.com/#website' },
+      publisher: { '@id': 'https://cardercreative.com/#organization' },
+    },
+  },
+  // One ROUTE_META entry per published post, derived from the registry.
+  ...Object.fromEntries(
+    BLOG_POSTS.map((post) => [
+      `/blog/${post.slug}`,
+      {
+        title: post.metaTitle,
+        description: post.metaDescription,
+        jsonLd: blogPostJsonLd(post),
+      },
+    ])
+  ),
   [SEO_SERVICE.slug]: {
     title: SEO_SERVICE.title,
     description: SEO_SERVICE.metaDescription,
