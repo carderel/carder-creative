@@ -29,13 +29,18 @@ const SiteGuide = () => {
                   </a>
                 </li>
                 <li>
+                  <a href="/blog/" className="text-white hover:text-neon-cyan transition-colors flex items-center">
+                    <span className="text-neon-cyan/50 mr-4">03</span> Blog
+                  </a>
+                </li>
+                <li>
                   <a href="/#methodology-section" className="text-white hover:text-neon-cyan transition-colors flex items-center">
-                    <span className="text-neon-cyan/50 mr-4">03</span> Our Methodology
+                    <span className="text-neon-cyan/50 mr-4">04</span> Our Methodology
                   </a>
                 </li>
                 <li>
                   <a href="/#pricing-section" className="text-white hover:text-neon-cyan transition-colors flex items-center">
-                    <span className="text-neon-cyan/50 mr-4">04</span> Service Tiers
+                    <span className="text-neon-cyan/50 mr-4">05</span> Service Tiers
                   </a>
                 </li>
               </ul>
