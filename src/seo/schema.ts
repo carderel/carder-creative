@@ -10,7 +10,7 @@ export const BUSINESS_GRAPH: object[] = [
     name: 'Carder Creative',
     url: 'https://cardercreative.com/',
     logo: { '@type': 'ImageObject', url: 'https://cardercreative.com/logo.png', width: 400, height: 400 },
-    sameAs: ['https://github.com/carderel/carder-creative'],
+    sameAs: ['https://www.linkedin.com/company/carder-creative/', 'https://github.com/carderel/carder-creative'],
   },
   {
     '@type': 'LocalBusiness',
