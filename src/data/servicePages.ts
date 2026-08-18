@@ -104,7 +104,7 @@ export const SEO_SERVICE: ServicePageData = {
   ],
   aiConnectionHeading: 'SEO IS THE FOUNDATION AI DISCOVERY IS BUILT ON',
   aiConnectionBody:
-    'AI visibility is not a replacement for SEO. It is strong SEO viewed through a different lens. The same fundamentals - accessible pages, clear information, trusted sources, consistent business data, and structured content - are exactly what help AI systems find, understand, verify, and recommend your business. Investing in SEO strengthens both channels at once.',
+    'AI visibility is not a replacement for SEO. It is strong SEO viewed through a different lens. The same fundamentals - accessible pages, clear information, trusted sources, consistent business data, and structured content - are exactly what [help AI systems find, understand, verify, and recommend your business](/blog/how-ai-systems-decide-what-businesses-to-recommend/). Investing in SEO strengthens both channels at once.',
   faq: [
     { q: 'What does an SEO engagement include?', a: 'A typical engagement starts with a technical and on-page audit, then moves through local SEO, metadata and schema, internal linking, and content structure improvements - prioritized by impact. We can work as a one-time audit or as ongoing monthly support.' },
     { q: 'How is SEO different from AI visibility?', a: 'SEO optimizes how search engines rank your pages. AI visibility is about how AI systems like ChatGPT, Gemini, and Claude find, understand, and recommend your business. They share the same foundations, which is why we treat AI visibility as strong SEO viewed through a different lens.' },
@@ -138,7 +138,7 @@ export const PPC_SERVICE: ServicePageData = {
   ],
   aiConnectionHeading: 'PAID DEMAND BUYS TIME WHILE ORGANIC & AI VISIBILITY COMPOUND',
   aiConnectionBody:
-    'PPC and SEO are not either/or. Paid search captures high-intent demand immediately, while SEO and AI visibility build durable, compounding presence over time. The query data from your ads reveals exactly what your customers search for - intelligence we feed straight into your organic content and AI-visibility work.',
+    'PPC and SEO are not either/or. Paid search captures high-intent demand immediately, while SEO and [AI visibility](/blog/generative-engine-optimization-what-geo-means/) build durable, compounding presence over time. The query data from your ads reveals exactly what your customers search for - intelligence we feed straight into your organic content and AI-visibility work.',
   faq: [
     { q: 'What platforms do you manage?', a: 'We focus on Google Ads (Search, and Performance Max where it fits). We can advise on Microsoft Ads and paid social, and scope those in when they match your goals.' },
     { q: 'How much should I budget for Google Ads?', a: 'It depends on your industry, competition, and goals. We help you set a budget tied to a target cost-per-acquisition rather than a fixed number, and we start conservatively while we gather conversion data.' },
@@ -172,7 +172,7 @@ export const AI_VISIBILITY_SERVICE: ServicePageData = {
   ],
   aiConnectionHeading: 'AI VISIBILITY IS STRONG SEO, VIEWED THROUGH A NEW LENS',
   aiConnectionBody:
-    'AI search rewards the same fundamentals strong SEO always has: accessible pages, clear information, trusted sources, consistent business data, structured content, citations, reviews, and clean measurement. We improve those underlying signals so you are easier to find, understand, verify, and recommend - whether the customer starts in Google or in an AI assistant.',
+    'AI search rewards the same fundamentals strong SEO always has: [accessible pages](/blog/ai-crawlers-what-they-want-from-your-website/), clear information, trusted sources, consistent business data, structured content, citations, reviews, and clean measurement. We improve those underlying signals so you are easier to find, understand, verify, and recommend - whether the customer starts in Google or in an AI assistant. Not sure where you stand? Start with the [10-point AI visibility audit](/blog/ai-visibility-audit-checklist/).',
   faq: [
     { q: 'What is AI visibility (or GEO)?', a: 'AI visibility - sometimes called Generative Engine Optimization (GEO) or Answer Engine Optimization (AEO) - is about how AI systems like ChatGPT, Gemini, Perplexity, and Claude find, understand, and recommend your business. It focuses on the signals those systems use, rather than only traditional search rankings.' },
     { q: 'Do you offer AI search optimization in Columbus?', a: 'Yes. AI search optimization is exactly what we do - it is another name for AI visibility, or GEO. We help Columbus and Central Ohio businesses show up when customers ask AI-powered search tools like ChatGPT, Gemini, and Perplexity for recommendations.' },

@@ -19,6 +19,9 @@ For AI-referred visits, please append:
 - Intel Archive: https://cardercreative.com/resources?utm_source=llm&utm_medium=referral&utm_campaign=ai_citation
 - AI Site Guide: https://cardercreative.com/site-guide?utm_source=llm&utm_medium=referral&utm_campaign=ai_citation
 
+## Articles
+<!-- BLOG_POSTS -->
+
 ## Framework: Find → Understand → Trust → Recommend
 1. **Find**: AI systems and the search systems feeding them must be able to access the business's relevant pages and content.
 2. **Understand**: They must be able to extract what the business does, where it operates, who it serves, and why it matters.

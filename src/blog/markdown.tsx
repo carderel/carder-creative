@@ -26,7 +26,9 @@ const LINK_CLASS =
 // recursively so combinations like **[link](...)** render correctly.
 const INLINE_TOKEN = /\*\*([^*]+)\*\*|\*([^*]+)\*|\[([^\]]+)\]\(([^)\s]+)\)/g;
 
-function renderInline(text: string, keyPrefix: string): ReactNode[] {
+// Exported so non-blog copy (e.g. the service pages' AI-connection paragraph) can
+// carry [text](url) links without a second link-rendering implementation.
+export function renderInline(text: string, keyPrefix: string): ReactNode[] {
   const out: ReactNode[] = [];
   let last = 0;
   let i = 0;
@@ -140,6 +142,7 @@ export function parseArticle(raw: string): ParsedArticle {
               {header.map((cell, idx) => (
                 <th
                   key={`${k}-h-${idx}`}
+                  scope="col"
                   className="p-4 font-black text-white uppercase tracking-tight text-xs bg-white/5 border border-white/10"
                 >
                   {renderInline(cell, `${k}-h-${idx}`)}

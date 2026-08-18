@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { renderInline } from '../blog/markdown';
 import ContactForm from '../components/ContactForm';
 import type { ServicePageData } from '../data/servicePages';
 
@@ -80,7 +81,7 @@ const ServicePage: React.FC<ServicePageProps> = ({ data, onOpenDiagnostic, onOpe
           <h2 className="text-3xl sm:text-4xl font-black text-white uppercase tracking-tighter mb-6">
             <span className="text-transparent bg-clip-text vapor-gradient">{data.aiConnectionHeading}</span>
           </h2>
-          <p className="text-slate-300 text-base font-medium leading-relaxed">{data.aiConnectionBody}</p>
+          <p className="text-slate-300 text-base font-medium leading-relaxed">{renderInline(data.aiConnectionBody, `ai-connection-${data.slug}`)}</p>
         </div>
       </section>
 

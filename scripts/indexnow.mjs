@@ -10,7 +10,7 @@
 // so every error path logs a warning and exits 0. A missed ping is harmless; a
 // blocked deploy is not. Requires Node 18+ (global fetch).
 
-import { readFileSync, readdirSync } from 'node:fs';
+import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -32,15 +32,24 @@ try {
   }
   const key = keyFile.replace(/\.txt$/i, '');
 
-  const sitemap = readFileSync(resolve(publicDir, 'sitemap.xml'), 'utf-8');
+  // Prefer the BUILT sitemap: dist/sitemap.xml has the blog URLs expanded from the
+  // post registry, while public/sitemap.xml still holds the unexpanded marker. Reading
+  // public/ here would silently skip every blog post. Falls back to public/ so a
+  // hand-run before any build still does something useful.
+  const distSitemap = resolve(root, 'dist', 'sitemap.xml');
+  const publicSitemap = resolve(publicDir, 'sitemap.xml');
+  const sitemapPath = existsSync(distSitemap) ? distSitemap : publicSitemap;
+  const sitemap = readFileSync(sitemapPath, 'utf-8');
+  const sitemapLabel = sitemapPath === distSitemap ? 'dist/sitemap.xml' : 'public/sitemap.xml';
   const urlList = [...sitemap.matchAll(/<loc>\s*([^<\s]+)\s*<\/loc>/g)]
     .map((m) => m[1])
     .filter((u) => /^https?:\/\//.test(u));
 
   if (urlList.length === 0) {
-    warn('no <loc> URLs found in public/sitemap.xml');
+    warn(`no <loc> URLs found in ${sitemapLabel}`);
     process.exit(0);
   }
+  console.log(`IndexNow: reading ${sitemapLabel} (${urlList.length} URLs)`);
 
   const payload = {
     host: HOST,
