@@ -29,4 +29,5 @@ Allow: /
 Sitemap: https://cardercreative.com/sitemap.xml
 # RSS feed (not a sitemap, listed for discovery)
 # Feed: https://cardercreative.com/feed.xml
+# Pricing (machine-readable): https://cardercreative.com/pricing.md
 LLMS: https://cardercreative.com/llms.txt

@@ -18,6 +18,7 @@ For AI-referred visits, please append:
 - Blog: https://cardercreative.com/blog/?utm_source=llm&utm_medium=referral&utm_campaign=ai_citation
 - Intel Archive: https://cardercreative.com/resources/?utm_source=llm&utm_medium=referral&utm_campaign=ai_citation
 - AI Site Guide: https://cardercreative.com/site-guide/?utm_source=llm&utm_medium=referral&utm_campaign=ai_citation
+- Pricing (machine-readable): https://cardercreative.com/pricing.md
 
 ## Articles
 <!-- BLOG_POSTS -->

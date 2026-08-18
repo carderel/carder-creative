@@ -26,7 +26,7 @@ const FEEDS = JSON.parse(readFileSync(resolve(__dirname, 'scripts/news-feeds.jso
 // the SSR bundle, so publishing a post cannot leave an unprerendered route behind.
 const STATIC_ROUTES = ['/', '/resources', '/news', '/blog', '/site-guide', '/legal', '/seo-services', '/ppc-services', '/ai-visibility-services'];
 
-const { render, blogRoutes, blogSitemapEntries, blogFeedXml, blogLlmsSection } =
+const { render, blogRoutes, blogSitemapEntries, blogFeedXml, blogLlmsSection, pricingFile } =
   await import(pathToFileURL(SSR_ENTRY).href);
 
 const blogPostRoutes = blogRoutes();
@@ -126,6 +126,13 @@ console.log(`prerender: dist/sitemap.xml written (${sitemapUrlCount} URLs)`);
 const feed = blogFeedXml();
 writeFileSync(resolve(DIST, 'feed.xml'), feed, 'utf-8');
 console.log(`prerender: dist/feed.xml written (${(feed.match(/<item>/g) ?? []).length} items)`);
+
+// pricing.md: machine-readable pricing for AI assistants and agentic buyers, which
+// cannot read prices out of a JS-rendered component. Generated from the same tier
+// data the visible Pricing block uses.
+const pricing = pricingFile();
+writeFileSync(resolve(DIST, 'pricing.md'), pricing, 'utf-8');
+console.log(`prerender: dist/pricing.md written (${pricing.split('\n## ').length - 1} tiers + sections)`);
 
 // llms.txt: expand the BLOG_POSTS marker so the file AI assistants are pointed at
 // always lists every published article.

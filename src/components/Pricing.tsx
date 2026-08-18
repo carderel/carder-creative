@@ -1,51 +1,9 @@
+import { PRICING_TIERS } from '../data/pricingTiers';
+
 interface PricingProps {
   onOpenDiagnostic: () => void;
 }
 
-const tiers = [
-  {
-    name: 'AI Visibility Audit',
-    price: '$3,500',
-    duration: '2-3 WEEKS',
-    features: [
-      'Discovery access audit',
-      'Entity clarity check',
-      'Structured data review',
-      'Trust & corroboration',
-      'Gap report (PDF)',
-    ],
-    cta: 'Schedule Audit',
-  },
-  {
-    name: 'AI Visibility Enhancements',
-    price: '$8,000',
-    duration: '6-10 WEEKS',
-    description: 'Targeted execution across six critical workstreams.',
-    features: [
-      'Content & entity improvements',
-      'AI-readable site guide',
-      'Sitemap/Robots repairs',
-      'Schema deployment',
-      'Citation cleanup',
-      'Freshness feed setup',
-    ],
-    cta: 'Start Implementation',
-    highlighted: true,
-  },
-  {
-    name: 'Ongoing Monitoring',
-    price: '$2,500',
-    duration: 'MONTHLY',
-    features: [
-      'AI referral tracking',
-      'Crawler activity monitor',
-      'Synthetic prompt runs',
-      'Citation drift alerts',
-      'Monthly strategy report',
-    ],
-    cta: 'Subscribe',
-  },
-];
 
 const Pricing: React.FC<PricingProps> = ({ onOpenDiagnostic }) => {
   return (
@@ -59,7 +17,7 @@ const Pricing: React.FC<PricingProps> = ({ onOpenDiagnostic }) => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 border border-white/10">
-          {tiers.map((tier) => (
+          {PRICING_TIERS.map((tier) => (
             <div 
               key={tier.name}
               className={`flex flex-col p-12 transition-all duration-300 ${

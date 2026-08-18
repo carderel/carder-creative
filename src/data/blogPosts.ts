@@ -10,6 +10,8 @@ import geoMd from '../content/blog/generative-engine-optimization-what-geo-means
 import crawlersMd from '../content/blog/ai-crawlers-what-they-want-from-your-website.md?raw';
 import recommendMd from '../content/blog/how-ai-systems-decide-what-businesses-to-recommend.md?raw';
 import auditMd from '../content/blog/ai-visibility-audit-checklist.md?raw';
+import aiSearchColumbusMd from '../content/blog/ai-search-columbus-how-local-businesses-get-recommended.md?raw';
+import platformsComparedMd from '../content/blog/chatgpt-perplexity-google-ai-overviews-compared.md?raw';
 
 const SITE_URL = 'https://cardercreative.com'; // hardcoded to avoid a circular import with siteMeta.ts
 
@@ -117,6 +119,45 @@ export const BLOG_POSTS: BlogPost[] = [
       'ChatGPT visibility',
     ],
     markdown: auditMd,
+  },
+  {
+    slug: 'ai-search-columbus-how-local-businesses-get-recommended',
+    title: 'AI Search Columbus: How Local Businesses Get Recommended',
+    metaTitle: 'AI Search Columbus: Getting Recommended | Carder Creative',
+    metaDescription:
+      'How do Columbus and Central Ohio businesses get recommended by ChatGPT, Google AI Overviews, and Perplexity? The local signals that actually matter.',
+    datePublished: '2026-08-18',
+    tags: [
+      'AI search Columbus',
+      'AI visibility Columbus',
+      'local AI search',
+      'Central Ohio marketing',
+      'Google Business Profile',
+      'AI-powered discovery',
+      'local SEO',
+      'generative engine optimization',
+    ],
+    markdown: aiSearchColumbusMd,
+  },
+  {
+    slug: 'chatgpt-perplexity-google-ai-overviews-compared',
+    title: 'ChatGPT vs. Perplexity vs. Google AI Overviews: How Each One Decides What to Cite',
+    metaTitle: 'ChatGPT vs Perplexity vs Google AI Citations | Carder Creative',
+    metaDescription:
+      "ChatGPT, Perplexity, Google AI Overviews, Gemini, and Copilot pick sources differently. Here's what drives AI citations on each platform, plainly explained.",
+    datePublished: '2026-08-18',
+    tags: [
+      'AI visibility',
+      'generative engine optimization',
+      'ChatGPT',
+      'Perplexity AI',
+      'Google AI Overviews',
+      'Gemini',
+      'Microsoft Copilot',
+      'AI search citations',
+      'AI-powered discovery',
+    ],
+    markdown: platformsComparedMd,
   },
 ];
 

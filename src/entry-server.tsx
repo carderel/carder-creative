@@ -3,6 +3,7 @@ import { StaticRouter } from 'react-router';
 import AppRoutes, { type InitialData } from './AppRoutes';
 import { canonicalForPath, metaForPath, SITE_URL } from './seo/siteMeta';
 import { BLOG_ROUTES, sortedBlogPosts, blogPostUrl } from './data/blogPosts';
+import { pricingMarkdown } from './data/pricingTiers';
 
 function escapeAttr(value: string): string {
   return value
@@ -61,6 +62,13 @@ export function blogLlmsSection(): string {
   return sortedBlogPosts()
     .map((post) => `- ${post.title}: ${blogPostUrl(post)}${utm}`)
     .join('\n');
+}
+
+/** Machine-readable pricing for AI assistants and agentic buyers, written to
+ *  dist/pricing.md. Generated from the same tier data the visible Pricing block
+ *  renders, so the two cannot disagree. */
+export function pricingFile(): string {
+  return pricingMarkdown(SITE_URL);
 }
 
 /** RSS 2.0 for the blog. Replaces the hand-written placeholder feed: the site's
