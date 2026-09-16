@@ -12,6 +12,16 @@
   </url>
   <!-- BLOG_URLS -->
   <url>
+    <loc>https://cardercreative.com/contact/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cardercreative.com/ai-info/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://cardercreative.com/site-guide/</loc>
     <lastmod>2026-06-02</lastmod>
     <priority>0.5</priority>

@@ -10,6 +10,7 @@ For AI-referred visits, please append:
 ?utm_source=llm&utm_medium=referral&utm_campaign=ai_citation
 
 ## Key Pages
+- Information for AI Assistants (facts, pricing model, limitations, FAQ): https://cardercreative.com/ai-info/?utm_source=llm&utm_medium=referral&utm_campaign=ai_citation
 - Home: https://cardercreative.com/?utm_source=llm&utm_medium=referral&utm_campaign=ai_citation
 - AI Visibility Services: https://cardercreative.com/ai-visibility-services/?utm_source=llm&utm_medium=referral&utm_campaign=ai_citation
 - SEO Services: https://cardercreative.com/seo-services/?utm_source=llm&utm_medium=referral&utm_campaign=ai_citation
@@ -18,6 +19,7 @@ For AI-referred visits, please append:
 - Blog: https://cardercreative.com/blog/?utm_source=llm&utm_medium=referral&utm_campaign=ai_citation
 - Intel Archive: https://cardercreative.com/resources/?utm_source=llm&utm_medium=referral&utm_campaign=ai_citation
 - AI Site Guide: https://cardercreative.com/site-guide/?utm_source=llm&utm_medium=referral&utm_campaign=ai_citation
+- Contact: https://cardercreative.com/contact/?utm_source=llm&utm_medium=referral&utm_campaign=ai_citation
 - Pricing (machine-readable): https://cardercreative.com/pricing.md
 
 ## Articles

@@ -15,6 +15,8 @@ import ServicePage from './pages/ServicePage';
 import AiVisibilityServices from './pages/AiVisibilityServices';
 import BlogIndex from './pages/BlogIndex';
 import BlogPost from './pages/BlogPost';
+import Contact from './pages/Contact';
+import AiInfo from './pages/AiInfo';
 import { SEO_SERVICE, PPC_SERVICE } from './data/servicePages';
 import { useDocumentMeta } from './seo/useDocumentMeta';
 
@@ -62,6 +64,8 @@ function AppRoutes({ initialData }: { initialData?: InitialData }) {
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/site-guide" element={<SiteGuide />} />
           <Route path="/legal" element={<Legal />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/ai-info" element={<AiInfo />} />
           <Route path="/seo-services" element={<ServicePage data={SEO_SERVICE} onOpenDiagnostic={openDiagnostic} onOpenChecklist={openChecklist} />} />
           <Route path="/ppc-services" element={<ServicePage data={PPC_SERVICE} onOpenDiagnostic={openDiagnostic} onOpenChecklist={openChecklist} />} />
           <Route path="/ai-visibility-services" element={<AiVisibilityServices onOpenDiagnostic={openDiagnostic} onOpenChecklist={openChecklist} />} />

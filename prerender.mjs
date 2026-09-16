@@ -24,7 +24,7 @@ const FEEDS = JSON.parse(readFileSync(resolve(__dirname, 'scripts/news-feeds.jso
 // Keep in sync with the <Route> paths in src/AppRoutes.tsx. Blog post routes are
 // NOT listed here: they come from the post registry (src/data/blogPosts.ts) via
 // the SSR bundle, so publishing a post cannot leave an unprerendered route behind.
-const STATIC_ROUTES = ['/', '/resources', '/news', '/blog', '/site-guide', '/legal', '/seo-services', '/ppc-services', '/ai-visibility-services'];
+const STATIC_ROUTES = ['/', '/resources', '/news', '/blog', '/site-guide', '/legal', '/contact', '/ai-info', '/seo-services', '/ppc-services', '/ai-visibility-services'];
 
 const { render, blogRoutes, blogSitemapEntries, blogFeedXml, blogLlmsSection, pricingFile } =
   await import(pathToFileURL(SSR_ENTRY).href);

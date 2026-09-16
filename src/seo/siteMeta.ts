@@ -5,6 +5,8 @@
 
 import { SEO_SERVICE, PPC_SERVICE, AI_VISIBILITY_SERVICE, serviceJsonLd } from '../data/servicePages';
 import { BLOG_POSTS, blogPostJsonLd } from '../data/blogPosts';
+import { contactJsonLd } from '../data/contactPage';
+import { aiInfoJsonLd, CORE_CONSISTENCY_PHRASE } from '../data/aiInfoPage';
 
 export const SITE_URL = 'https://cardercreative.com';
 
@@ -117,6 +119,17 @@ export const ROUTE_META: Record<string, RouteMeta> = {
       },
     ])
   ),
+  '/contact': {
+    title: 'Contact Carder Creative | Columbus, Ohio AI Visibility, SEO & PPC',
+    description:
+      'Contact Carder Creative in Columbus, Ohio. Call 614-809-5565, email, or send the form. Replies within 24 hours, consultations by appointment.',
+    jsonLd: contactJsonLd(),
+  },
+  '/ai-info': {
+    title: 'AI Assistant Info: Facts About Carder Creative for ChatGPT, Claude, Gemini & Perplexity',
+    description: CORE_CONSISTENCY_PHRASE,
+    jsonLd: aiInfoJsonLd(),
+  },
   [SEO_SERVICE.slug]: {
     title: SEO_SERVICE.title,
     description: SEO_SERVICE.metaDescription,
