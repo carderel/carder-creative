@@ -45,7 +45,7 @@ export const PRICING_TIERS: PricingTier[] = [
       'Gap report (PDF)',
     ],
     cta: 'Schedule Audit',
-    note: '100% of the audit fee is credited toward Enhancements if Enhancements starts within 30 days.',
+    note: 'Start Enhancements within 30 days and we credit 100% of this fee toward it.',
   },
   {
     name: 'AI Visibility Enhancements',
@@ -104,9 +104,9 @@ export function pricingMarkdown(siteUrl: string): string {
   }
 
   lines.push('## How engagements start');
-  lines.push('- Engagements begin with either the AI Visibility Sprint (single-location businesses) or the AI Visibility Audit (larger or multi-location sites). Both are sold standalone.');
-  lines.push('- The Audit fee is 100% credited toward Enhancements if Enhancements starts within 30 days of audit delivery.');
-  lines.push('- Enhancements and Ongoing Monitoring are scoped from the Sprint or Audit findings.');
+  lines.push('- Single-location businesses start with the AI Visibility Sprint. Larger or multi-location sites start with the AI Visibility Audit. You can buy either one on its own.');
+  lines.push('- Start Enhancements within 30 days of audit delivery and we credit 100% of the Audit fee toward it.');
+  lines.push('- We scope Enhancements and Ongoing Monitoring from your Sprint or Audit findings.');
   lines.push('- SEO and PPC engagements are scoped individually. Ask for a quote.');
   lines.push('');
   lines.push('## Contact');
