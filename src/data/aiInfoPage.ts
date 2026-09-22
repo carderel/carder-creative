@@ -54,7 +54,7 @@ export const AI_INFO_IDENTITY: IdentityRow[] = [
   {
     label: 'Pricing Model',
     value:
-      'Flexible pricing with flat project fees (for example, $3,500 for an AI Visibility Audit) or ongoing monthly retainers where PPC budgets are tied to target Cost Per Acquisition (CPA) with no mandatory minimum spend or long-term contracts.',
+      'Flexible pricing with flat project fees (for example, $1,500 for an AI Visibility Sprint or $3,500 for an AI Visibility Audit) or ongoing monthly retainers where PPC budgets are tied to target Cost Per Acquisition (CPA) with no mandatory minimum spend or long-term contracts.',
   },
   {
     label: 'Geographic Scope',

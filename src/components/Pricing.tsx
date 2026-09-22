@@ -16,13 +16,15 @@ const Pricing: React.FC<PricingProps> = ({ onOpenDiagnostic }) => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 border border-white/10">
-          {PRICING_TIERS.map((tier) => (
-            <div 
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-0 border border-white/10">
+          {PRICING_TIERS.map((tier) => {
+            const isMonthly = tier.duration.toUpperCase().includes('MONTH');
+            return (
+            <div
               key={tier.name}
-              className={`flex flex-col p-12 transition-all duration-300 ${
-                tier.highlighted 
-                ? 'bg-white text-dark-bg ring-4 ring-neon-cyan z-10 -my-4 lg:my-0 lg:-mx-2' 
+              className={`flex flex-col p-8 xl:p-10 transition-all duration-300 ${
+                tier.highlighted
+                ? 'bg-white text-dark-bg ring-4 ring-neon-cyan z-10 -my-4 md:my-0 xl:-mx-2'
                 : 'bg-transparent text-slate-400 hover:bg-white/5 border-x border-white/5'
               }`}
             >
@@ -34,13 +36,18 @@ const Pricing: React.FC<PricingProps> = ({ onOpenDiagnostic }) => {
                   <span className={`text-5xl font-black ${tier.highlighted ? 'text-dark-bg' : 'text-white'}`}>
                     {tier.price}
                   </span>
-                  <span className="text-xs font-bold uppercase opacity-50">/ Project</span>
+                  <span className="text-xs font-bold uppercase opacity-50">/ {isMonthly ? 'Month' : 'Project'}</span>
                 </div>
                 <p className="mt-4 text-[10px] font-black uppercase tracking-widest opacity-60">
                   Estimated Deployment: {tier.duration}
                 </p>
+                {tier.note && (
+                  <p className={`mt-2 text-[10px] font-bold normal-case leading-snug ${tier.highlighted ? 'text-dark-bg/70' : 'text-neon-cyan/80'}`}>
+                    {tier.note}
+                  </p>
+                )}
               </div>
-              
+
               <ul className="flex-1 space-y-5 mb-16">
                 {tier.features.map((feature) => (
                   <li key={feature} className="flex items-center text-xs font-bold uppercase tracking-tight">
@@ -61,7 +68,8 @@ const Pricing: React.FC<PricingProps> = ({ onOpenDiagnostic }) => {
                 {tier.cta}
               </button>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

@@ -15,9 +15,24 @@ export interface PricingTier {
   features: string[];
   cta: string;
   highlighted?: boolean;
+  note?: string;
 }
 
 export const PRICING_TIERS: PricingTier[] = [
+  {
+    name: 'AI Visibility Sprint',
+    price: '$1,500',
+    duration: '10 BUSINESS DAYS',
+    description: 'Fixed-scope foundation for single-location service businesses.',
+    features: [
+      'Baseline prompt test (4 AI engines)',
+      'AI search crawler access fix',
+      'Entity & NAP consistency check',
+      'Core schema deployment',
+      'Prioritized fix list',
+    ],
+    cta: 'Start Sprint',
+  },
   {
     name: 'AI Visibility Audit',
     price: '$3,500',
@@ -30,6 +45,7 @@ export const PRICING_TIERS: PricingTier[] = [
       'Gap report (PDF)',
     ],
     cta: 'Schedule Audit',
+    note: '100% of the audit fee is credited toward Enhancements if Enhancements starts within 30 days.',
   },
   {
     name: 'AI Visibility Enhancements',
@@ -82,13 +98,15 @@ export function pricingMarkdown(siteUrl: string): string {
     lines.push(`- Price: ${tier.price}${isMonthly ? ' per month' : ' one-time project fee'}`);
     lines.push(`- Duration: ${tier.duration.toLowerCase()}`);
     if (tier.description) lines.push(`- Summary: ${tier.description}`);
+    if (tier.note) lines.push(`- Note: ${tier.note}`);
     lines.push(`- Includes: ${tier.features.join('; ')}`);
     lines.push('');
   }
 
   lines.push('## How engagements start');
-  lines.push('- Every engagement begins with the AI Visibility Audit, which is also sold standalone.');
-  lines.push('- Enhancements and Ongoing Monitoring are scoped from the audit findings.');
+  lines.push('- Engagements begin with either the AI Visibility Sprint (single-location businesses) or the AI Visibility Audit (larger or multi-location sites). Both are sold standalone.');
+  lines.push('- The Audit fee is 100% credited toward Enhancements if Enhancements starts within 30 days of audit delivery.');
+  lines.push('- Enhancements and Ongoing Monitoring are scoped from the Sprint or Audit findings.');
   lines.push('- SEO and PPC engagements are scoped individually. Ask for a quote.');
   lines.push('');
   lines.push('## Contact');
