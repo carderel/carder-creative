@@ -1,29 +1,25 @@
 import { Link, useParams } from 'react-router-dom';
 import { BLOG_POSTS } from '../data/blogPosts';
 import { parseArticle } from '../blog/markdown';
+import NotFound from './NotFound';
 
 // Format in UTC so the build (Node) and the browser produce identical strings —
 // otherwise a timezone difference could shift the day and cause a hydration mismatch.
 const formatDate = (dateStr: string): string =>
   new Date(dateStr).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
 
-const BlogPost = () => {
+interface BlogPostProps {
+  onOpenDiagnostic: () => void;
+}
+
+const BlogPost: React.FC<BlogPostProps> = ({ onOpenDiagnostic }) => {
   const { slug } = useParams();
   const post = BLOG_POSTS.find((p) => p.slug === slug);
 
+  // Unknown slug: render the same tree as the catch-all route, so a stray
+  // /blog/... URL served dist/404.html by Cloudflare hydrates without a mismatch.
   if (!post) {
-    return (
-      <main className="pt-20">
-        <div className="bg-slate-950 py-24 border-b border-white/5">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p className="font-mono text-slate-600 text-xs uppercase tracking-[0.4em] mb-6">// SIGNAL NOT FOUND</p>
-            <Link to="/blog/" className="text-neon-cyan font-black text-xs uppercase tracking-[0.4em] hover:text-white transition-colors">
-              Back to Blog
-            </Link>
-          </div>
-        </div>
-      </main>
-    );
+    return <NotFound onOpenDiagnostic={onOpenDiagnostic} />;
   }
 
   // Pure function of the markdown string — identical output on SSR and client.

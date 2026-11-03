@@ -153,4 +153,4 @@ The Find → Understand → Trust → Recommend framework is not a checklist to 
 
 **Request an AI Visibility Diagnostic**  -  Carder Creative will audit your brand's presence across key AI systems, identify where competitors are appearing instead of you, and map the specific signals worth improving. [Learn more about our AI visibility services and start the conversation.](/ai-visibility-services/)
 
-**[Download the AI Visibility Checklist](/resources/)**  -  a practical resource covering the signals, content factors, and citation benchmarks that influence how AI systems find and recommend your business.
+**[Read the AI visibility audit checklist](/blog/ai-visibility-audit-checklist/)**  -  a practical resource covering the signals, content factors, and citation benchmarks that influence how AI systems find and recommend your business.

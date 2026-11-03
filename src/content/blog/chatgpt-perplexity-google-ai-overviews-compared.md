@@ -74,7 +74,7 @@ Look at confirmed data, not sampled prompts. The most reliable signals are thing
 
 It is also worth setting realistic expectations about volume. Even when a page is cited, a citation does not automatically produce a click. Pew Research Center tracked the browsing behavior of roughly 900 U.S. adults across 68,879 Google searches in March 2025, including 12,593 that produced an AI summary. Visits where an AI summary appeared saw a traditional search result clicked only 8 percent of the time, compared to 15 percent of visits without one, and users clicked on the actual sources cited inside the AI summary in just 1 percent of visits ([Pew Research Center](https://www.pewresearch.org/short-reads/2025/07/22/google-users-are-less-likely-to-click-on-links-when-an-ai-summary-appears-in-the-results/)). That data point is specific to Google's AI Overviews, but it is a useful reminder for every platform in this comparison: being cited is valuable for authority, trust, and future model training even when it does not send much direct traffic, and it should not be judged only by a click-through number that was never going to be large.
 
-If a business wants to check where it actually stands, our [AI visibility audit checklist](/blog/ai-visibility-audit-checklist/) walks through the practical steps, and our [free resources](/resources/) include tools for going deeper.
+If a business wants to check where it actually stands, our [AI visibility audit checklist](/blog/ai-visibility-audit-checklist/) walks through the practical steps.
 
 ---
 
@@ -112,6 +112,6 @@ The fundamentals that hold up across all five are not secret: pages that can act
 
 ## Take the Next Step
 
-**[Download the AI Visibility Checklist](/resources/)**  -  a practical resource covering the crawlability, structure, and citation signals that influence whether ChatGPT, Perplexity, Google AI Overviews, Gemini, and Copilot can find and cite a business.
+**[Read the AI visibility audit checklist](/blog/ai-visibility-audit-checklist/)**  -  a practical resource covering the crawlability, structure, and citation signals that influence whether ChatGPT, Perplexity, Google AI Overviews, Gemini, and Copilot can find and cite a business.
 
 **Request an AI Visibility Diagnostic**  -  Carder Creative will audit how a brand's site performs across these platforms individually, not as a single blended "AI score," and map out exactly where the gaps are. [Learn more about our AI visibility services and start the conversation.](/ai-visibility-services/)

@@ -133,15 +133,22 @@ export function render(url: string, initialData?: InitialData): RenderResult {
   const metaTags = [
     `<title>${title}</title>`,
     `<meta name="description" content="${description}" />`,
-    `<link rel="canonical" href="${canonical}" />`,
     `<meta property="og:title" content="${title}" />`,
     `<meta property="og:description" content="${description}" />`,
-    `<meta property="og:url" content="${canonical}" />`,
     `<meta property="twitter:title" content="${title}" />`,
     `<meta property="twitter:description" content="${description}" />`,
-    `<meta property="twitter:url" content="${canonical}" />`,
-    `<meta name="citation_url" content="${canonical}?utm_source=llm&amp;utm_medium=referral&amp;utm_campaign=ai_citation" />`,
   ];
+
+  // Unknown routes (the 404 page) get no canonical and no URL-bearing tags: the
+  // same 404.html is served at every unknown URL, so any fixed URL would be wrong.
+  if (canonical !== null) {
+    metaTags.push(
+      `<link rel="canonical" href="${canonical}" />`,
+      `<meta property="og:url" content="${canonical}" />`,
+      `<meta property="twitter:url" content="${canonical}" />`,
+      `<meta name="citation_url" content="${canonical}?utm_source=llm&amp;utm_medium=referral&amp;utm_campaign=ai_citation" />`,
+    );
+  }
 
   if (meta.robots) {
     metaTags.push(`<meta name="robots" content="${escapeAttr(meta.robots)}" />`);

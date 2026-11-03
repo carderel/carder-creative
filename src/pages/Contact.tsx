@@ -29,7 +29,7 @@ const Contact = () => {
       {/* Form + direct channels */}
       <section className="py-16 bg-dark-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:flex lg:items-start lg:gap-20">
-          <div className="lg:w-3/5 mb-16 lg:mb-0">
+          <div id="form" className="lg:w-3/5 mb-16 lg:mb-0 scroll-mt-24">
             <h2 className="text-white font-black text-2xl uppercase tracking-tight mb-8 flex items-center">
               <span className="text-neon-cyan mr-4">//</span> Send a Message
             </h2>

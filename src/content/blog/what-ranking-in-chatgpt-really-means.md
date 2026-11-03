@@ -173,6 +173,6 @@ AI visibility is about making your business easier to find, easier to understand
 
 ## Ready to Understand Your Real AI Visibility?
 
-**[Download the AI Visibility Checklist](/resources/)**  -  a practical resource covering the signals, content factors, and citation benchmarks that influence how AI systems find and reference your business.
+**[Read the AI visibility audit checklist](/blog/ai-visibility-audit-checklist/)**  -  a practical resource covering the signals, content factors, and citation benchmarks that influence how AI systems find and reference your business.
 
 **Request an AI Visibility Diagnostic**  -  Carder Creative will audit your brand's presence across key AI systems, identify where competitors are appearing instead of you, and map the specific signals worth improving. [Learn more about our AI visibility services and start the conversation.](/ai-visibility-services/)

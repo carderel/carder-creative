@@ -3,6 +3,9 @@
 // component code. Keep slugs in sync with routes in AppRoutes.tsx, prerender.mjs,
 // and public/sitemap.xml.
 
+import type { NeedSlug } from './inquiry';
+import { FOCUSED_DIAGNOSTIC } from './focusedDiagnostic';
+
 const SITE_URL = 'https://cardercreative.com'; // hardcoded to avoid a circular import with siteMeta.ts
 
 export interface FaqItem {
@@ -21,6 +24,20 @@ export interface IncludedItem {
   description: string;
 }
 
+/** A hero or card CTA: opens the inquiry modal with a category preselected,
+ *  or links to an in-page anchor. */
+export type ServiceCta = { label: string; need: NeedSlug } | { label: string; href: string };
+
+export interface EngagementOption {
+  kind: 'One-time' | 'Ongoing';
+  title: string;
+  description: string;
+  /** Pricing basis shown under the description, e.g. "Custom quote". */
+  scope: string;
+  cta: string;
+  need: NeedSlug;
+}
+
 export interface ServicePageData {
   slug: string; // e.g. '/seo-services' (no trailing slash)
   title: string; // document/meta title
@@ -34,6 +51,22 @@ export interface ServicePageData {
   aiConnectionHeading: string;
   aiConnectionBody: string;
   faq: FaqItem[];
+  /** Context-specific hero CTAs. */
+  heroPrimaryCta: ServiceCta;
+  heroSecondaryCta: ServiceCta;
+  /** Category preselected in the page's own contact form. */
+  formNeed: NeedSlug;
+  /** Optional "ways to work together" block shown under the hero. */
+  engagements?: {
+    heading: string;
+    intro: string;
+    /** When set, the $300 Focused Diagnostic block leads the section with this opening line. */
+    diagnosticLede?: string;
+    options: EngagementOption[];
+  };
+  /** Closing contact section copy. */
+  ctaHeading: [string, string];
+  ctaBody: string;
 }
 
 // Builds [Service, FAQPage] JSON-LD for a service page. Provider references the
@@ -50,6 +83,16 @@ export function serviceJsonLd(data: ServicePageData): object[] {
       url,
       provider: { '@id': `${SITE_URL}/#organization` },
       areaServed: { '@type': 'City', name: 'Columbus', containedInPlace: { '@type': 'State', name: 'Ohio' } },
+      ...(data.engagements?.diagnosticLede
+        ? {
+            offers: {
+              '@type': 'Offer',
+              name: FOCUSED_DIAGNOSTIC.name,
+              price: FOCUSED_DIAGNOSTIC.priceValue,
+              priceCurrency: 'USD',
+            },
+          }
+        : {}),
     },
     {
       '@context': 'https://schema.org',
@@ -111,7 +154,23 @@ export const SEO_SERVICE: ServicePageData = {
     { q: 'Do you offer local SEO for Columbus businesses?', a: 'Yes. We focus on Columbus and Central Ohio businesses - Google Business Profile optimization, local citations, NAP consistency, and location-relevant content that helps you show up for nearby customers.' },
     { q: 'How long until we see results?', a: 'Technical fixes can be picked up within days to weeks. Ranking and traffic gains from content and authority work typically build over two to six months, depending on competition and your starting point. We report on leading indicators along the way.' },
     { q: 'Do you do one-time audits or ongoing work?', a: 'Both. Some clients want a one-time audit with a prioritized action list they implement themselves. Others prefer ongoing monthly execution and reporting. We scope to fit.' },
+    { q: 'What does the $300 Focused Diagnostic cover?', a: 'One isolated technical SEO issue, with up to 60 minutes of consultation and investigation and a brief written summary of findings and recommended next steps. It is not a comprehensive SEO audit. Implementation and repairs are quoted separately.' },
   ],
+  heroPrimaryCta: { label: 'Request SEO Help', need: 'seo' },
+  heroSecondaryCta: { label: 'See Ways to Work Together', href: '#engagements' },
+  formNeed: 'seo',
+  engagements: {
+    heading: 'ONE-TIME FIXES OR ONGOING SEO',
+    intro: 'Start with a $300 Focused Diagnostic for one isolated technical SEO issue. Comprehensive SEO audits, larger technical implementations, and ongoing optimization are custom-quoted, and the person who diagnoses the issue implements the fix.',
+    diagnosticLede: 'Have one isolated technical SEO issue, such as a page that will not index or a broken redirect? Get an experienced second opinion without committing to a large project or ongoing contract.',
+    options: [
+      { kind: 'One-time', title: 'Comprehensive SEO Audit', description: 'A technical and on-page review with a prioritized action list you can implement yourself or hand back to us.', scope: 'Custom quote', cta: 'Request an SEO Audit', need: 'seo' },
+      { kind: 'One-time', title: 'Technical SEO Implementation', description: 'Indexing, crawlability, redirects, structured data, and other technical work, diagnosed and then implemented under an agreed scope.', scope: 'Custom quote', cta: 'Request a Technical Fix', need: 'seo' },
+      { kind: 'Ongoing', title: 'Ongoing SEO Support', description: 'Monthly technical, local, and content SEO execution with reporting. Agencies can subcontract SEO work.', scope: 'Custom monthly retainer', cta: 'Discuss Ongoing SEO', need: 'ongoing-support' },
+    ],
+  },
+  ctaHeading: ['GET HELP WITH', 'YOUR SEO'],
+  ctaBody: 'Describe the issue or the site. You get a reply within 24 hours and a quote before any paid work starts. A free 30-minute call is available if it helps.',
 };
 
 export const PPC_SERVICE: ServicePageData = {
@@ -146,7 +205,24 @@ export const PPC_SERVICE: ServicePageData = {
     { q: 'How does PPC fit with SEO and AI visibility?', a: 'PPC delivers immediate, high-intent traffic while SEO and AI visibility build over months. The query and conversion data from ads also informs which topics and pages to prioritize organically - so the channels strengthen each other.' },
     { q: 'Do you set up conversion tracking?', a: 'Yes. Accurate conversion tracking is the foundation of profitable PPC. We review or implement tracking for leads, calls, and sales before scaling spend.' },
     { q: 'Is there a minimum commitment?', a: 'We keep engagements flexible. Many clients start with an audit and initial build, then move to monthly management. We scope to fit your budget and goals.' },
+    { q: 'What does the $300 Focused Diagnostic cover?', a: 'One specific Google Ads or conversion tracking issue, with up to 60 minutes of consultation and investigation and a brief written summary of findings and recommended next steps. It is not a full account audit. Repairs and further work are quoted separately.' },
   ],
+  heroPrimaryCta: { label: 'Request an Account Review', need: 'google-ads' },
+  heroSecondaryCta: { label: 'Get Tracking Help', need: 'conversion-tracking' },
+  formNeed: 'google-ads',
+  engagements: {
+    heading: 'ONE-TIME PROJECTS OR ONGOING MANAGEMENT',
+    intro: 'Start with a $300 Focused Diagnostic for one specific Google Ads or conversion tracking issue. Comprehensive account audits, campaign management, and ongoing PPC are custom-quoted, and the person who reviews your account does the work.',
+    diagnosticLede: 'Have one specific Google Ads or conversion tracking issue? Get an experienced second opinion without committing to a full account audit or ongoing management.',
+    options: [
+      { kind: 'One-time', title: 'Google Ads Account Review', description: 'Find wasted spend, campaign structure problems, tracking issues, and missed opportunities across the account. You get a full assessment with prioritized recommendations.', scope: 'Custom quote', cta: 'Request an Account Review', need: 'google-ads' },
+      { kind: 'One-time', title: 'Campaign Repairs', description: 'Fixes for campaign problems such as falling conversions, rising costs, or disapproved ads, carried out under an agreed scope.', scope: 'Quoted by scope', cta: 'Get Campaign Help', need: 'google-ads' },
+      { kind: 'One-time', title: 'Conversion Tracking Repair', description: 'Find and fix why GA4, Google Tag Manager, and Google Ads disagree, then implement the agreed repair.', scope: 'Quoted by scope and complexity', cta: 'Get Tracking Help', need: 'conversion-tracking' },
+      { kind: 'Ongoing', title: 'Ongoing Management', description: 'Monthly Google Ads management and optimization. Agencies can subcontract campaign management.', scope: 'Custom monthly retainer', cta: 'Discuss Ongoing Management', need: 'ongoing-support' },
+    ],
+  },
+  ctaHeading: ['GET HELP WITH', 'YOUR GOOGLE ADS'],
+  ctaBody: 'Describe the account or the problem. You get a reply within 24 hours and a quote before any paid work starts. A free 30-minute call is available if it helps.',
 };
 
 export const AI_VISIBILITY_SERVICE: ServicePageData = {
@@ -180,6 +256,11 @@ export const AI_VISIBILITY_SERVICE: ServicePageData = {
     { q: 'How is this different from SEO?', a: 'It is not a replacement for SEO - it is strong SEO viewed through a different lens. The same foundations (accessible pages, clear content, trusted citations, consistent data) drive both. We treat them as one connected system.' },
     { q: 'Can you guarantee we will rank #1 in ChatGPT?', a: 'No - and anyone who promises that is overselling. AI answers are generated and vary by prompt and context. We improve the underlying signals and measure sampled visibility and confirmed AI referrals honestly, distinguishing probable from confirmed.' },
     { q: 'How do you measure AI visibility?', a: 'A mix of confirmed signals (AI referral traffic, crawler activity in logs) and directional ones (sampled prompt testing, citation frequency, share of voice). We report what is confirmed vs. probable rather than vanity numbers.' },
-    { q: 'What does an engagement look like?', a: 'Single-location businesses start with the fixed-scope AI Visibility Sprint. Larger or multi-location sites start with the AI Visibility Audit. From there you can move into Enhancements, then add ongoing monitoring. Deployment takes 10 business days to 10 weeks depending on the tier you pick below.' },
+    { q: 'What does an engagement look like?', a: 'Single-location businesses start with the fixed-scope AI Visibility Sprint. Larger or multi-location sites start with the AI Visibility Audit. From there you can move into Enhancements, then add ongoing monitoring.' },
   ],
+  heroPrimaryCta: { label: 'Discuss AI Visibility', need: 'ai-visibility' },
+  heroSecondaryCta: { label: 'See Pricing', href: '#pricing-section' },
+  formNeed: 'ai-visibility',
+  ctaHeading: ['BOOK A FREE', 'INTRO CALL'],
+  ctaBody: 'A free 30-minute call. We surface visible issues and frame the opportunity, with no obligation.',
 };

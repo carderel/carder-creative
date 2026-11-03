@@ -24,8 +24,8 @@ const SiteGuide = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="/resources/" className="text-white hover:text-neon-cyan transition-colors flex items-center">
-                    <span className="text-neon-cyan/50 mr-4">02</span> Intel Archive (Resources)
+                  <a href="/blog/ai-visibility-audit-checklist/" className="text-white hover:text-neon-cyan transition-colors flex items-center">
+                    <span className="text-neon-cyan/50 mr-4">02</span> AI Visibility Audit Checklist
                   </a>
                 </li>
                 <li>

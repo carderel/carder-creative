@@ -23,7 +23,7 @@ export const ROUTE_META: Record<string, RouteMeta> = {
   '/': {
     title: 'Carder Creative | AI Visibility, SEO & PPC in Columbus, Ohio',
     description:
-      'Carder Creative is an independent Columbus, Ohio practice helping businesses get found, understood, and recommended across AI, search, and paid.',
+      'Independent SEO, Google Ads, and AI visibility expertise in Columbus, Ohio. One-time troubleshooting or ongoing search management for businesses and agencies.',
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'WebPage',
@@ -33,21 +33,6 @@ export const ROUTE_META: Record<string, RouteMeta> = {
       description: 'Independent Columbus, Ohio practice for AI visibility, SEO, and PPC.',
       isPartOf: { '@id': 'https://cardercreative.com/#website' },
       about: { '@id': 'https://cardercreative.com/#business' },
-    },
-  },
-  '/resources': {
-    title: 'Intel Archive | AI Visibility Resources | Carder Creative',
-    description:
-      'A curated feed of emerging AI search patterns, discovery-layer updates, and machine-trust protocol analysis from Carder Creative.',
-    jsonLd: {
-      '@context': 'https://schema.org',
-      '@type': 'CollectionPage',
-      '@id': 'https://cardercreative.com/resources/#page',
-      url: 'https://cardercreative.com/resources/',
-      name: 'Intel Archive',
-      description: 'A curated feed of emerging AI search patterns and discovery-layer analysis.',
-      isPartOf: { '@id': 'https://cardercreative.com/#website' },
-      about: 'AI visibility, generative engine optimization, and AI search',
     },
   },
   '/news': {
@@ -149,19 +134,36 @@ export const ROUTE_META: Record<string, RouteMeta> = {
 
 export const DEFAULT_META: RouteMeta = ROUTE_META['/'];
 
+/** Meta for any path with no ROUTE_META entry: the 404 page (prerendered to
+ *  dist/404.html) and client-side navigation to an unknown URL. Deliberately not
+ *  DEFAULT_META, so an unknown URL never claims the homepage title or canonical. */
+export const NOT_FOUND_META: RouteMeta = {
+  title: 'Page not found | Carder Creative',
+  description:
+    "This page doesn't exist. Use the Carder Creative site map below to find the page you need.",
+  robots: 'noindex',
+};
+
 // Cloudflare Pages serves directory routes with a trailing slash and 308-redirects
-// the no-slash form to it (e.g. /resources -> /resources/). We normalize the
+// the no-slash form to it (e.g. /blog -> /blog/). We normalize the
 // no-slash form for ROUTE_META lookups (route keys are no-slash) but always emit
 // canonical/og URLs in the trailing-slash form so they match the served URL.
 function normalizePath(pathname: string): string {
   return pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
 }
 
-export function metaForPath(pathname: string): RouteMeta {
-  return ROUTE_META[normalizePath(pathname)] ?? DEFAULT_META;
+export function isKnownPath(pathname: string): boolean {
+  return Object.prototype.hasOwnProperty.call(ROUTE_META, normalizePath(pathname));
 }
 
-export function canonicalForPath(pathname: string): string {
+export function metaForPath(pathname: string): RouteMeta {
+  return isKnownPath(pathname) ? ROUTE_META[normalizePath(pathname)] : NOT_FOUND_META;
+}
+
+/** Canonical URL for a known route, or null for an unknown one (the 404 page
+ *  must not point a canonical at any real URL). */
+export function canonicalForPath(pathname: string): string | null {
+  if (!isKnownPath(pathname)) return null;
   const p = normalizePath(pathname);
   return p === '/' ? `${SITE_URL}/` : `${SITE_URL}${p}/`;
 }

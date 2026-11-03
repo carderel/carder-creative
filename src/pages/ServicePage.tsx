@@ -1,16 +1,31 @@
 import { Link } from 'react-router-dom';
 import { renderInline } from '../blog/markdown';
 import ContactForm from '../components/ContactForm';
-import type { ServicePageData } from '../data/servicePages';
+import FocusedDiagnostic from '../components/FocusedDiagnostic';
+import type { ServicePageData, ServiceCta } from '../data/servicePages';
+import type { NeedSlug } from '../data/inquiry';
+import { CONTACT_CHANNELS } from '../data/contactPage';
 
 interface ServicePageProps {
   data: ServicePageData;
-  onOpenDiagnostic: () => void;
-  onOpenChecklist: () => void;
+  onOpenContact: (need: NeedSlug) => void;
+  /** When provided, a checklist text link shows under the hero CTAs. */
+  onOpenChecklist?: () => void;
   extraSections?: React.ReactNode;
 }
 
-const ServicePage: React.FC<ServicePageProps> = ({ data, onOpenDiagnostic, onOpenChecklist, extraSections }) => {
+const ServicePage: React.FC<ServicePageProps> = ({ data, onOpenContact, onOpenChecklist, extraSections }) => {
+  const renderCta = (cta: ServiceCta, className: string) =>
+    'need' in cta ? (
+      <button type="button" onClick={() => onOpenContact(cta.need)} className={className}>
+        {cta.label}
+      </button>
+    ) : (
+      <a href={cta.href} className={`${className} text-center`}>
+        {cta.label}
+      </a>
+    );
+
   return (
     <main>
       {/* Hero */}
@@ -22,22 +37,59 @@ const ServicePage: React.FC<ServicePageProps> = ({ data, onOpenDiagnostic, onOpe
           </h1>
           <p className="text-slate-400 text-lg font-medium leading-relaxed max-w-2xl mb-10">{data.heroLede}</p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <button
-              onClick={onOpenDiagnostic}
-              className="px-8 py-4 bg-neon-cyan text-dark-bg font-black uppercase text-[10px] tracking-[0.3em] border border-neon-cyan hover:bg-white hover:border-white transition-all"
-            >
-              Request a Diagnostic
-            </button>
-            <button
-              onClick={onOpenChecklist}
-              className="px-8 py-4 bg-transparent text-white font-black uppercase text-[10px] tracking-[0.3em] border border-white/20 hover:border-white transition-all"
-            >
-              Download Checklist
-            </button>
+            {renderCta(data.heroPrimaryCta, 'px-8 py-4 bg-neon-cyan text-dark-bg font-black uppercase text-[10px] tracking-[0.3em] border border-neon-cyan hover:bg-white hover:border-white transition-all')}
+            {renderCta(data.heroSecondaryCta, 'px-8 py-4 bg-transparent text-white font-black uppercase text-[10px] tracking-[0.3em] border border-white/20 hover:border-white transition-all')}
           </div>
+          {onOpenChecklist && (
+            <p className="mt-6 text-sm text-slate-400 font-medium">
+              Checking your own site first?{' '}
+              <button type="button" onClick={onOpenChecklist} className="text-neon-cyan font-bold underline underline-offset-4 hover:text-white transition-colors">
+                Download the AI visibility checklist
+              </button>
+            </p>
+          )}
         </div>
         <div className="absolute top-0 right-0 -translate-y-1/3 translate-x-1/3 w-[600px] h-[600px] bg-neon-cyan/5 rounded-full blur-[120px]"></div>
       </section>
+
+      {/* Ways to work together: one-time projects and ongoing support */}
+      {data.engagements && (
+        <section id="engagements" aria-labelledby="engagements-heading" className="py-16 bg-slate-950 border-b border-white/5 scroll-mt-24">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p className="text-neon-cyan font-mono text-xs font-black uppercase tracking-[0.4em] mb-4">// WAYS TO WORK TOGETHER</p>
+            <h2 id="engagements-heading" className="text-3xl sm:text-4xl font-black text-white uppercase tracking-tighter mb-6 max-w-4xl">{data.engagements.heading}</h2>
+            <p className="text-slate-400 text-base font-medium leading-relaxed max-w-3xl mb-10">{data.engagements.intro}</p>
+            {data.engagements.diagnosticLede && (
+              <div className="mb-12">
+                <FocusedDiagnostic lede={data.engagements.diagnosticLede} onRequest={() => onOpenContact('focused-diagnostic')} />
+                <h3 className="mt-16 text-2xl sm:text-3xl font-black text-white uppercase tracking-tighter">Larger projects &amp; ongoing work</h3>
+              </div>
+            )}
+            <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 ${data.engagements.options.length === 4 ? 'xl:grid-cols-4' : 'lg:grid-cols-3'}`}>
+              {data.engagements.options.map((opt) => {
+                const ongoing = opt.kind === 'Ongoing';
+                const OptHeading = data.engagements?.diagnosticLede ? 'h4' : 'h3';
+                return (
+                  <div key={opt.title} className={`p-8 border flex flex-col h-full ${ongoing ? 'border-neon-purple/50 bg-white/5' : 'border-white/10'}`}>
+                    <p className={`font-mono text-[10px] font-black uppercase tracking-[0.3em] mb-4 ${ongoing ? 'text-neon-purple' : 'text-neon-cyan'}`}>// {opt.kind}</p>
+                    <OptHeading className="text-lg font-black text-white uppercase tracking-tight mb-3">{opt.title}</OptHeading>
+                    <p className="flex-1 text-slate-400 text-sm font-medium leading-relaxed mb-6">{opt.description}</p>
+                    <p className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-6">{opt.scope}</p>
+                    <button
+                      type="button"
+                      onClick={() => onOpenContact(opt.need)}
+                      className={`w-full py-4 px-4 text-center font-black uppercase text-[10px] tracking-[0.25em] transition-all border text-white ${ongoing ? 'border-neon-purple hover:bg-neon-purple hover:text-dark-bg' : 'border-white/20 hover:border-neon-cyan hover:text-neon-cyan'}`}
+                    >
+                      {opt.cta}
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
+            <p className="mt-8 text-slate-400 text-sm font-medium">We scope and quote every project before work begins. One-time projects and ongoing engagements are both welcome.</p>
+          </div>
+        </section>
+      )}
 
       {/* What's included */}
       <section className="py-16 bg-dark-bg border-b border-white/5">
@@ -107,22 +159,26 @@ const ServicePage: React.FC<ServicePageProps> = ({ data, onOpenDiagnostic, onOpe
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-slate-950 relative overflow-hidden border-t border-white/5">
+      <section id="contact" className="py-16 bg-slate-950 relative overflow-hidden border-t border-white/5 scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 lg:flex lg:items-start lg:justify-between gap-24">
           <div className="lg:w-1/2 mb-12 lg:mb-0">
             <h2 className="text-4xl sm:text-5xl font-black text-white uppercase tracking-tighter mb-8">
-              SCHEDULE YOUR <br />
-              <span className="text-transparent bg-clip-text vapor-gradient">DIAGNOSTIC</span>
+              {data.ctaHeading[0]} <br />
+              <span className="text-transparent bg-clip-text vapor-gradient">{data.ctaHeading[1]}</span>
             </h2>
-            <p className="text-slate-400 text-lg font-medium leading-relaxed mb-8">
-              A free 30-minute call. We surface visible issues and frame the opportunity - no obligation.
+            <p className="text-slate-400 text-lg font-medium leading-relaxed mb-8">{data.ctaBody}</p>
+            <p className="text-slate-400 text-sm font-medium mb-8">
+              Prefer to call?{' '}
+              <a href={CONTACT_CHANNELS.phoneHref} className="text-white font-bold hover:text-neon-cyan transition-colors">{CONTACT_CHANNELS.phone}</a>
             </p>
-            <Link to="/resources/" className="inline-flex items-center text-neon-cyan font-black text-xs uppercase tracking-[0.4em] hover:text-white transition-colors">
-              Explore Resources
-            </Link>
+            {data.formNeed === 'ai-visibility' && (
+              <Link to="/blog/ai-visibility-audit-checklist/" className="inline-flex items-center text-neon-cyan font-black text-xs uppercase tracking-[0.4em] hover:text-white transition-colors">
+                Read the audit checklist
+              </Link>
+            )}
           </div>
           <div className="lg:w-5/12">
-            <ContactForm />
+            <ContactForm defaultNeed={data.formNeed} />
           </div>
         </div>
         <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-neon-purple/5 rounded-full blur-[120px]"></div>

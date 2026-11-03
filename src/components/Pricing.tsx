@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom';
 import { PRICING_TIERS } from '../data/pricingTiers';
+import { contactHref } from '../data/inquiry';
 
 interface PricingProps {
   onOpenDiagnostic: () => void;
@@ -39,7 +41,7 @@ const Pricing: React.FC<PricingProps> = ({ onOpenDiagnostic }) => {
                   <span className="text-xs font-bold uppercase opacity-50">/ {isMonthly ? 'Month' : 'Project'}</span>
                 </div>
                 <p className="mt-4 text-[10px] font-black uppercase tracking-widest opacity-60">
-                  Estimated Deployment: {tier.duration}
+                  {isMonthly ? 'Ongoing, billed monthly' : `Timeline: ${tier.duration}`}
                 </p>
                 {tier.note && (
                   <p className={`mt-2 text-[10px] font-bold normal-case leading-snug ${tier.highlighted ? 'text-dark-bg/70' : 'text-neon-cyan/80'}`}>
@@ -71,6 +73,10 @@ const Pricing: React.FC<PricingProps> = ({ onOpenDiagnostic }) => {
             );
           })}
         </div>
+        <p className="mt-10 text-slate-400 text-sm font-medium leading-relaxed text-center max-w-2xl mx-auto">
+          These tiers cover AI visibility work. Larger SEO, Google Ads, and conversion tracking projects are quoted individually before work starts.{' '}
+          <Link to={contactHref()} className="text-neon-cyan font-bold hover:text-white transition-colors">Ask for a quote</Link>
+        </p>
       </div>
     </section>
   );

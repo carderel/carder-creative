@@ -7,7 +7,6 @@ import Modal from './components/Modal';
 import ContactForm from './components/ContactForm';
 import ChecklistForm from './components/ChecklistForm';
 import Home from './pages/Home';
-import ResourcesArchive from './pages/ResourcesArchive';
 import NewsFeed, { type Article } from './pages/NewsFeed';
 import SiteGuide from './pages/SiteGuide';
 import Legal from './pages/Legal';
@@ -17,19 +16,24 @@ import BlogIndex from './pages/BlogIndex';
 import BlogPost from './pages/BlogPost';
 import Contact from './pages/Contact';
 import AiInfo from './pages/AiInfo';
+import NotFound from './pages/NotFound';
 import { SEO_SERVICE, PPC_SERVICE } from './data/servicePages';
 import { useDocumentMeta } from './seo/useDocumentMeta';
+import type { NeedSlug } from './data/inquiry';
 
 export interface InitialData {
   newsArticles?: Article[];
 }
 
-// Helper to scroll to top on page change
+// Scroll to top on page change, or to the #hash target when the URL has one
+// (e.g. /contact/?need=seo#form from a service CTA).
 const ScrollToTop = () => {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    const target = hash ? document.getElementById(decodeURIComponent(hash.slice(1))) : null;
+    if (target) target.scrollIntoView();
+    else window.scrollTo(0, 0);
+  }, [pathname, hash]);
   return null;
 };
 
@@ -44,7 +48,11 @@ function AppRoutes({ initialData }: { initialData?: InitialData }) {
   const [isDiagnosticOpen, setIsDiagnosticOpen] = useState(false);
   const [isChecklistOpen, setIsChecklistOpen] = useState(false);
 
-  const openDiagnostic = () => setIsDiagnosticOpen(true);
+  // Category preselected in the modal form; undefined = generic diagnostic.
+  const [modalNeed, setModalNeed] = useState<NeedSlug | undefined>(undefined);
+
+  const openDiagnostic = () => { setModalNeed(undefined); setIsDiagnosticOpen(true); };
+  const openContact = (need: NeedSlug) => { setModalNeed(need); setIsDiagnosticOpen(true); };
   const closeDiagnostic = () => setIsDiagnosticOpen(false);
 
   const openChecklist = () => setIsChecklistOpen(true);
@@ -57,18 +65,19 @@ function AppRoutes({ initialData }: { initialData?: InitialData }) {
         <Navbar onOpenDiagnostic={openDiagnostic} />
 
         <Routes>
-          <Route path="/" element={<Home onOpenDiagnostic={openDiagnostic} onOpenChecklist={openChecklist} />} />
-          <Route path="/resources" element={<ResourcesArchive onOpenChecklist={openChecklist} />} />
+          <Route path="/" element={<Home onOpenDiagnostic={openDiagnostic} onOpenChecklist={openChecklist} onOpenContact={openContact} />} />
           <Route path="/news" element={<NewsFeed initialArticles={initialData?.newsArticles} />} />
           <Route path="/blog" element={<BlogIndex />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/blog/:slug" element={<BlogPost onOpenDiagnostic={openDiagnostic} />} />
           <Route path="/site-guide" element={<SiteGuide />} />
           <Route path="/legal" element={<Legal />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/ai-info" element={<AiInfo />} />
-          <Route path="/seo-services" element={<ServicePage data={SEO_SERVICE} onOpenDiagnostic={openDiagnostic} onOpenChecklist={openChecklist} />} />
-          <Route path="/ppc-services" element={<ServicePage data={PPC_SERVICE} onOpenDiagnostic={openDiagnostic} onOpenChecklist={openChecklist} />} />
-          <Route path="/ai-visibility-services" element={<AiVisibilityServices onOpenDiagnostic={openDiagnostic} onOpenChecklist={openChecklist} />} />
+          <Route path="/seo-services" element={<ServicePage data={SEO_SERVICE} onOpenContact={openContact} />} />
+          <Route path="/ppc-services" element={<ServicePage data={PPC_SERVICE} onOpenContact={openContact} />} />
+          <Route path="/ai-visibility-services" element={<AiVisibilityServices onOpenContact={openContact} onOpenChecklist={openChecklist} />} />
+          {/* Catch-all: prerendered to dist/404.html, which Cloudflare Pages serves with HTTP 404. */}
+          <Route path="*" element={<NotFound onOpenDiagnostic={openDiagnostic} />} />
         </Routes>
 
         <SchemaFacts />
@@ -78,10 +87,11 @@ function AppRoutes({ initialData }: { initialData?: InitialData }) {
         <Modal isOpen={isDiagnosticOpen} onClose={closeDiagnostic}>
           <div className="p-6 sm:p-10 text-left">
             <h2 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tighter mb-6 sm:mb-8">
-              SCHEDULE YOUR <br />
-              <span className="text-transparent bg-clip-text vapor-gradient">DIAGNOSTIC</span>
+              {modalNeed ? 'TELL US ABOUT' : 'BOOK A FREE'} <br />
+              <span className="text-transparent bg-clip-text vapor-gradient">{modalNeed ? 'THE PROBLEM' : 'INTRO CALL'}</span>
             </h2>
-            <ContactForm />
+            {/* key remounts the form so a new preset takes effect */}
+            <ContactForm key={modalNeed ?? 'diagnostic'} defaultNeed={modalNeed} />
           </div>
         </Modal>
         {/* Pop-up Checklist Form */}

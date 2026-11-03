@@ -24,7 +24,7 @@ const FEEDS = JSON.parse(readFileSync(resolve(__dirname, 'scripts/news-feeds.jso
 // Keep in sync with the <Route> paths in src/AppRoutes.tsx. Blog post routes are
 // NOT listed here: they come from the post registry (src/data/blogPosts.ts) via
 // the SSR bundle, so publishing a post cannot leave an unprerendered route behind.
-const STATIC_ROUTES = ['/', '/resources', '/news', '/blog', '/site-guide', '/legal', '/contact', '/ai-info', '/seo-services', '/ppc-services', '/ai-visibility-services'];
+const STATIC_ROUTES = ['/', '/news', '/blog', '/site-guide', '/legal', '/contact', '/ai-info', '/seo-services', '/ppc-services', '/ai-visibility-services'];
 
 const { render, blogRoutes, blogSitemapEntries, blogFeedXml, blogLlmsSection, pricingFile } =
   await import(pathToFileURL(SSR_ENTRY).href);
@@ -34,7 +34,13 @@ if (!Array.isArray(blogPostRoutes) || blogPostRoutes.length === 0) {
   throw new Error('prerender: SSR bundle reported no blog routes - refusing to build a blog with no posts');
 }
 
-const ROUTES = [...STATIC_ROUTES, ...blogPostRoutes];
+// The not-found page. Rendered like any route but written to dist/404.html (top
+// level, no /404/ directory) and never listed in the sitemap. With no `/*` rule in
+// public/_redirects, Cloudflare Pages serves this file with HTTP 404 for every
+// unknown URL; the client then hydrates it under the catch-all <Route path="*">.
+const NOT_FOUND_ROUTE = '/404';
+
+const ROUTES = [...STATIC_ROUTES, ...blogPostRoutes, NOT_FOUND_ROUTE];
 const template = readFileSync(resolve(DIST, 'index.html'), 'utf-8');
 
 if (!template.includes('<div id="root"></div>')) {
@@ -82,6 +88,7 @@ function mergeJsonLd(page, routeNodes) {
 
 function outputPathFor(route) {
   if (route === '/') return resolve(DIST, 'index.html');
+  if (route === NOT_FOUND_ROUTE) return resolve(DIST, '404.html');
   return resolve(DIST, `.${route}`, 'index.html');
 }
 

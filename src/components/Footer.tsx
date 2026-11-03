@@ -45,7 +45,7 @@ const Footer = () => {
             <h3 className="text-white font-black text-xs uppercase tracking-[0.3em] mb-8">// TERMINAL</h3>
             <ul className="space-y-4 text-[10px] font-black uppercase tracking-widest">
               <li>COLUMBUS OH USA</li>
-              <li><a href="mailto:aivisibility@cardercreative.com" className="text-neon-cyan hover:text-white transition-colors">AIVISIBILITY@CARDERCREATIVE.COM</a></li>
+              <li><a href="mailto:aivisibility@cardercreative.com" className="text-neon-cyan hover:text-white transition-colors break-all">AIVISIBILITY@CARDERCREATIVE.COM</a></li>
               <li><a href="tel:+16148095565" className="text-neon-cyan hover:text-white transition-colors">614-809-5565</a></li>
               <li><a href="/ai-info/" className="text-neon-cyan hover:text-white transition-colors">Information for AI assistants</a></li>
               <li><a href="/llms.txt" target="_blank" className="hover:text-neon-cyan transition-colors">LLMS.TXT</a></li>

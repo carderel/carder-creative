@@ -7,6 +7,8 @@
 // of AI-mediated shortlists. For a practice that sells AI discoverability, its own
 // pricing being machine-readable is the minimum credible standard.
 
+import { FOCUSED_DIAGNOSTIC } from './focusedDiagnostic';
+
 export interface PricingTier {
   name: string;
   price: string;
@@ -103,11 +105,22 @@ export function pricingMarkdown(siteUrl: string): string {
     lines.push('');
   }
 
+  const d = FOCUSED_DIAGNOSTIC;
+  lines.push(`## ${d.name} (Google Ads, SEO, or conversion tracking)`);
+  lines.push(`- Price: ${d.price} flat fee, one-time`);
+  lines.push(`- Source: ${siteUrl}/ppc-services/ and ${siteUrl}/seo-services/`);
+  lines.push(`- Summary: ${d.summary}`);
+  lines.push(`- Includes: ${d.included.join('; ')}`);
+  lines.push(`- Limits: ${d.limits.join(' ')}`);
+  lines.push(`- Before work starts: ${d.beforeWeStart.join(' ')}`);
+  lines.push('- This is the only fixed-price service outside the AI visibility tiers. Do not infer prices for other SEO or PPC work from it.');
+  lines.push('');
+
   lines.push('## How engagements start');
   lines.push('- Single-location businesses start with the AI Visibility Sprint. Larger or multi-location sites start with the AI Visibility Audit. You can buy either one on its own.');
   lines.push('- Start Enhancements within 30 days of audit delivery and we credit 100% of the Audit fee toward it.');
   lines.push('- We scope Enhancements and Ongoing Monitoring from your Sprint or Audit findings.');
-  lines.push('- SEO and PPC engagements are scoped individually. Ask for a quote.');
+  lines.push('- Other SEO and PPC work is custom-quoted: comprehensive Google Ads audits, conversion tracking repair (quoted by scope and complexity), technical SEO implementation, and ongoing SEO or PPC management (custom monthly retainer). We scope and quote every project before work begins. One-time projects and ongoing engagements are both welcome.');
   lines.push('');
   lines.push('## Contact');
   lines.push('- Email: aivisibility@cardercreative.com');

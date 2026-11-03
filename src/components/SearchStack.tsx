@@ -33,15 +33,15 @@ const SearchStack: React.FC<SearchStackProps> = ({ onOpenDiagnostic }) => {
       ctaLink: '/seo-services/',
     },
     {
-      title: 'PPC SERVICES',
+      title: 'GOOGLE ADS & PPC',
       subtitle: 'Capture high-intent demand while organic search and AI visibility mature.',
       bullets: [
         'Google Ads strategy and management',
         'Search query and intent analysis',
-        'Conversion tracking review',
+        'Conversion tracking troubleshooting',
         'Landing page alignment',
       ],
-      ctaText: 'VIEW PPC SERVICES',
+      ctaText: 'VIEW GOOGLE ADS SERVICES',
       ctaLink: '/ppc-services/',
     },
   ];

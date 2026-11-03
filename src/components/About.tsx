@@ -10,14 +10,14 @@ const About = () => {
               <span className="text-neon-purple drop-shadow-[0_0_8px_rgba(255,0,229,0.3)]">FULL-STACK SIGNAL.</span>
             </p>
             <p className="text-lg text-slate-400 leading-relaxed mb-12 font-medium">
-              Carder Creative is the independent practice of Eli Carder - 20+ years across marketing and creative, serving Columbus and Central Ohio. We help businesses adapt to AI-powered discovery and strengthen the search foundation beneath it, through technical audits, content structure, trust signals, and honest measurement.
+              Carder Creative is the independent practice of Eli Carder - 20+ years across marketing and creative, serving Columbus and Central Ohio. We help businesses adapt to AI-powered discovery and strengthen the search foundation beneath it, through technical audits, content structure, trust signals, and honest measurement. Eli Carder does the hands-on work, from the audit and recommendations through implementation.
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               <div className="p-8 bg-white/5 border-l-2 border-neon-cyan">
                 <h4 className="text-white font-black uppercase tracking-widest text-xs mb-3">Honest Measurement</h4>
                 <p className="text-slate-500 text-[11px] font-bold leading-relaxed uppercase">
-                  We distinguish between confirmed and probable signals. No vague promises — just rigorous, observable data.
+                  We distinguish between confirmed and probable signals. We report what we can observe and verify.
                 </p>
               </div>
               
@@ -33,9 +33,9 @@ const About = () => {
           <div className="mt-16 lg:mt-0 lg:w-5/12 relative">
             <div className="aspect-square glass-card rounded-none overflow-hidden shadow-2xl flex flex-col items-center justify-center p-12 text-center group">
                <div className="text-neon-cyan text-8xl font-black mb-4 group-hover:scale-110 transition-transform duration-500">6-10</div>
-               <div className="text-xs font-black text-white uppercase tracking-[0.3em] mb-4">Weeks to Deploy</div>
+               <div className="text-xs font-black text-white uppercase tracking-[0.3em] mb-4">Weeks: AI Visibility Enhancements</div>
                <div className="w-12 h-0.5 bg-neon-purple mb-4"></div>
-               <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest leading-loose">Typical timeline to deploy improvements <br /> and begin monitoring visibility signals.</p>
+               <p className="text-slate-400 text-[10px] font-bold uppercase tracking-widest leading-loose max-w-xs">Typical timeline for a comprehensive AI visibility engagement. One-time projects are scoped individually. Turnaround depends on the issue and availability.</p>
             </div>
             {/* Decoration */}
             <div className="absolute -top-10 -right-10 w-40 h-40 bg-neon-cyan/10 rounded-full blur-3xl"></div>

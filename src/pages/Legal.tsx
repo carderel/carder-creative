@@ -32,7 +32,7 @@ const Legal = () => {
 
               <h3 className="text-white font-bold uppercase tracking-widest text-xs">02. How We Use Your Information</h3>
               <p>
-                We use the information you provide to respond to your inquiries, schedule diagnostic calls, and deliver requested resources (such as the AI Visibility Checklist). We do not sell or share your personal information with third parties for marketing purposes.
+                We use the information you provide to respond to your inquiries, schedule intro calls, and deliver requested resources (such as the AI Visibility Checklist). We do not sell or share your personal information with third parties for marketing purposes.
               </p>
 
               <h3 className="text-white font-bold uppercase tracking-widest text-xs">03. Data Security</h3>

@@ -143,9 +143,9 @@ export const AI_INFO_KEY_PAGES: { name: string; href: string; description: strin
     description: 'Details on Google Ads strategy, search intent analysis, and conversion tracking.',
   },
   {
-    name: 'Intel Archive',
-    href: '/resources/',
-    description: 'A curated feed of emerging AI search patterns and discovery layer updates.',
+    name: 'AI Visibility Audit Checklist',
+    href: '/blog/ai-visibility-audit-checklist/',
+    description: 'A 10-point audit that checks whether AI systems can find and trust your business.',
   },
   {
     name: 'AI Site Guide',

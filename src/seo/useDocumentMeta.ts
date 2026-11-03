@@ -16,8 +16,17 @@ function setMeta(selector: string, attr: 'name' | 'property', key: string, conte
   el.setAttribute('content', content);
 }
 
-function setCanonical(href: string) {
+function removeEl(selector: string) {
+  document.head.querySelector(selector)?.remove();
+}
+
+// null = unknown route (404): drop the canonical rather than point it anywhere.
+function setCanonical(href: string | null) {
   let el = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+  if (href === null) {
+    if (el) el.remove();
+    return;
+  }
   if (!el) {
     el = document.createElement('link');
     el.setAttribute('rel', 'canonical');
@@ -52,10 +61,16 @@ export function useDocumentMeta(pathname: string): void {
 
     setMeta('meta[property="og:title"]', 'property', 'og:title', meta.title);
     setMeta('meta[property="og:description"]', 'property', 'og:description', meta.description);
-    setMeta('meta[property="og:url"]', 'property', 'og:url', canonical);
     setMeta('meta[property="twitter:title"]', 'property', 'twitter:title', meta.title);
     setMeta('meta[property="twitter:description"]', 'property', 'twitter:description', meta.description);
-    setMeta('meta[property="twitter:url"]', 'property', 'twitter:url', canonical);
-    setMeta('meta[name="citation_url"]', 'name', 'citation_url', `${canonical}?utm_source=llm&utm_medium=referral&utm_campaign=ai_citation`);
+    if (canonical === null) {
+      removeEl('meta[property="og:url"]');
+      removeEl('meta[property="twitter:url"]');
+      removeEl('meta[name="citation_url"]');
+    } else {
+      setMeta('meta[property="og:url"]', 'property', 'og:url', canonical);
+      setMeta('meta[property="twitter:url"]', 'property', 'twitter:url', canonical);
+      setMeta('meta[name="citation_url"]', 'name', 'citation_url', `${canonical}?utm_source=llm&utm_medium=referral&utm_campaign=ai_citation`);
+    }
   }, [pathname]);
 }

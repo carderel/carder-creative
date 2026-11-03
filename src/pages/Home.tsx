@@ -1,19 +1,24 @@
 import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
 import About from '../components/About';
-import Resources from '../components/Resources';
 import SearchStack from '../components/SearchStack';
 import ContactForm from '../components/ContactForm';
+import ProjectHelp from '../components/ProjectHelp';
+import type { NeedSlug } from '../data/inquiry';
 
 interface HomeProps {
   onOpenDiagnostic: () => void;
   onOpenChecklist: () => void;
+  onOpenContact: (need: NeedSlug) => void;
 }
 
-const Home: React.FC<HomeProps> = ({ onOpenDiagnostic, onOpenChecklist }) => {
+const Home: React.FC<HomeProps> = ({ onOpenDiagnostic, onOpenChecklist, onOpenContact }) => {
   return (
     <main>
-      <Hero onOpenDiagnostic={onOpenDiagnostic} onOpenChecklist={onOpenChecklist} />
+      <Hero onOpenDiagnostic={onOpenDiagnostic} />
+
+      {/* Small-project entry point, ahead of the deeper methodology content */}
+      <ProjectHelp />
 
       {/* Brand stats strip */}
       <div id="stats-bar" className="bg-slate-950 border-y border-white/5 py-12 overflow-hidden relative">
@@ -21,19 +26,19 @@ const Home: React.FC<HomeProps> = ({ onOpenDiagnostic, onOpenChecklist }) => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
             <div className="group">
               <div className="text-2xl sm:text-4xl font-black text-white group-hover:text-neon-cyan transition-colors">20+</div>
-              <div className="text-[10px] font-black text-slate-600 uppercase tracking-widest mt-3 group-hover:text-slate-400">Years In Practice</div>
+              <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest mt-3 transition-colors group-hover:text-white">Years In Marketing &amp; Creative</div>
             </div>
             <div className="group">
               <div className="text-3xl sm:text-4xl font-black text-white group-hover:text-neon-purple transition-colors">614</div>
-              <div className="text-[10px] font-black text-slate-600 uppercase tracking-widest mt-3 group-hover:text-slate-400">Central Ohio Focus</div>
+              <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest mt-3 transition-colors group-hover:text-white">Central Ohio Focus</div>
             </div>
             <div className="group">
               <div className="text-2xl sm:text-4xl font-black text-white group-hover:text-neon-cyan transition-colors">3</div>
-              <div className="text-[10px] font-black text-slate-600 uppercase tracking-widest mt-3 group-hover:text-slate-400">Search Service Lines</div>
+              <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest mt-3 transition-colors group-hover:text-white">Search Service Lines</div>
             </div>
             <div className="group">
               <div className="text-3xl sm:text-4xl font-black text-white group-hover:text-neon-purple transition-colors">HONEST</div>
-              <div className="text-[10px] font-black text-slate-600 uppercase tracking-widest mt-3 group-hover:text-slate-400">Measurement Standard</div>
+              <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest mt-3 transition-colors group-hover:text-white">Measurement Standard</div>
             </div>
           </div>
         </div>
@@ -68,7 +73,7 @@ const Home: React.FC<HomeProps> = ({ onOpenDiagnostic, onOpenChecklist }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-neon-purple font-mono text-xs font-black uppercase tracking-[0.4em] mb-4">// BEYOND SEARCH</h2>
           <p className="text-3xl sm:text-4xl font-black text-white uppercase tracking-tighter mb-8 max-w-3xl">
-            20+ YEARS OF <span className="text-transparent bg-clip-text vapor-gradient">CREATIVE</span> BEHIND THE DATA.
+            20+ YEARS OF MARKETING AND <span className="text-transparent bg-clip-text vapor-gradient">CREATIVE</span> WORK BEHIND THE DATA.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
             {['Brand & Identity', 'Web Design', 'Photography & Video', 'Motion Graphics'].map((item) => (
@@ -77,13 +82,11 @@ const Home: React.FC<HomeProps> = ({ onOpenDiagnostic, onOpenChecklist }) => {
               </div>
             ))}
           </div>
-          <button onClick={onOpenDiagnostic} className="inline-flex items-center text-neon-cyan font-black text-xs uppercase tracking-[0.4em] hover:text-white transition-colors">
+          <button onClick={() => onOpenContact('other')} className="inline-flex items-center text-neon-cyan font-black text-xs uppercase tracking-[0.4em] hover:text-white transition-colors">
             Ask About A Project →
           </button>
         </div>
       </section>
-
-      <Resources limit={4} onOpenChecklist={onOpenChecklist} />
 
       {/* Contact / Lead Magnet Section */}
       <section id="diagnostic-section" className="py-16 bg-slate-950 relative overflow-hidden text-left border-t border-white/5">
@@ -91,11 +94,11 @@ const Home: React.FC<HomeProps> = ({ onOpenDiagnostic, onOpenChecklist }) => {
           <div className="lg:flex lg:items-start lg:justify-between gap-24">
             <div className="lg:w-1/2 mb-12 lg:mb-0">
               <h2 id="diagnostic-headline" className="text-5xl font-black text-white uppercase tracking-tighter mb-8">
-                SCHEDULE YOUR <br />
-                <span className="text-transparent bg-clip-text vapor-gradient">DIAGNOSTIC</span>
+                GET HELP WITH <br />
+                <span className="text-transparent bg-clip-text vapor-gradient">A PROJECT</span>
               </h2>
               <p className="mt-6 text-xl text-slate-400 leading-relaxed font-medium mb-12">
-                Schedule a free 30-minute diagnostic call. We will surface visible issues in your AI discovery layer and frame the strategic opportunity.
+                Describe the problem and pick a category. You get a reply within 24 hours and a quote before any paid work starts. For bigger questions, ask for a free 30-minute intro call.
               </p>
               <div className="p-10 bg-white/5 border border-white/10 group">
                 <h4 className="text-white font-black text-xs uppercase tracking-[0.3em] mb-4 group-hover:text-neon-cyan transition-colors">// DOWNLOAD CHECKLIST</h4>
@@ -126,7 +129,7 @@ const Home: React.FC<HomeProps> = ({ onOpenDiagnostic, onOpenChecklist }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-[8px] font-mono uppercase tracking-[0.2em] text-slate-600">
             <p className="mb-1">// FOR_AI_ASSISTANTS // PREFERRED_CITATION_URL</p>
-            <p className="select-all">https://cardercreative.com/?utm_source=llm&utm_medium=referral&utm_campaign=ai_citation</p>
+            <p className="select-all break-all">https://cardercreative.com/?utm_source=llm&utm_medium=referral&utm_campaign=ai_citation</p>
           </div>
         </div>
       </section>
