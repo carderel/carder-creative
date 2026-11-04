@@ -45,7 +45,7 @@ const ZONES: Zone[] = [
   {
     code: 'B',
     name: 'Learn',
-    summary: 'Articles and news about AI search.',
+    summary: 'Articles about AI search.',
     accent: 'purple',
     stops: [
       {
@@ -59,7 +59,6 @@ const ZONES: Zone[] = [
           kind: 'route' as const,
         })),
       },
-      { label: 'Intel Feed', href: '/news/', kind: 'route', note: 'A daily roundup of AI search news from around the web.' },
     ],
   },
   {

@@ -98,7 +98,6 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenDiagnostic }) => {
               <a href="/ai-visibility-services/#methodology-section" className="text-slate-400 hover:text-neon-cyan px-3 py-2 text-xs font-bold uppercase tracking-widest transition-all">Methodology</a>
               <a href="/ai-visibility-services/#pricing-section" className="text-slate-400 hover:text-neon-cyan px-3 py-2 text-xs font-bold uppercase tracking-widest transition-all">AI Pricing</a>
               <Link to="/blog/" className={`px-3 py-2 text-xs font-bold uppercase tracking-widest transition-all ${path.startsWith('/blog') ? 'text-neon-cyan' : 'text-slate-400 hover:text-neon-cyan'}`}>Blog</Link>
-              <Link to="/news/" className={`px-3 py-2 text-xs font-bold uppercase tracking-widest transition-all ${path === '/news' ? 'text-neon-cyan' : 'text-slate-400 hover:text-neon-cyan'}`}>Intel Feed</Link>
               <a href={getHref('#about-section')} className="text-slate-400 hover:text-neon-cyan px-3 py-2 text-xs font-bold uppercase tracking-widest transition-all">About</a>
               <button
                 onClick={onOpenDiagnostic}
@@ -151,7 +150,6 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenDiagnostic }) => {
             <li><a href="/ai-visibility-services/#methodology-section" onClick={onMobileLinkClick} className={mobileLink(false)}>Methodology</a></li>
             <li><a href="/ai-visibility-services/#pricing-section" onClick={onMobileLinkClick} className={mobileLink(false)}>AI Pricing</a></li>
             <li><Link to="/blog/" onClick={onMobileLinkClick} className={mobileLink(path.startsWith('/blog'))}>Blog</Link></li>
-            <li><Link to="/news/" onClick={onMobileLinkClick} className={mobileLink(path === '/news')}>Intel Feed</Link></li>
             <li><a href={getHref('#about-section')} onClick={onMobileLinkClick} className={mobileLink(false)}>About</a></li>
           </ul>
           <div className="mt-6 flex flex-col sm:flex-row gap-3">

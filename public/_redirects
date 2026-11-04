@@ -6,3 +6,5 @@
 /_headers      /_headers      200
 /resources     /blog/ai-visibility-audit-checklist/   302
 /resources/    /blog/ai-visibility-audit-checklist/   302
+/news          /blog/   302
+/news/         /blog/   302

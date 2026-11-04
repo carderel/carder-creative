@@ -1,6 +1,6 @@
 import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router';
-import AppRoutes, { type InitialData } from './AppRoutes';
+import AppRoutes from './AppRoutes';
 import { canonicalForPath, metaForPath, SITE_URL } from './seo/siteMeta';
 import { BLOG_ROUTES, sortedBlogPosts, blogPostUrl } from './data/blogPosts';
 import { pricingMarkdown } from './data/pricingTiers';
@@ -72,8 +72,7 @@ export function pricingFile(): string {
 }
 
 /** RSS 2.0 for the blog. Replaces the hand-written placeholder feed: the site's
- *  own posts are the only thing an RSS reader should get from this domain, since
- *  /news aggregates third-party headlines and is deliberately noindexed. */
+ *  own posts are the only thing an RSS reader should get from this domain. */
 export function blogFeedXml(): string {
   const posts = sortedBlogPosts();
   const items = posts
@@ -118,10 +117,10 @@ export function blogFeedXml(): string {
 // Renders a single route to static HTML and the per-route <head> tags.
 // Head tags are built deterministically from siteMeta (not scraped from the
 // render output), so the static <head> is always correct and the body stays clean.
-export function render(url: string, initialData?: InitialData): RenderResult {
+export function render(url: string): RenderResult {
   const html = renderToString(
     <StaticRouter location={url}>
-      <AppRoutes initialData={initialData} />
+      <AppRoutes />
     </StaticRouter>
   );
 

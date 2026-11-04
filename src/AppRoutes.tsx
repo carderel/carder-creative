@@ -7,7 +7,6 @@ import Modal from './components/Modal';
 import ContactForm from './components/ContactForm';
 import ChecklistForm from './components/ChecklistForm';
 import Home from './pages/Home';
-import NewsFeed, { type Article } from './pages/NewsFeed';
 import SiteGuide from './pages/SiteGuide';
 import Legal from './pages/Legal';
 import ServicePage from './pages/ServicePage';
@@ -20,10 +19,6 @@ import NotFound from './pages/NotFound';
 import { SEO_SERVICE, PPC_SERVICE } from './data/servicePages';
 import { useDocumentMeta } from './seo/useDocumentMeta';
 import type { NeedSlug } from './data/inquiry';
-
-export interface InitialData {
-  newsArticles?: Article[];
-}
 
 // Scroll to top on page change, or to the #hash target when the URL has one
 // (e.g. /contact/?need=seo#form from a service CTA).
@@ -39,9 +34,9 @@ const ScrollToTop = () => {
 
 // Renders the app under whichever router wraps it (BrowserRouter on the client,
 // StaticRouter during prerendering), so this component must stay router-agnostic.
-// initialData is supplied only during prerender; on the client NewsFeed reads its
-// seed from window instead.
-function AppRoutes({ initialData }: { initialData?: InitialData }) {
+// /news (src/pages/NewsFeed.tsx) is unpublished but kept on disk; to restore it,
+// re-add its route here plus the feed fetch in prerender.mjs (see git history).
+function AppRoutes() {
   const { pathname } = useLocation();
   useDocumentMeta(pathname);
 
@@ -66,7 +61,6 @@ function AppRoutes({ initialData }: { initialData?: InitialData }) {
 
         <Routes>
           <Route path="/" element={<Home onOpenDiagnostic={openDiagnostic} onOpenChecklist={openChecklist} onOpenContact={openContact} />} />
-          <Route path="/news" element={<NewsFeed initialArticles={initialData?.newsArticles} />} />
           <Route path="/blog" element={<BlogIndex />} />
           <Route path="/blog/:slug" element={<BlogPost onOpenDiagnostic={openDiagnostic} />} />
           <Route path="/site-guide" element={<SiteGuide />} />

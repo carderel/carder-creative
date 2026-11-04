@@ -35,21 +35,6 @@ export const ROUTE_META: Record<string, RouteMeta> = {
       about: { '@id': 'https://cardercreative.com/#business' },
     },
   },
-  '/news': {
-    title: 'AI Search Intel | Live AI Visibility & GEO News',
-    description:
-      'Real-time news on AI search, GEO, LLM visibility, and the emerging discovery layer. Updated daily by Carder Creative.',
-    robots: 'noindex, follow',
-    jsonLd: {
-      '@context': 'https://schema.org',
-      '@type': 'CollectionPage',
-      '@id': 'https://cardercreative.com/news/#page',
-      url: 'https://cardercreative.com/news/',
-      name: 'AI Search Intel',
-      description: 'News on AI search, GEO, LLM visibility, and the emerging discovery layer.',
-      isPartOf: { '@id': 'https://cardercreative.com/#website' },
-    },
-  },
   '/site-guide': {
     title: 'AI Site Guide | Carder Creative',
     description:
