@@ -254,6 +254,6 @@ Run this audit before you invest in visibility tracking tools. Fix what you find
 
 ---
 
-**Ready to see where your business stands?** [Request an AI Visibility Diagnostic from Carder Creative](/ai-visibility-services/)  -  a structured review of your current AI visibility across all four stages.
+**Ready to see where your business stands?** [Request an AI Visibility Audit from Carder Creative](/ai-visibility-services/)  -  a structured review of your current AI visibility across all four stages.
 
 Or explore our [AI Visibility Services](/ai-visibility-services/) to see how we help businesses build the foundations that AI systems reward.

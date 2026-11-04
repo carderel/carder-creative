@@ -160,4 +160,4 @@ The time to start is now, before your competitors establish the topical authorit
 
 [Read the AI visibility audit checklist](/blog/ai-visibility-audit-checklist/)  -  a practical audit of the signals that determine whether AI systems find, understand, and cite your business.
 
-[Request an AI Visibility Diagnostic](/ai-visibility-services/)  -  a structured review of your current AI search presence, with specific recommendations for improvement.
+[Request an AI Visibility Audit](/ai-visibility-services/)  -  a structured review of your current AI search presence, with specific recommendations for improvement.

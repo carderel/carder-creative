@@ -114,4 +114,4 @@ The fundamentals that hold up across all five are not secret: pages that can act
 
 **[Read the AI visibility audit checklist](/blog/ai-visibility-audit-checklist/)**  -  a practical resource covering the crawlability, structure, and citation signals that influence whether ChatGPT, Perplexity, Google AI Overviews, Gemini, and Copilot can find and cite a business.
 
-**Request an AI Visibility Diagnostic**  -  Carder Creative will audit how a brand's site performs across these platforms individually, not as a single blended "AI score," and map out exactly where the gaps are. [Learn more about our AI visibility services and start the conversation.](/ai-visibility-services/)
+**Request an AI Visibility Audit**  -  Carder Creative will audit how a brand's site performs across these platforms individually, not as a single blended "AI score," and map out where the gaps are. [Learn more about our AI visibility services and start the conversation.](/ai-visibility-services/)

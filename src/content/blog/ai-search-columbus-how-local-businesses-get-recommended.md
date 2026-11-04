@@ -140,6 +140,6 @@ Getting recommended by AI search in Columbus is not a separate discipline from g
 
 ## Ready to See Where Your Business Actually Stands?
 
-**Request an AI Visibility Diagnostic**  -  Carder Creative will audit your business's presence across key AI systems, identify where Columbus competitors are appearing instead of you, and map the specific local signals worth fixing first. [Learn more about our AI visibility services and start the conversation.](/ai-visibility-services/)
+**Request an AI Visibility Audit**  -  Carder Creative will audit your business's presence across key AI systems, identify where Columbus competitors are appearing instead of you, and map the specific local signals worth fixing first. [Learn more about our AI visibility services and start the conversation.](/ai-visibility-services/)
 
 **[Read the AI visibility audit checklist](/blog/ai-visibility-audit-checklist/)**  -  a practical resource covering the signals, content factors, and citation benchmarks that influence how AI systems find and recommend a local business.

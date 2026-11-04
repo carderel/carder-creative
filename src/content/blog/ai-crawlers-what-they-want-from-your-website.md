@@ -146,4 +146,4 @@ The crawlers are already on your site. The question is what they find when they 
 
 **[Read the AI visibility audit checklist](/blog/ai-visibility-audit-checklist/)**  -  a practical resource covering the content signals, technical factors, and citation benchmarks that influence how AI systems find and reference your business.
 
-**Request an AI Visibility Diagnostic**  -  Carder Creative will audit your site's crawlability, structured data, entity consistency, and AI referral performance, and map out exactly where the gaps are. [Learn more about our AI visibility services and start the conversation.](/ai-visibility-services/)
+**Request an AI Visibility Audit**  -  Carder Creative will audit your site's crawlability, structured data, entity consistency, and AI referral performance, and map out where the gaps are. [Learn more about our AI visibility services and start the conversation.](/ai-visibility-services/)
