@@ -36,7 +36,7 @@ const Contact = () => {
             <ContactForm />
           </div>
 
-          <div className="lg:w-2/5">
+          <div id="direct-channels" className="lg:w-2/5">
             <h2 className="text-white font-black text-2xl uppercase tracking-tight mb-8 flex items-center">
               <span className="text-neon-purple mr-4">//</span> Direct Channels
             </h2>

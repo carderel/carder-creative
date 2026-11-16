@@ -18,6 +18,7 @@ import AiInfo from './pages/AiInfo';
 import NotFound from './pages/NotFound';
 import { SEO_SERVICE, PPC_SERVICE } from './data/servicePages';
 import { useDocumentMeta } from './seo/useDocumentMeta';
+import { useContactClickTracking } from './lib/useContactClickTracking';
 import type { NeedSlug } from './data/inquiry';
 
 // Scroll to top on page change, or to the #hash target when the URL has one
@@ -39,6 +40,7 @@ const ScrollToTop = () => {
 function AppRoutes() {
   const { pathname } = useLocation();
   useDocumentMeta(pathname);
+  useContactClickTracking();
 
   const [isDiagnosticOpen, setIsDiagnosticOpen] = useState(false);
   const [isChecklistOpen, setIsChecklistOpen] = useState(false);
