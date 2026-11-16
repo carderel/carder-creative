@@ -1,6 +1,9 @@
 // GA4 events via the Google tag that GTM (GTM-MX359SZ) loads. The tag reads
 // gtag() commands (Arguments objects) from the dataLayer, so no GTM change is
-// needed. Never pass personal data (name, email, phone, company, free text).
+// needed. GTM does not route a bare event to the tag, so send_to names the GA4
+// stream explicitly. Never pass personal data (name, email, phone, company, free text).
+
+const GA4_ID = 'G-WSB6MEPDF7';
 
 type EventParams = Record<string, string>;
 
@@ -19,5 +22,5 @@ export function trackEvent(name: string, params: EventParams = {}): void {
     // eslint-disable-next-line prefer-rest-params
     window.dataLayer!.push(arguments);
   }
-  gtag('event', name, params);
+  gtag('event', name, { ...params, send_to: GA4_ID });
 }
