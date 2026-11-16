@@ -40,7 +40,7 @@ const ChecklistForm = () => {
       clearInterval(interval);
       if (response.ok) {
         setProgress(100);
-        trackEvent('generate_lead', { lead_type: 'checklist', page_path: window.location.pathname });
+        trackEvent('checklist_signup', { lead_type: 'checklist', page_path: window.location.pathname });
         setTimeout(() => setStatus('success'), 500);
       } else {
         setStatus('error');
