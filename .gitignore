@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Cloudflare local secrets and wrangler state
+.dev.vars
+.dev.vars.*
+.wrangler
+
+# Generated at build time from assets-private/ (scripts/build-checklist-pdf.mjs)
+functions/_lib/checklistPdf.ts

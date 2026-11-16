@@ -10,9 +10,13 @@ const formatDate = (dateStr: string): string =>
 
 interface BlogPostProps {
   onOpenDiagnostic: () => void;
+  onOpenChecklist: () => void;
 }
 
-const BlogPost: React.FC<BlogPostProps> = ({ onOpenDiagnostic }) => {
+// The post whose printable PDF lives behind the checklist modal.
+const CHECKLIST_POST_SLUG = 'ai-visibility-audit-checklist';
+
+const BlogPost: React.FC<BlogPostProps> = ({ onOpenDiagnostic, onOpenChecklist }) => {
   const { slug } = useParams();
   const post = BLOG_POSTS.find((p) => p.slug === slug);
 
@@ -51,7 +55,17 @@ const BlogPost: React.FC<BlogPostProps> = ({ onOpenDiagnostic }) => {
       </div>
 
       <article className="py-16 bg-dark-bg">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">{nodes}</div>
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          {nodes}
+          {post.slug === CHECKLIST_POST_SLUG && (
+            <p className="mt-12 text-sm text-slate-400 font-medium">
+              Want it as a printable PDF?{' '}
+              <button type="button" onClick={onOpenChecklist} className="text-neon-cyan font-bold underline underline-offset-4 hover:text-white transition-colors">
+                Get the checklist
+              </button>
+            </p>
+          )}
+        </div>
       </article>
 
       {/* CTA */}

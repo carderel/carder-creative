@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { trackEvent } from '../lib/analytics';
+import { CONTACT_CHANNELS } from '../data/contactPage';
 
 // REPLACE THIS WITH YOUR FORMSPREE ID
 const FORMSPREE_ID = "mjgzvwvg";
@@ -7,6 +8,20 @@ const FORMSPREE_ID = "mjgzvwvg";
 const ChecklistForm = () => {
   const [status, setStatus] = useState<'idle' | 'fetching' | 'success' | 'error'>('idle');
   const [progress, setProgress] = useState(0);
+  // Signed, expiring link from /api/checklist; null when the token call failed.
+  const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
+
+  // The PDF is not a public file. Ask the Pages Function for a 24-hour token.
+  const fetchDownloadUrl = async (): Promise<string | null> => {
+    try {
+      const res = await fetch('/api/checklist', { method: 'POST', headers: { Accept: 'application/json' } });
+      if (!res.ok) return null;
+      const { token } = (await res.json()) as { token?: unknown };
+      return typeof token === 'string' && token ? `/api/checklist?token=${encodeURIComponent(token)}` : null;
+    } catch {
+      return null;
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -41,6 +56,7 @@ const ChecklistForm = () => {
       if (response.ok) {
         setProgress(100);
         trackEvent('checklist_signup', { lead_type: 'checklist', page_path: window.location.pathname });
+        setDownloadUrl(await fetchDownloadUrl());
         setTimeout(() => setStatus('success'), 500);
       } else {
         setStatus('error');
@@ -85,13 +101,24 @@ const ChecklistForm = () => {
         <p className="text-slate-400 font-medium uppercase text-[10px] tracking-widest leading-loose mb-10">
           The AI Visibility Checklist has been <br /> synchronized with your device.
         </p>
-        <a 
-          href="/visibility_checklist.pdf" 
-          download
-          className="inline-block bg-neon-purple text-white px-10 py-5 font-black uppercase text-xs tracking-[0.4em] shadow-[0_0_20px_rgba(255,0,229,0.3)] hover:bg-white hover:text-dark-bg transition-all active:scale-95"
-        >
-          Execute_Download
-        </a>
+        {downloadUrl ? (
+          <a
+            href={downloadUrl}
+            download="visibility_checklist.pdf"
+            onClick={() => trackEvent('file_download', { file_name: 'visibility_checklist.pdf', lead_type: 'checklist', link_location: 'checklist_modal' })}
+            className="inline-block bg-neon-purple text-white px-10 py-5 font-black uppercase text-xs tracking-[0.4em] shadow-[0_0_20px_rgba(255,0,229,0.3)] hover:bg-white hover:text-dark-bg transition-all active:scale-95"
+          >
+            Execute_Download
+          </a>
+        ) : (
+          <p className="text-slate-300 text-sm font-medium leading-relaxed">
+            The download link did not load. Email{' '}
+            <a href={`mailto:${CONTACT_CHANNELS.email}`} className="text-neon-cyan font-bold underline underline-offset-4 hover:text-white transition-colors">
+              {CONTACT_CHANNELS.email}
+            </a>{' '}
+            and we will send the checklist.
+          </p>
+        )}
       </div>
     );
   }

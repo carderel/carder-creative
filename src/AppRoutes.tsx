@@ -64,7 +64,7 @@ function AppRoutes() {
         <Routes>
           <Route path="/" element={<Home onOpenDiagnostic={openDiagnostic} onOpenChecklist={openChecklist} onOpenContact={openContact} />} />
           <Route path="/blog" element={<BlogIndex />} />
-          <Route path="/blog/:slug" element={<BlogPost onOpenDiagnostic={openDiagnostic} />} />
+          <Route path="/blog/:slug" element={<BlogPost onOpenDiagnostic={openDiagnostic} onOpenChecklist={openChecklist} />} />
           <Route path="/site-guide" element={<SiteGuide />} />
           <Route path="/legal" element={<Legal />} />
           <Route path="/contact" element={<Contact />} />
