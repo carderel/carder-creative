@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { trackEvent } from '../lib/analytics';
 
 // REPLACE THIS WITH YOUR FORMSPREE ID
 const FORMSPREE_ID = "mjgzvwvg";
@@ -39,6 +40,7 @@ const ChecklistForm = () => {
       clearInterval(interval);
       if (response.ok) {
         setProgress(100);
+        trackEvent('generate_lead', { lead_type: 'checklist', page_path: window.location.pathname });
         setTimeout(() => setStatus('success'), 500);
       } else {
         setStatus('error');

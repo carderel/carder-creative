@@ -2,6 +2,7 @@ import React, { useEffect, useId, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { NEED_OPTIONS, isNeedSlug, needLabel, type NeedSlug } from '../data/inquiry';
 import { CONTACT_CHANNELS } from '../data/contactPage';
+import { trackEvent } from '../lib/analytics';
 
 // Formspree form ID. Submissions are emailed to the owner by Formspree.
 const FORMSPREE_ID = "xwvzkoeg";
@@ -92,6 +93,14 @@ const ContactForm: React.FC<ContactFormProps> = ({ defaultNeed }) => {
         },
         body: JSON.stringify(payload)
       });
+      if (response.ok) {
+        trackEvent('generate_lead', {
+          lead_type: 'inquiry',
+          need: isNeedSlug(needSlug) ? needSlug : 'none',
+          phone_call_requested: wantsCall ? 'yes' : 'no',
+          page_path: window.location.pathname,
+        });
+      }
       setStatus(response.ok ? 'success' : 'error');
     } catch (error) {
       console.error('Submission error:', error);
