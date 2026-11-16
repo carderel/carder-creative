@@ -112,7 +112,7 @@ const ChecklistForm = () => {
           </a>
         ) : (
           <p className="text-slate-300 text-sm font-medium leading-relaxed">
-            The download link did not load. Email{' '}
+            We could not load your download link. Email{' '}
             <a href={`mailto:${CONTACT_CHANNELS.email}`} className="text-neon-cyan font-bold underline underline-offset-4 hover:text-white transition-colors">
               {CONTACT_CHANNELS.email}
             </a>{' '}
