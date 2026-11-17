@@ -273,7 +273,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ defaultNeed }) => {
 
         {status === 'error' && (
           <p role="alert" className="text-red-400 text-xs font-bold leading-relaxed">
-            Your message did not send. Please try again, or email{' '}
+            We may not have received your message. Email{' '}
             <a href={`mailto:${CONTACT_CHANNELS.email}`} className="underline hover:text-white">{CONTACT_CHANNELS.email}</a>{' '}
             or call <a href={CONTACT_CHANNELS.phoneHref} className="underline hover:text-white">{CONTACT_CHANNELS.phone}</a>.
           </p>
