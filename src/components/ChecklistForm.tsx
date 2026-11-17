@@ -147,8 +147,11 @@ const ChecklistForm = () => {
         </div>
 
         {status === 'error' && (
-          <p className="text-red-500 text-[10px] font-bold uppercase tracking-widest animate-pulse">
-            ! Access_Denied: Transmission_Failed.
+          <p role="alert" className="text-red-400 text-xs font-bold leading-relaxed">
+            We may not have received your request. Email{' '}
+            <a href={`mailto:${CONTACT_CHANNELS.email}`} className="underline hover:text-white">{CONTACT_CHANNELS.email}</a>{' '}
+            or call <a href={CONTACT_CHANNELS.phoneHref} className="underline hover:text-white">{CONTACT_CHANNELS.phone}</a>{' '}
+            and we will send the checklist.
           </p>
         )}
 
