@@ -34,12 +34,12 @@ const SiteGuide = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="/#methodology-section" className="text-white hover:text-neon-cyan transition-colors flex items-center">
+                  <a href="/ai-visibility-services/#methodology-section" className="text-white hover:text-neon-cyan transition-colors flex items-center">
                     <span className="text-neon-cyan/50 mr-4">04</span> Our Methodology
                   </a>
                 </li>
                 <li>
-                  <a href="/#pricing-section" className="text-white hover:text-neon-cyan transition-colors flex items-center">
+                  <a href="/ai-visibility-services/#pricing-section" className="text-white hover:text-neon-cyan transition-colors flex items-center">
                     <span className="text-neon-cyan/50 mr-4">05</span> Service Tiers
                   </a>
                 </li>
